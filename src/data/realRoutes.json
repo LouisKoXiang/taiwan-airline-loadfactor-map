@@ -1,0 +1,6986 @@
+[
+  {
+    "id": "khh-hkg",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "HKG",
+    "destinationCityName": "香港",
+    "destinationDisplayName": "香港",
+    "destinationCountry": "香港",
+    "flightCount": 640,
+    "seatCount": 154594,
+    "passengerCount": 115921,
+    "loadFactor": 75.0,
+    "inboundPassengerCount": 58123,
+    "outboundPassengerCount": 57798,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        113.9185,
+        22.308
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "國泰航空",
+        "airlineShortName": "國泰",
+        "airlineCode": "CX",
+        "flightCount": 240,
+        "seatCount": 75822,
+        "passengerCount": 58535,
+        "loadFactor": 77.2,
+        "inboundPassengerCount": 29314,
+        "outboundPassengerCount": 29221
+      },
+      {
+        "rank": 2,
+        "airlineName": "香港快運",
+        "airlineShortName": "香港快運",
+        "airlineCode": "",
+        "flightCount": 162,
+        "seatCount": 35980,
+        "passengerCount": 26883,
+        "loadFactor": 74.7,
+        "inboundPassengerCount": 12776,
+        "outboundPassengerCount": 14107
+      },
+      {
+        "rank": 3,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 120,
+        "seatCount": 22080,
+        "passengerCount": 16703,
+        "loadFactor": 75.6,
+        "inboundPassengerCount": 8714,
+        "outboundPassengerCount": 7989
+      },
+      {
+        "rank": 4,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 94,
+        "seatCount": 16920,
+        "passengerCount": 11251,
+        "loadFactor": 66.5,
+        "inboundPassengerCount": 6036,
+        "outboundPassengerCount": 5215
+      },
+      {
+        "rank": 5,
+        "airlineName": "華信",
+        "airlineShortName": "華信",
+        "airlineCode": "",
+        "flightCount": 24,
+        "seatCount": 3792,
+        "passengerCount": 2549,
+        "loadFactor": 67.2,
+        "inboundPassengerCount": 1283,
+        "outboundPassengerCount": 1266
+      }
+    ]
+  },
+  {
+    "id": "khh-nrt",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "NRT",
+    "destinationCityName": "東京",
+    "destinationDisplayName": "東京成田",
+    "destinationCountry": "日本",
+    "flightCount": 396,
+    "seatCount": 70572,
+    "passengerCount": 62039,
+    "loadFactor": 87.9,
+    "inboundPassengerCount": 31589,
+    "outboundPassengerCount": 30450,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        140.3929,
+        35.772
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 120,
+        "seatCount": 21600,
+        "passengerCount": 20063,
+        "loadFactor": 92.9,
+        "inboundPassengerCount": 10500,
+        "outboundPassengerCount": 9563
+      },
+      {
+        "rank": 2,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 60,
+        "seatCount": 11040,
+        "passengerCount": 10068,
+        "loadFactor": 91.2,
+        "inboundPassengerCount": 5249,
+        "outboundPassengerCount": 4819
+      },
+      {
+        "rank": 3,
+        "airlineName": "捷星日本航空",
+        "airlineShortName": "捷星日本",
+        "airlineCode": "GK",
+        "flightCount": 60,
+        "seatCount": 10800,
+        "passengerCount": 9488,
+        "loadFactor": 87.9,
+        "inboundPassengerCount": 4573,
+        "outboundPassengerCount": 4915
+      },
+      {
+        "rank": 4,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 60,
+        "seatCount": 10800,
+        "passengerCount": 9442,
+        "loadFactor": 87.4,
+        "inboundPassengerCount": 4482,
+        "outboundPassengerCount": 4960
+      },
+      {
+        "rank": 5,
+        "airlineName": "聯合",
+        "airlineShortName": "聯合",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 9960,
+        "passengerCount": 8236,
+        "loadFactor": 82.7,
+        "inboundPassengerCount": 4346,
+        "outboundPassengerCount": 3890
+      },
+      {
+        "rank": 6,
+        "airlineName": "泰亞洲",
+        "airlineShortName": "泰亞洲",
+        "airlineCode": "",
+        "flightCount": 36,
+        "seatCount": 6372,
+        "passengerCount": 4742,
+        "loadFactor": 74.4,
+        "inboundPassengerCount": 2439,
+        "outboundPassengerCount": 2303
+      }
+    ]
+  },
+  {
+    "id": "khh-kix",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "KIX",
+    "destinationCityName": "大阪",
+    "destinationDisplayName": "大阪",
+    "destinationCountry": "日本",
+    "flightCount": 300,
+    "seatCount": 56084,
+    "passengerCount": 50413,
+    "loadFactor": 89.9,
+    "inboundPassengerCount": 26413,
+    "outboundPassengerCount": 24000,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        135.244,
+        34.4347
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 94,
+        "seatCount": 17296,
+        "passengerCount": 15916,
+        "loadFactor": 92.0,
+        "inboundPassengerCount": 8470,
+        "outboundPassengerCount": 7446
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 86,
+        "seatCount": 14908,
+        "passengerCount": 13626,
+        "loadFactor": 91.4,
+        "inboundPassengerCount": 7362,
+        "outboundPassengerCount": 6264
+      },
+      {
+        "rank": 3,
+        "airlineName": "樂桃航空",
+        "airlineShortName": "樂桃",
+        "airlineCode": "MM",
+        "flightCount": 60,
+        "seatCount": 13080,
+        "passengerCount": 10948,
+        "loadFactor": 83.7,
+        "inboundPassengerCount": 5588,
+        "outboundPassengerCount": 5360
+      },
+      {
+        "rank": 4,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 60,
+        "seatCount": 10800,
+        "passengerCount": 9923,
+        "loadFactor": 91.9,
+        "inboundPassengerCount": 4993,
+        "outboundPassengerCount": 4930
+      }
+    ]
+  },
+  {
+    "id": "khh-mfm",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "MFM",
+    "destinationCityName": "澳門",
+    "destinationDisplayName": "澳門",
+    "destinationCountry": "澳門",
+    "flightCount": 226,
+    "seatCount": 40142,
+    "passengerCount": 32265,
+    "loadFactor": 80.4,
+    "inboundPassengerCount": 16775,
+    "outboundPassengerCount": 15490,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        113.5916,
+        22.1496
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "澳門",
+        "airlineShortName": "澳門",
+        "airlineCode": "",
+        "flightCount": 182,
+        "seatCount": 32046,
+        "passengerCount": 25323,
+        "loadFactor": 79.0,
+        "inboundPassengerCount": 13238,
+        "outboundPassengerCount": 12085
+      },
+      {
+        "rank": 2,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 44,
+        "seatCount": 8096,
+        "passengerCount": 6942,
+        "loadFactor": 85.7,
+        "inboundPassengerCount": 3537,
+        "outboundPassengerCount": 3405
+      }
+    ]
+  },
+  {
+    "id": "khh-pus",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "PUS",
+    "destinationCityName": "釜山",
+    "destinationDisplayName": "釜山",
+    "destinationCountry": "韓國",
+    "flightCount": 178,
+    "seatCount": 36016,
+    "passengerCount": 31521,
+    "loadFactor": 87.5,
+    "inboundPassengerCount": 16054,
+    "outboundPassengerCount": 15467,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        128.9382,
+        35.1796
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "釜山",
+        "airlineShortName": "釜山",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 13772,
+        "passengerCount": 12678,
+        "loadFactor": 92.1,
+        "inboundPassengerCount": 6179,
+        "outboundPassengerCount": 6499
+      },
+      {
+        "rank": 2,
+        "airlineName": "濟州",
+        "airlineShortName": "濟州",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 11340,
+        "passengerCount": 9625,
+        "loadFactor": 84.9,
+        "inboundPassengerCount": 5079,
+        "outboundPassengerCount": 4546
+      },
+      {
+        "rank": 3,
+        "airlineName": "德威航空",
+        "airlineShortName": "德威",
+        "airlineCode": "TW",
+        "flightCount": 58,
+        "seatCount": 10904,
+        "passengerCount": 9218,
+        "loadFactor": 84.5,
+        "inboundPassengerCount": 4796,
+        "outboundPassengerCount": 4422
+      }
+    ]
+  },
+  {
+    "id": "khh-icn",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "ICN",
+    "destinationCityName": "首爾",
+    "destinationDisplayName": "首爾仁川",
+    "destinationCountry": "韓國",
+    "flightCount": 180,
+    "seatCount": 33120,
+    "passengerCount": 29764,
+    "loadFactor": 89.9,
+    "inboundPassengerCount": 15233,
+    "outboundPassengerCount": 14531,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        126.4505,
+        37.4602
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "德威航空",
+        "airlineShortName": "德威",
+        "airlineCode": "TW",
+        "flightCount": 60,
+        "seatCount": 11280,
+        "passengerCount": 10246,
+        "loadFactor": 90.8,
+        "inboundPassengerCount": 5163,
+        "outboundPassengerCount": 5083
+      },
+      {
+        "rank": 2,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 60,
+        "seatCount": 11040,
+        "passengerCount": 9970,
+        "loadFactor": 90.3,
+        "inboundPassengerCount": 5153,
+        "outboundPassengerCount": 4817
+      },
+      {
+        "rank": 3,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 60,
+        "seatCount": 10800,
+        "passengerCount": 9548,
+        "loadFactor": 88.4,
+        "inboundPassengerCount": 4917,
+        "outboundPassengerCount": 4631
+      }
+    ]
+  },
+  {
+    "id": "khh-oka",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "OKA",
+    "destinationCityName": "沖繩",
+    "destinationDisplayName": "沖繩",
+    "destinationCountry": "日本",
+    "flightCount": 165,
+    "seatCount": 29746,
+    "passengerCount": 26023,
+    "loadFactor": 87.5,
+    "inboundPassengerCount": 13000,
+    "outboundPassengerCount": 13023,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        127.6469,
+        26.1958
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 77,
+        "seatCount": 13860,
+        "passengerCount": 13652,
+        "loadFactor": 98.5,
+        "inboundPassengerCount": 6700,
+        "outboundPassengerCount": 6952
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 54,
+        "seatCount": 8576,
+        "passengerCount": 7779,
+        "loadFactor": 90.7,
+        "inboundPassengerCount": 4304,
+        "outboundPassengerCount": 3475
+      },
+      {
+        "rank": 3,
+        "airlineName": "泰獅航空",
+        "airlineShortName": "泰獅",
+        "airlineCode": "SL",
+        "flightCount": 34,
+        "seatCount": 7310,
+        "passengerCount": 4592,
+        "loadFactor": 62.8,
+        "inboundPassengerCount": 1996,
+        "outboundPassengerCount": 2596
+      }
+    ]
+  },
+  {
+    "id": "khh-sgn",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "SGN",
+    "destinationCityName": "胡志明市",
+    "destinationDisplayName": "胡志明市",
+    "destinationCountry": "越南",
+    "flightCount": 138,
+    "seatCount": 29318,
+    "passengerCount": 23193,
+    "loadFactor": 79.1,
+    "inboundPassengerCount": 12461,
+    "outboundPassengerCount": 10732,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        106.6625,
+        10.8188
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "越南航空",
+        "airlineShortName": "越南",
+        "airlineCode": "VN",
+        "flightCount": 86,
+        "seatCount": 17458,
+        "passengerCount": 14316,
+        "loadFactor": 82.0,
+        "inboundPassengerCount": 7649,
+        "outboundPassengerCount": 6667
+      },
+      {
+        "rank": 2,
+        "airlineName": "越捷航空",
+        "airlineShortName": "越捷",
+        "airlineCode": "VJ",
+        "flightCount": 52,
+        "seatCount": 11860,
+        "passengerCount": 8877,
+        "loadFactor": 74.8,
+        "inboundPassengerCount": 4812,
+        "outboundPassengerCount": 4065
+      }
+    ]
+  },
+  {
+    "id": "khh-han",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "HAN",
+    "destinationCityName": "河內",
+    "destinationDisplayName": "河內",
+    "destinationCountry": "越南",
+    "flightCount": 133,
+    "seatCount": 28357,
+    "passengerCount": 22065,
+    "loadFactor": 77.8,
+    "inboundPassengerCount": 11206,
+    "outboundPassengerCount": 10859,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        105.8069,
+        21.2187
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "越南航空",
+        "airlineShortName": "越南",
+        "airlineCode": "VN",
+        "flightCount": 79,
+        "seatCount": 16037,
+        "passengerCount": 12671,
+        "loadFactor": 79.0,
+        "inboundPassengerCount": 6274,
+        "outboundPassengerCount": 6397
+      },
+      {
+        "rank": 2,
+        "airlineName": "越捷航空",
+        "airlineShortName": "越捷",
+        "airlineCode": "VJ",
+        "flightCount": 54,
+        "seatCount": 12320,
+        "passengerCount": 9394,
+        "loadFactor": 76.3,
+        "inboundPassengerCount": 4932,
+        "outboundPassengerCount": 4462
+      }
+    ]
+  },
+  {
+    "id": "khh-pvg",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "PVG",
+    "destinationCityName": "上海",
+    "destinationDisplayName": "上海浦東",
+    "destinationCountry": "中國",
+    "flightCount": 136,
+    "seatCount": 23968,
+    "passengerCount": 21635,
+    "loadFactor": 90.3,
+    "inboundPassengerCount": 10998,
+    "outboundPassengerCount": 10637,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        121.8052,
+        31.1443
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 42,
+        "seatCount": 7728,
+        "passengerCount": 7133,
+        "loadFactor": 92.3,
+        "inboundPassengerCount": 3701,
+        "outboundPassengerCount": 3432
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 42,
+        "seatCount": 6680,
+        "passengerCount": 6119,
+        "loadFactor": 91.6,
+        "inboundPassengerCount": 3158,
+        "outboundPassengerCount": 2961
+      },
+      {
+        "rank": 3,
+        "airlineName": "吉祥",
+        "airlineShortName": "吉祥",
+        "airlineCode": "",
+        "flightCount": 26,
+        "seatCount": 4892,
+        "passengerCount": 4312,
+        "loadFactor": 88.1,
+        "inboundPassengerCount": 2007,
+        "outboundPassengerCount": 2305
+      },
+      {
+        "rank": 4,
+        "airlineName": "春秋",
+        "airlineShortName": "春秋",
+        "airlineCode": "",
+        "flightCount": 26,
+        "seatCount": 4668,
+        "passengerCount": 4071,
+        "loadFactor": 87.2,
+        "inboundPassengerCount": 2132,
+        "outboundPassengerCount": 1939
+      }
+    ]
+  },
+  {
+    "id": "khh-fuk",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "FUK",
+    "destinationCityName": "福岡",
+    "destinationDisplayName": "福岡",
+    "destinationCountry": "日本",
+    "flightCount": 110,
+    "seatCount": 19556,
+    "passengerCount": 18436,
+    "loadFactor": 94.3,
+    "inboundPassengerCount": 9501,
+    "outboundPassengerCount": 8935,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        130.4507,
+        33.5859
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 60,
+        "seatCount": 11040,
+        "passengerCount": 10474,
+        "loadFactor": 94.9,
+        "inboundPassengerCount": 5500,
+        "outboundPassengerCount": 4974
+      },
+      {
+        "rank": 2,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 24,
+        "seatCount": 4320,
+        "passengerCount": 4018,
+        "loadFactor": 93.0,
+        "inboundPassengerCount": 2024,
+        "outboundPassengerCount": 1994
+      },
+      {
+        "rank": 3,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 26,
+        "seatCount": 4196,
+        "passengerCount": 3944,
+        "loadFactor": 94.0,
+        "inboundPassengerCount": 1977,
+        "outboundPassengerCount": 1967
+      }
+    ]
+  },
+  {
+    "id": "khh-mnl",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "MNL",
+    "destinationCityName": "馬尼拉",
+    "destinationDisplayName": "馬尼拉",
+    "destinationCountry": "菲律賓",
+    "flightCount": 132,
+    "seatCount": 25172,
+    "passengerCount": 16741,
+    "loadFactor": 66.5,
+    "inboundPassengerCount": 8695,
+    "outboundPassengerCount": 8046,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        121.0198,
+        14.5086
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "菲亞洲",
+        "airlineShortName": "菲亞洲",
+        "airlineCode": "",
+        "flightCount": 58,
+        "seatCount": 10440,
+        "passengerCount": 7486,
+        "loadFactor": 71.7,
+        "inboundPassengerCount": 3883,
+        "outboundPassengerCount": 3603
+      },
+      {
+        "rank": 2,
+        "airlineName": "宿霧太平洋",
+        "airlineShortName": "宿霧太平洋",
+        "airlineCode": "",
+        "flightCount": 42,
+        "seatCount": 9676,
+        "passengerCount": 5681,
+        "loadFactor": 58.7,
+        "inboundPassengerCount": 3046,
+        "outboundPassengerCount": 2635
+      },
+      {
+        "rank": 3,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 32,
+        "seatCount": 5056,
+        "passengerCount": 3574,
+        "loadFactor": 70.7,
+        "inboundPassengerCount": 1766,
+        "outboundPassengerCount": 1808
+      }
+    ]
+  },
+  {
+    "id": "khh-bkk",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "BKK",
+    "destinationCityName": "曼谷",
+    "destinationDisplayName": "曼谷蘇凡納布",
+    "destinationCountry": "泰國",
+    "flightCount": 120,
+    "seatCount": 19740,
+    "passengerCount": 15394,
+    "loadFactor": 78.0,
+    "inboundPassengerCount": 8090,
+    "outboundPassengerCount": 7304,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        100.7501,
+        13.69
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 60,
+        "seatCount": 9480,
+        "passengerCount": 8364,
+        "loadFactor": 88.2,
+        "inboundPassengerCount": 4294,
+        "outboundPassengerCount": 4070
+      },
+      {
+        "rank": 2,
+        "airlineName": "泰國航空",
+        "airlineShortName": "泰國",
+        "airlineCode": "TG",
+        "flightCount": 60,
+        "seatCount": 10260,
+        "passengerCount": 7030,
+        "loadFactor": 68.5,
+        "inboundPassengerCount": 3796,
+        "outboundPassengerCount": 3234
+      }
+    ]
+  },
+  {
+    "id": "khh-gmp",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "GMP",
+    "destinationCityName": "首爾",
+    "destinationDisplayName": "首爾金浦",
+    "destinationCountry": "韓國",
+    "flightCount": 94,
+    "seatCount": 17426,
+    "passengerCount": 15310,
+    "loadFactor": 87.9,
+    "inboundPassengerCount": 7569,
+    "outboundPassengerCount": 7741,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        126.7906,
+        37.5583
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "德威航空",
+        "airlineShortName": "德威",
+        "airlineCode": "TW",
+        "flightCount": 34,
+        "seatCount": 6392,
+        "passengerCount": 5850,
+        "loadFactor": 91.5,
+        "inboundPassengerCount": 2937,
+        "outboundPassengerCount": 2913
+      },
+      {
+        "rank": 2,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 34,
+        "seatCount": 6120,
+        "passengerCount": 5395,
+        "loadFactor": 88.2,
+        "inboundPassengerCount": 2671,
+        "outboundPassengerCount": 2724
+      },
+      {
+        "rank": 3,
+        "airlineName": "濟州",
+        "airlineShortName": "濟州",
+        "airlineCode": "",
+        "flightCount": 26,
+        "seatCount": 4914,
+        "passengerCount": 4065,
+        "loadFactor": 82.7,
+        "inboundPassengerCount": 1961,
+        "outboundPassengerCount": 2104
+      }
+    ]
+  },
+  {
+    "id": "khh-dmk",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "DMK",
+    "destinationCityName": "曼谷",
+    "destinationDisplayName": "曼谷廊曼",
+    "destinationCountry": "泰國",
+    "flightCount": 96,
+    "seatCount": 19272,
+    "passengerCount": 12826,
+    "loadFactor": 66.6,
+    "inboundPassengerCount": 6354,
+    "outboundPassengerCount": 6472,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        100.6067,
+        13.9126
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "泰獅航空",
+        "airlineShortName": "泰獅",
+        "airlineCode": "SL",
+        "flightCount": 60,
+        "seatCount": 12900,
+        "passengerCount": 7878,
+        "loadFactor": 61.1,
+        "inboundPassengerCount": 3912,
+        "outboundPassengerCount": 3966
+      },
+      {
+        "rank": 2,
+        "airlineName": "泰亞洲",
+        "airlineShortName": "泰亞洲",
+        "airlineCode": "",
+        "flightCount": 36,
+        "seatCount": 6372,
+        "passengerCount": 4948,
+        "loadFactor": 77.7,
+        "inboundPassengerCount": 2442,
+        "outboundPassengerCount": 2506
+      }
+    ]
+  },
+  {
+    "id": "khh-cju",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "CJU",
+    "destinationCityName": "濟州",
+    "destinationDisplayName": "濟州",
+    "destinationCountry": "韓國",
+    "flightCount": 67,
+    "seatCount": 12316,
+    "passengerCount": 10779,
+    "loadFactor": 87.5,
+    "inboundPassengerCount": 5479,
+    "outboundPassengerCount": 5300,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        126.4928,
+        33.5113
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "德威航空",
+        "airlineShortName": "德威",
+        "airlineCode": "TW",
+        "flightCount": 32,
+        "seatCount": 6016,
+        "passengerCount": 5497,
+        "loadFactor": 91.4,
+        "inboundPassengerCount": 2758,
+        "outboundPassengerCount": 2739
+      },
+      {
+        "rank": 2,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 35,
+        "seatCount": 6300,
+        "passengerCount": 5282,
+        "loadFactor": 83.8,
+        "inboundPassengerCount": 2721,
+        "outboundPassengerCount": 2561
+      }
+    ]
+  },
+  {
+    "id": "khh-cts",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "CTS",
+    "destinationCityName": "札幌",
+    "destinationDisplayName": "札幌",
+    "destinationCountry": "日本",
+    "flightCount": 52,
+    "seatCount": 10270,
+    "passengerCount": 9144,
+    "loadFactor": 89.0,
+    "inboundPassengerCount": 4566,
+    "outboundPassengerCount": 4578,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        141.6813,
+        42.7752
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "泰獅航空",
+        "airlineShortName": "泰獅",
+        "airlineCode": "SL",
+        "flightCount": 26,
+        "seatCount": 5590,
+        "passengerCount": 4714,
+        "loadFactor": 84.3,
+        "inboundPassengerCount": 2343,
+        "outboundPassengerCount": 2371
+      },
+      {
+        "rank": 2,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 26,
+        "seatCount": 4680,
+        "passengerCount": 4430,
+        "loadFactor": 94.7,
+        "inboundPassengerCount": 2223,
+        "outboundPassengerCount": 2207
+      }
+    ]
+  },
+  {
+    "id": "khh-dad",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "DAD",
+    "destinationCityName": "峴港",
+    "destinationDisplayName": "峴港",
+    "destinationCountry": "越南",
+    "flightCount": 44,
+    "seatCount": 7920,
+    "passengerCount": 7420,
+    "loadFactor": 93.7,
+    "inboundPassengerCount": 3718,
+    "outboundPassengerCount": 3702,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        108.2022,
+        16.0439
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 44,
+        "seatCount": 7920,
+        "passengerCount": 7420,
+        "loadFactor": 93.7,
+        "inboundPassengerCount": 3718,
+        "outboundPassengerCount": 3702
+      }
+    ]
+  },
+  {
+    "id": "khh-kmj",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "KMJ",
+    "destinationCityName": "熊本",
+    "destinationDisplayName": "熊本",
+    "destinationCountry": "日本",
+    "flightCount": 50,
+    "seatCount": 8252,
+    "passengerCount": 7246,
+    "loadFactor": 87.8,
+    "inboundPassengerCount": 3675,
+    "outboundPassengerCount": 3571,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        130.855,
+        32.8373
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 34,
+        "seatCount": 5372,
+        "passengerCount": 4766,
+        "loadFactor": 88.7,
+        "inboundPassengerCount": 2545,
+        "outboundPassengerCount": 2221
+      },
+      {
+        "rank": 2,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 16,
+        "seatCount": 2880,
+        "passengerCount": 2480,
+        "loadFactor": 86.1,
+        "inboundPassengerCount": 1130,
+        "outboundPassengerCount": 1350
+      }
+    ]
+  },
+  {
+    "id": "khh-wuh",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "WUH",
+    "destinationCityName": "武漢",
+    "destinationDisplayName": "武漢",
+    "destinationCountry": "中國",
+    "flightCount": 42,
+    "seatCount": 7056,
+    "passengerCount": 6307,
+    "loadFactor": 89.4,
+    "inboundPassengerCount": 3233,
+    "outboundPassengerCount": 3074,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        114.2081,
+        30.7838
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "南方",
+        "airlineShortName": "南方",
+        "airlineCode": "",
+        "flightCount": 26,
+        "seatCount": 4368,
+        "passengerCount": 3942,
+        "loadFactor": 90.2,
+        "inboundPassengerCount": 2030,
+        "outboundPassengerCount": 1912
+      },
+      {
+        "rank": 2,
+        "airlineName": "東方",
+        "airlineShortName": "東方",
+        "airlineCode": "",
+        "flightCount": 16,
+        "seatCount": 2688,
+        "passengerCount": 2365,
+        "loadFactor": 88.0,
+        "inboundPassengerCount": 1203,
+        "outboundPassengerCount": 1162
+      }
+    ]
+  },
+  {
+    "id": "khh-kul",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "KUL",
+    "destinationCityName": "吉隆坡",
+    "destinationDisplayName": "吉隆坡",
+    "destinationCountry": "馬來西亞",
+    "flightCount": 40,
+    "seatCount": 7440,
+    "passengerCount": 5860,
+    "loadFactor": 78.8,
+    "inboundPassengerCount": 3054,
+    "outboundPassengerCount": 2806,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        101.7099,
+        2.7456
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "馬亞洲",
+        "airlineShortName": "馬亞洲",
+        "airlineCode": "",
+        "flightCount": 40,
+        "seatCount": 7440,
+        "passengerCount": 5860,
+        "loadFactor": 78.8,
+        "inboundPassengerCount": 3054,
+        "outboundPassengerCount": 2806
+      }
+    ]
+  },
+  {
+    "id": "khh-xmn",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "XMN",
+    "destinationCityName": "廈門",
+    "destinationDisplayName": "廈門",
+    "destinationCountry": "中國",
+    "flightCount": 34,
+    "seatCount": 6152,
+    "passengerCount": 5015,
+    "loadFactor": 81.5,
+    "inboundPassengerCount": 2543,
+    "outboundPassengerCount": 2472,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        118.1275,
+        24.544
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "華信",
+        "airlineShortName": "華信",
+        "airlineCode": "",
+        "flightCount": 26,
+        "seatCount": 4680,
+        "passengerCount": 3723,
+        "loadFactor": 79.6,
+        "inboundPassengerCount": 1883,
+        "outboundPassengerCount": 1840
+      },
+      {
+        "rank": 2,
+        "airlineName": "廈門",
+        "airlineShortName": "廈門",
+        "airlineCode": "",
+        "flightCount": 8,
+        "seatCount": 1472,
+        "passengerCount": 1292,
+        "loadFactor": 87.8,
+        "inboundPassengerCount": 660,
+        "outboundPassengerCount": 632
+      }
+    ]
+  },
+  {
+    "id": "khh-ngo",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "NGO",
+    "destinationCityName": "名古屋",
+    "destinationDisplayName": "名古屋",
+    "destinationCountry": "日本",
+    "flightCount": 26,
+    "seatCount": 4680,
+    "passengerCount": 4327,
+    "loadFactor": 92.5,
+    "inboundPassengerCount": 2137,
+    "outboundPassengerCount": 2190,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        136.8054,
+        34.8584
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 26,
+        "seatCount": 4680,
+        "passengerCount": 4327,
+        "loadFactor": 92.5,
+        "inboundPassengerCount": 2137,
+        "outboundPassengerCount": 2190
+      }
+    ]
+  },
+  {
+    "id": "khh-okj",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "OKJ",
+    "destinationCityName": "岡山",
+    "destinationDisplayName": "岡山",
+    "destinationCountry": "日本",
+    "flightCount": 26,
+    "seatCount": 4680,
+    "passengerCount": 4091,
+    "loadFactor": 87.4,
+    "inboundPassengerCount": 2013,
+    "outboundPassengerCount": 2078,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        133.8553,
+        34.7569
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 26,
+        "seatCount": 4680,
+        "passengerCount": 4091,
+        "loadFactor": 87.4,
+        "inboundPassengerCount": 2013,
+        "outboundPassengerCount": 2078
+      }
+    ]
+  },
+  {
+    "id": "khh-sdj",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "SDJ",
+    "destinationCityName": "仙台",
+    "destinationDisplayName": "仙台",
+    "destinationCountry": "日本",
+    "flightCount": 25,
+    "seatCount": 4500,
+    "passengerCount": 3741,
+    "loadFactor": 83.1,
+    "inboundPassengerCount": 1810,
+    "outboundPassengerCount": 1931,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        140.9169,
+        38.1397
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 25,
+        "seatCount": 4500,
+        "passengerCount": 3741,
+        "loadFactor": 83.1,
+        "inboundPassengerCount": 1810,
+        "outboundPassengerCount": 1931
+      }
+    ]
+  },
+  {
+    "id": "khh-nkg",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "NKG",
+    "destinationCityName": "南京",
+    "destinationDisplayName": "南京",
+    "destinationCountry": "中國",
+    "flightCount": 26,
+    "seatCount": 4300,
+    "passengerCount": 3457,
+    "loadFactor": 80.4,
+    "inboundPassengerCount": 1685,
+    "outboundPassengerCount": 1772,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        118.862,
+        31.742
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "東方",
+        "airlineShortName": "東方",
+        "airlineCode": "",
+        "flightCount": 26,
+        "seatCount": 4300,
+        "passengerCount": 3457,
+        "loadFactor": 80.4,
+        "inboundPassengerCount": 1685,
+        "outboundPassengerCount": 1772
+      }
+    ]
+  },
+  {
+    "id": "khh-sin",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "SIN",
+    "destinationCityName": "新加坡",
+    "destinationDisplayName": "新加坡",
+    "destinationCountry": "新加坡",
+    "flightCount": 26,
+    "seatCount": 4108,
+    "passengerCount": 3408,
+    "loadFactor": 83.0,
+    "inboundPassengerCount": 1773,
+    "outboundPassengerCount": 1635,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        103.9915,
+        1.3644
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 26,
+        "seatCount": 4108,
+        "passengerCount": 3408,
+        "loadFactor": 83.0,
+        "inboundPassengerCount": 1773,
+        "outboundPassengerCount": 1635
+      }
+    ]
+  },
+  {
+    "id": "khh-szx",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "SZX",
+    "destinationCityName": "深圳",
+    "destinationDisplayName": "深圳",
+    "destinationCountry": "中國",
+    "flightCount": 18,
+    "seatCount": 2844,
+    "passengerCount": 2352,
+    "loadFactor": 82.7,
+    "inboundPassengerCount": 1202,
+    "outboundPassengerCount": 1150,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        113.8107,
+        22.6393
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 18,
+        "seatCount": 2844,
+        "passengerCount": 2352,
+        "loadFactor": 82.7,
+        "inboundPassengerCount": 1202,
+        "outboundPassengerCount": 1150
+      }
+    ]
+  },
+  {
+    "id": "khh-cxr",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "CXR",
+    "destinationCityName": "芽莊",
+    "destinationDisplayName": "芽莊金蘭",
+    "destinationCountry": "越南",
+    "flightCount": 12,
+    "seatCount": 2760,
+    "passengerCount": 1792,
+    "loadFactor": 64.9,
+    "inboundPassengerCount": 857,
+    "outboundPassengerCount": 935,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        109.2194,
+        11.9982
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "越捷航空",
+        "airlineShortName": "越捷",
+        "airlineCode": "VJ",
+        "flightCount": 12,
+        "seatCount": 2760,
+        "passengerCount": 1792,
+        "loadFactor": 64.9,
+        "inboundPassengerCount": 857,
+        "outboundPassengerCount": 935
+      }
+    ]
+  },
+  {
+    "id": "khh-ckg",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "CKG",
+    "destinationCityName": "重慶",
+    "destinationDisplayName": "重慶",
+    "destinationCountry": "中國",
+    "flightCount": 10,
+    "seatCount": 1580,
+    "passengerCount": 1541,
+    "loadFactor": 97.5,
+    "inboundPassengerCount": 780,
+    "outboundPassengerCount": 761,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        106.6417,
+        29.7192
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 10,
+        "seatCount": 1580,
+        "passengerCount": 1541,
+        "loadFactor": 97.5,
+        "inboundPassengerCount": 780,
+        "outboundPassengerCount": 761
+      }
+    ]
+  },
+  {
+    "id": "khh-foc",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "FOC",
+    "destinationCityName": "福州",
+    "destinationDisplayName": "福州",
+    "destinationCountry": "中國",
+    "flightCount": 8,
+    "seatCount": 1472,
+    "passengerCount": 1253,
+    "loadFactor": 85.1,
+    "inboundPassengerCount": 603,
+    "outboundPassengerCount": 650,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        119.6633,
+        25.9351
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "廈門",
+        "airlineShortName": "廈門",
+        "airlineCode": "",
+        "flightCount": 8,
+        "seatCount": 1472,
+        "passengerCount": 1253,
+        "loadFactor": 85.1,
+        "inboundPassengerCount": 603,
+        "outboundPassengerCount": 650
+      }
+    ]
+  },
+  {
+    "id": "khh-cnx",
+    "originAirportCode": "KHH",
+    "originCityName": "高雄",
+    "destinationAirportCode": "CNX",
+    "destinationCityName": "清邁",
+    "destinationDisplayName": "清邁",
+    "destinationCountry": "泰國",
+    "flightCount": 14,
+    "seatCount": 2646,
+    "passengerCount": 816,
+    "loadFactor": 30.8,
+    "inboundPassengerCount": 410,
+    "outboundPassengerCount": 406,
+    "coordinates": {
+      "origin": [
+        120.35,
+        22.5771
+      ],
+      "destination": [
+        98.9626,
+        18.7668
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "泰獅航空",
+        "airlineShortName": "泰獅",
+        "airlineCode": "SL",
+        "flightCount": 14,
+        "seatCount": 2646,
+        "passengerCount": 816,
+        "loadFactor": 30.8,
+        "inboundPassengerCount": 410,
+        "outboundPassengerCount": 406
+      }
+    ]
+  },
+  {
+    "id": "rmq-hkg",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "HKG",
+    "destinationCityName": "香港",
+    "destinationDisplayName": "香港",
+    "destinationCountry": "香港",
+    "flightCount": 240,
+    "seatCount": 52292,
+    "passengerCount": 39201,
+    "loadFactor": 75.0,
+    "inboundPassengerCount": 19137,
+    "outboundPassengerCount": 20064,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        113.9185,
+        22.308
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "香港快運",
+        "airlineShortName": "香港快運",
+        "airlineCode": "",
+        "flightCount": 240,
+        "seatCount": 52292,
+        "passengerCount": 39201,
+        "loadFactor": 75.0,
+        "inboundPassengerCount": 19137,
+        "outboundPassengerCount": 20064
+      }
+    ]
+  },
+  {
+    "id": "rmq-icn",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "ICN",
+    "destinationCityName": "首爾",
+    "destinationDisplayName": "首爾仁川",
+    "destinationCountry": "韓國",
+    "flightCount": 240,
+    "seatCount": 42672,
+    "passengerCount": 35566,
+    "loadFactor": 83.3,
+    "inboundPassengerCount": 18191,
+    "outboundPassengerCount": 17375,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        126.4505,
+        37.4602
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "真航空",
+        "airlineShortName": "真航",
+        "airlineCode": "LJ",
+        "flightCount": 120,
+        "seatCount": 22680,
+        "passengerCount": 19176,
+        "loadFactor": 84.6,
+        "inboundPassengerCount": 9614,
+        "outboundPassengerCount": 9562
+      },
+      {
+        "rank": 2,
+        "airlineName": "德威航空",
+        "airlineShortName": "德威",
+        "airlineCode": "TW",
+        "flightCount": 60,
+        "seatCount": 11340,
+        "passengerCount": 9708,
+        "loadFactor": 85.6,
+        "inboundPassengerCount": 4927,
+        "outboundPassengerCount": 4781
+      },
+      {
+        "rank": 3,
+        "airlineName": "大韓航空",
+        "airlineShortName": "大韓",
+        "airlineCode": "KE",
+        "flightCount": 60,
+        "seatCount": 8652,
+        "passengerCount": 6682,
+        "loadFactor": 77.2,
+        "inboundPassengerCount": 3650,
+        "outboundPassengerCount": 3032
+      }
+    ]
+  },
+  {
+    "id": "rmq-mfm",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "MFM",
+    "destinationCityName": "澳門",
+    "destinationDisplayName": "澳門",
+    "destinationCountry": "澳門",
+    "flightCount": 186,
+    "seatCount": 32703,
+    "passengerCount": 26618,
+    "loadFactor": 81.4,
+    "inboundPassengerCount": 13549,
+    "outboundPassengerCount": 13069,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        113.5916,
+        22.1496
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "澳門",
+        "airlineShortName": "澳門",
+        "airlineCode": "",
+        "flightCount": 112,
+        "seatCount": 18791,
+        "passengerCount": 15138,
+        "loadFactor": 80.6,
+        "inboundPassengerCount": 7706,
+        "outboundPassengerCount": 7432
+      },
+      {
+        "rank": 2,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 74,
+        "seatCount": 13912,
+        "passengerCount": 11480,
+        "loadFactor": 82.5,
+        "inboundPassengerCount": 5843,
+        "outboundPassengerCount": 5637
+      }
+    ]
+  },
+  {
+    "id": "rmq-oka",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "OKA",
+    "destinationCityName": "沖繩",
+    "destinationDisplayName": "沖繩",
+    "destinationCountry": "日本",
+    "flightCount": 137,
+    "seatCount": 25800,
+    "passengerCount": 22571,
+    "loadFactor": 87.5,
+    "inboundPassengerCount": 11674,
+    "outboundPassengerCount": 10897,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        127.6469,
+        26.1958
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 120,
+        "seatCount": 22560,
+        "passengerCount": 19647,
+        "loadFactor": 87.1,
+        "inboundPassengerCount": 10155,
+        "outboundPassengerCount": 9492
+      },
+      {
+        "rank": 2,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 17,
+        "seatCount": 3240,
+        "passengerCount": 2924,
+        "loadFactor": 90.2,
+        "inboundPassengerCount": 1519,
+        "outboundPassengerCount": 1405
+      }
+    ]
+  },
+  {
+    "id": "rmq-sgn",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "SGN",
+    "destinationCityName": "胡志明市",
+    "destinationDisplayName": "胡志明市",
+    "destinationCountry": "越南",
+    "flightCount": 92,
+    "seatCount": 17024,
+    "passengerCount": 13979,
+    "loadFactor": 82.1,
+    "inboundPassengerCount": 7494,
+    "outboundPassengerCount": 6485,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        106.6625,
+        10.8188
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "華信",
+        "airlineShortName": "華信",
+        "airlineCode": "",
+        "flightCount": 58,
+        "seatCount": 9164,
+        "passengerCount": 8348,
+        "loadFactor": 91.1,
+        "inboundPassengerCount": 4355,
+        "outboundPassengerCount": 3993
+      },
+      {
+        "rank": 2,
+        "airlineName": "越捷航空",
+        "airlineShortName": "越捷",
+        "airlineCode": "VJ",
+        "flightCount": 34,
+        "seatCount": 7860,
+        "passengerCount": 5631,
+        "loadFactor": 71.6,
+        "inboundPassengerCount": 3139,
+        "outboundPassengerCount": 2492
+      }
+    ]
+  },
+  {
+    "id": "rmq-han",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "HAN",
+    "destinationCityName": "河內",
+    "destinationDisplayName": "河內",
+    "destinationCountry": "越南",
+    "flightCount": 60,
+    "seatCount": 13820,
+    "passengerCount": 12220,
+    "loadFactor": 88.4,
+    "inboundPassengerCount": 6072,
+    "outboundPassengerCount": 6148,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        105.8069,
+        21.2187
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "越捷航空",
+        "airlineShortName": "越捷",
+        "airlineCode": "VJ",
+        "flightCount": 60,
+        "seatCount": 13820,
+        "passengerCount": 12220,
+        "loadFactor": 88.4,
+        "inboundPassengerCount": 6072,
+        "outboundPassengerCount": 6148
+      }
+    ]
+  },
+  {
+    "id": "rmq-ukb",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "UKB",
+    "destinationCityName": "神戶",
+    "destinationDisplayName": "神戶",
+    "destinationCountry": "日本",
+    "flightCount": 60,
+    "seatCount": 11280,
+    "passengerCount": 10185,
+    "loadFactor": 90.3,
+    "inboundPassengerCount": 5181,
+    "outboundPassengerCount": 5004,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        135.2239,
+        34.6328
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 60,
+        "seatCount": 11280,
+        "passengerCount": 10185,
+        "loadFactor": 90.3,
+        "inboundPassengerCount": 5181,
+        "outboundPassengerCount": 5004
+      }
+    ]
+  },
+  {
+    "id": "rmq-nrt",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "NRT",
+    "destinationCityName": "東京",
+    "destinationDisplayName": "東京成田",
+    "destinationCountry": "日本",
+    "flightCount": 52,
+    "seatCount": 9776,
+    "passengerCount": 8424,
+    "loadFactor": 86.2,
+    "inboundPassengerCount": 4319,
+    "outboundPassengerCount": 4105,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        140.3929,
+        35.772
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 52,
+        "seatCount": 9776,
+        "passengerCount": 8424,
+        "loadFactor": 86.2,
+        "inboundPassengerCount": 4319,
+        "outboundPassengerCount": 4105
+      }
+    ]
+  },
+  {
+    "id": "rmq-dad",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "DAD",
+    "destinationCityName": "峴港",
+    "destinationDisplayName": "峴港",
+    "destinationCountry": "越南",
+    "flightCount": 45,
+    "seatCount": 9228,
+    "passengerCount": 7811,
+    "loadFactor": 84.6,
+    "inboundPassengerCount": 3995,
+    "outboundPassengerCount": 3816,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        108.2022,
+        16.0439
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "越捷航空",
+        "airlineShortName": "越捷",
+        "airlineCode": "VJ",
+        "flightCount": 18,
+        "seatCount": 4140,
+        "passengerCount": 3896,
+        "loadFactor": 94.1,
+        "inboundPassengerCount": 1933,
+        "outboundPassengerCount": 1963
+      },
+      {
+        "rank": 2,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 24,
+        "seatCount": 4512,
+        "passengerCount": 3348,
+        "loadFactor": 74.2,
+        "inboundPassengerCount": 1682,
+        "outboundPassengerCount": 1666
+      },
+      {
+        "rank": 3,
+        "airlineName": "越竹",
+        "airlineShortName": "越竹",
+        "airlineCode": "",
+        "flightCount": 3,
+        "seatCount": 576,
+        "passengerCount": 567,
+        "loadFactor": 98.4,
+        "inboundPassengerCount": 380,
+        "outboundPassengerCount": 187
+      }
+    ]
+  },
+  {
+    "id": "rmq-tak",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "TAK",
+    "destinationCityName": "高松",
+    "destinationDisplayName": "高松",
+    "destinationCountry": "日本",
+    "flightCount": 44,
+    "seatCount": 8272,
+    "passengerCount": 7298,
+    "loadFactor": 88.2,
+    "inboundPassengerCount": 3614,
+    "outboundPassengerCount": 3684,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        134.0156,
+        34.2142
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 44,
+        "seatCount": 8272,
+        "passengerCount": 7298,
+        "loadFactor": 88.2,
+        "inboundPassengerCount": 3614,
+        "outboundPassengerCount": 3684
+      }
+    ]
+  },
+  {
+    "id": "rmq-pus",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "PUS",
+    "destinationCityName": "釜山",
+    "destinationDisplayName": "釜山",
+    "destinationCountry": "韓國",
+    "flightCount": 42,
+    "seatCount": 7560,
+    "passengerCount": 6404,
+    "loadFactor": 84.7,
+    "inboundPassengerCount": 3283,
+    "outboundPassengerCount": 3121,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        128.9382,
+        35.1796
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "真航空",
+        "airlineShortName": "真航",
+        "airlineCode": "LJ",
+        "flightCount": 42,
+        "seatCount": 7560,
+        "passengerCount": 6404,
+        "loadFactor": 84.7,
+        "inboundPassengerCount": 3283,
+        "outboundPassengerCount": 3121
+      }
+    ]
+  },
+  {
+    "id": "rmq-ngo",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "NGO",
+    "destinationCityName": "名古屋",
+    "destinationDisplayName": "名古屋",
+    "destinationCountry": "日本",
+    "flightCount": 26,
+    "seatCount": 4680,
+    "passengerCount": 4256,
+    "loadFactor": 90.9,
+    "inboundPassengerCount": 2140,
+    "outboundPassengerCount": 2116,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        136.8054,
+        34.8584
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 26,
+        "seatCount": 4680,
+        "passengerCount": 4256,
+        "loadFactor": 90.9,
+        "inboundPassengerCount": 2140,
+        "outboundPassengerCount": 2116
+      }
+    ]
+  },
+  {
+    "id": "rmq-shi",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "SHI",
+    "destinationCityName": "下地島",
+    "destinationDisplayName": "下地島",
+    "destinationCountry": "日本",
+    "flightCount": 34,
+    "seatCount": 6392,
+    "passengerCount": 3655,
+    "loadFactor": 57.2,
+    "inboundPassengerCount": 1774,
+    "outboundPassengerCount": 1881,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        125.1447,
+        24.8267
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 34,
+        "seatCount": 6392,
+        "passengerCount": 3655,
+        "loadFactor": 57.2,
+        "inboundPassengerCount": 1774,
+        "outboundPassengerCount": 1881
+      }
+    ]
+  },
+  {
+    "id": "rmq-kmj",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "KMJ",
+    "destinationCityName": "熊本",
+    "destinationDisplayName": "熊本",
+    "destinationCountry": "日本",
+    "flightCount": 24,
+    "seatCount": 4512,
+    "passengerCount": 3538,
+    "loadFactor": 78.4,
+    "inboundPassengerCount": 1832,
+    "outboundPassengerCount": 1706,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        130.855,
+        32.8373
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 24,
+        "seatCount": 4512,
+        "passengerCount": 3538,
+        "loadFactor": 78.4,
+        "inboundPassengerCount": 1832,
+        "outboundPassengerCount": 1706
+      }
+    ]
+  },
+  {
+    "id": "rmq-cju",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "CJU",
+    "destinationCityName": "濟州",
+    "destinationDisplayName": "濟州",
+    "destinationCountry": "韓國",
+    "flightCount": 17,
+    "seatCount": 3060,
+    "passengerCount": 2560,
+    "loadFactor": 83.7,
+    "inboundPassengerCount": 1155,
+    "outboundPassengerCount": 1405,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        126.4928,
+        33.5113
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 17,
+        "seatCount": 3060,
+        "passengerCount": 2560,
+        "loadFactor": 83.7,
+        "inboundPassengerCount": 1155,
+        "outboundPassengerCount": 1405
+      }
+    ]
+  },
+  {
+    "id": "rmq-pqc",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "PQC",
+    "destinationCityName": "富國島",
+    "destinationDisplayName": "富國島",
+    "destinationCountry": "越南",
+    "flightCount": 16,
+    "seatCount": 3008,
+    "passengerCount": 2522,
+    "loadFactor": 83.8,
+    "inboundPassengerCount": 1254,
+    "outboundPassengerCount": 1268,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        103.9931,
+        10.1698
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 16,
+        "seatCount": 3008,
+        "passengerCount": 2522,
+        "loadFactor": 83.8,
+        "inboundPassengerCount": 1254,
+        "outboundPassengerCount": 1268
+      }
+    ]
+  },
+  {
+    "id": "rmq-nkg",
+    "originAirportCode": "RMQ",
+    "originCityName": "台中",
+    "destinationAirportCode": "NKG",
+    "destinationCityName": "南京",
+    "destinationDisplayName": "南京",
+    "destinationCountry": "中國",
+    "flightCount": 8,
+    "seatCount": 1308,
+    "passengerCount": 1172,
+    "loadFactor": 89.6,
+    "inboundPassengerCount": 579,
+    "outboundPassengerCount": 593,
+    "coordinates": {
+      "origin": [
+        120.6469,
+        24.2647
+      ],
+      "destination": [
+        118.862,
+        31.742
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "東方",
+        "airlineShortName": "東方",
+        "airlineCode": "",
+        "flightCount": 8,
+        "seatCount": 1308,
+        "passengerCount": 1172,
+        "loadFactor": 89.6,
+        "inboundPassengerCount": 579,
+        "outboundPassengerCount": 593
+      }
+    ]
+  },
+  {
+    "id": "tpe-hkg",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "HKG",
+    "destinationCityName": "香港",
+    "destinationDisplayName": "香港",
+    "destinationCountry": "香港",
+    "flightCount": 2156,
+    "seatCount": 566841,
+    "passengerCount": 437335,
+    "loadFactor": 77.2,
+    "inboundPassengerCount": 217118,
+    "outboundPassengerCount": 220217,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        113.9185,
+        22.308
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "國泰航空",
+        "airlineShortName": "國泰",
+        "airlineCode": "CX",
+        "flightCount": 721,
+        "seatCount": 231478,
+        "passengerCount": 174869,
+        "loadFactor": 75.5,
+        "inboundPassengerCount": 85961,
+        "outboundPassengerCount": 88908
+      },
+      {
+        "rank": 2,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 394,
+        "seatCount": 112956,
+        "passengerCount": 83466,
+        "loadFactor": 73.9,
+        "inboundPassengerCount": 41258,
+        "outboundPassengerCount": 42208
+      },
+      {
+        "rank": 3,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 348,
+        "seatCount": 72590,
+        "passengerCount": 52303,
+        "loadFactor": 72.1,
+        "inboundPassengerCount": 26443,
+        "outboundPassengerCount": 25860
+      },
+      {
+        "rank": 4,
+        "airlineName": "香港快運",
+        "airlineShortName": "香港快運",
+        "airlineCode": "",
+        "flightCount": 240,
+        "seatCount": 54312,
+        "passengerCount": 46010,
+        "loadFactor": 84.7,
+        "inboundPassengerCount": 22511,
+        "outboundPassengerCount": 23499
+      },
+      {
+        "rank": 5,
+        "airlineName": "香港",
+        "airlineShortName": "香港",
+        "airlineCode": "",
+        "flightCount": 224,
+        "seatCount": 39832,
+        "passengerCount": 35324,
+        "loadFactor": 88.7,
+        "inboundPassengerCount": 17851,
+        "outboundPassengerCount": 17473
+      },
+      {
+        "rank": 6,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 120,
+        "seatCount": 34836,
+        "passengerCount": 29053,
+        "loadFactor": 83.4,
+        "inboundPassengerCount": 15058,
+        "outboundPassengerCount": 13995
+      },
+      {
+        "rank": 7,
+        "airlineName": "大灣區",
+        "airlineShortName": "大灣區",
+        "airlineCode": "",
+        "flightCount": 109,
+        "seatCount": 20837,
+        "passengerCount": 16310,
+        "loadFactor": 78.3,
+        "inboundPassengerCount": 8036,
+        "outboundPassengerCount": 8274
+      }
+    ]
+  },
+  {
+    "id": "tpe-nrt",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "NRT",
+    "destinationCityName": "東京",
+    "destinationDisplayName": "東京成田",
+    "destinationCountry": "日本",
+    "flightCount": 1306,
+    "seatCount": 349091,
+    "passengerCount": 303355,
+    "loadFactor": 86.9,
+    "inboundPassengerCount": 159223,
+    "outboundPassengerCount": 144132,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        140.3929,
+        35.772
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 181,
+        "seatCount": 61968,
+        "passengerCount": 55143,
+        "loadFactor": 89.0,
+        "inboundPassengerCount": 29812,
+        "outboundPassengerCount": 25331
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 240,
+        "seatCount": 59874,
+        "passengerCount": 51979,
+        "loadFactor": 86.8,
+        "inboundPassengerCount": 28458,
+        "outboundPassengerCount": 23521
+      },
+      {
+        "rank": 3,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 180,
+        "seatCount": 59208,
+        "passengerCount": 50990,
+        "loadFactor": 86.1,
+        "inboundPassengerCount": 27633,
+        "outboundPassengerCount": 23357
+      },
+      {
+        "rank": 4,
+        "airlineName": "酷航",
+        "airlineShortName": "酷航",
+        "airlineCode": "",
+        "flightCount": 101,
+        "seatCount": 37795,
+        "passengerCount": 32897,
+        "loadFactor": 87.0,
+        "inboundPassengerCount": 16954,
+        "outboundPassengerCount": 15943
+      },
+      {
+        "rank": 5,
+        "airlineName": "捷星日本航空",
+        "airlineShortName": "捷星日本",
+        "airlineCode": "GK",
+        "flightCount": 120,
+        "seatCount": 24732,
+        "passengerCount": 22952,
+        "loadFactor": 92.8,
+        "inboundPassengerCount": 11316,
+        "outboundPassengerCount": 11636
+      },
+      {
+        "rank": 6,
+        "airlineName": "樂桃航空",
+        "airlineShortName": "樂桃",
+        "airlineCode": "MM",
+        "flightCount": 132,
+        "seatCount": 24624,
+        "passengerCount": 22663,
+        "loadFactor": 92.0,
+        "inboundPassengerCount": 11169,
+        "outboundPassengerCount": 11494
+      },
+      {
+        "rank": 7,
+        "airlineName": "國泰航空",
+        "airlineShortName": "國泰",
+        "airlineCode": "CX",
+        "flightCount": 60,
+        "seatCount": 26280,
+        "passengerCount": 21764,
+        "loadFactor": 82.8,
+        "inboundPassengerCount": 11919,
+        "outboundPassengerCount": 9845
+      },
+      {
+        "rank": 8,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 120,
+        "seatCount": 21600,
+        "passengerCount": 18656,
+        "loadFactor": 86.4,
+        "inboundPassengerCount": 8694,
+        "outboundPassengerCount": 9962
+      },
+      {
+        "rank": 9,
+        "airlineName": "日本航空",
+        "airlineShortName": "日本",
+        "airlineCode": "JL",
+        "flightCount": 120,
+        "seatCount": 21820,
+        "passengerCount": 18308,
+        "loadFactor": 83.9,
+        "inboundPassengerCount": 9252,
+        "outboundPassengerCount": 9056
+      },
+      {
+        "rank": 10,
+        "airlineName": "泰獅航空",
+        "airlineShortName": "泰獅",
+        "airlineCode": "SL",
+        "flightCount": 52,
+        "seatCount": 11190,
+        "passengerCount": 8003,
+        "loadFactor": 71.5,
+        "inboundPassengerCount": 4016,
+        "outboundPassengerCount": 3987
+      }
+    ]
+  },
+  {
+    "id": "tpe-kix",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "KIX",
+    "destinationCityName": "大阪",
+    "destinationDisplayName": "大阪",
+    "destinationCountry": "日本",
+    "flightCount": 1086,
+    "seatCount": 293401,
+    "passengerCount": 257431,
+    "loadFactor": 87.7,
+    "inboundPassengerCount": 135789,
+    "outboundPassengerCount": 121642,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        135.244,
+        34.4347
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 180,
+        "seatCount": 61642,
+        "passengerCount": 55775,
+        "loadFactor": 90.5,
+        "inboundPassengerCount": 30002,
+        "outboundPassengerCount": 25773
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 180,
+        "seatCount": 55893,
+        "passengerCount": 49607,
+        "loadFactor": 88.8,
+        "inboundPassengerCount": 27210,
+        "outboundPassengerCount": 22397
+      },
+      {
+        "rank": 3,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 120,
+        "seatCount": 36684,
+        "passengerCount": 31174,
+        "loadFactor": 85.0,
+        "inboundPassengerCount": 16738,
+        "outboundPassengerCount": 14436
+      },
+      {
+        "rank": 4,
+        "airlineName": "國泰航空",
+        "airlineShortName": "國泰",
+        "airlineCode": "CX",
+        "flightCount": 60,
+        "seatCount": 26280,
+        "passengerCount": 22995,
+        "loadFactor": 87.5,
+        "inboundPassengerCount": 12468,
+        "outboundPassengerCount": 10527
+      },
+      {
+        "rank": 5,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 136,
+        "seatCount": 24480,
+        "passengerCount": 22286,
+        "loadFactor": 91.0,
+        "inboundPassengerCount": 11085,
+        "outboundPassengerCount": 11201
+      },
+      {
+        "rank": 6,
+        "airlineName": "樂桃航空",
+        "airlineShortName": "樂桃",
+        "airlineCode": "MM",
+        "flightCount": 136,
+        "seatCount": 25552,
+        "passengerCount": 22110,
+        "loadFactor": 86.5,
+        "inboundPassengerCount": 11283,
+        "outboundPassengerCount": 10827
+      },
+      {
+        "rank": 7,
+        "airlineName": "捷星日本航空",
+        "airlineShortName": "捷星日本",
+        "airlineCode": "GK",
+        "flightCount": 120,
+        "seatCount": 21600,
+        "passengerCount": 19951,
+        "loadFactor": 92.4,
+        "inboundPassengerCount": 9939,
+        "outboundPassengerCount": 10012
+      },
+      {
+        "rank": 8,
+        "airlineName": "亞洲航空",
+        "airlineShortName": "全亞洲",
+        "airlineCode": "D7",
+        "flightCount": 60,
+        "seatCount": 22620,
+        "passengerCount": 18734,
+        "loadFactor": 82.8,
+        "inboundPassengerCount": 9759,
+        "outboundPassengerCount": 8975
+      },
+      {
+        "rank": 9,
+        "airlineName": "泰越捷航空",
+        "airlineShortName": "泰越捷",
+        "airlineCode": "VZ",
+        "flightCount": 60,
+        "seatCount": 11340,
+        "passengerCount": 9746,
+        "loadFactor": 85.9,
+        "inboundPassengerCount": 4780,
+        "outboundPassengerCount": 4966
+      },
+      {
+        "rank": 10,
+        "airlineName": "泰獅航空",
+        "airlineShortName": "泰獅",
+        "airlineCode": "SL",
+        "flightCount": 34,
+        "seatCount": 7310,
+        "passengerCount": 5053,
+        "loadFactor": 69.1,
+        "inboundPassengerCount": 2525,
+        "outboundPassengerCount": 2528
+      }
+    ]
+  },
+  {
+    "id": "tpe-bkk",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "BKK",
+    "destinationCityName": "曼谷",
+    "destinationDisplayName": "曼谷蘇凡納布",
+    "destinationCountry": "泰國",
+    "flightCount": 963,
+    "seatCount": 268185,
+    "passengerCount": 223750,
+    "loadFactor": 83.4,
+    "inboundPassengerCount": 112771,
+    "outboundPassengerCount": 110979,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        100.7501,
+        13.69
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 277,
+        "seatCount": 92807,
+        "passengerCount": 77371,
+        "loadFactor": 83.4,
+        "inboundPassengerCount": 39221,
+        "outboundPassengerCount": 38150
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 240,
+        "seatCount": 63172,
+        "passengerCount": 57158,
+        "loadFactor": 90.5,
+        "inboundPassengerCount": 28716,
+        "outboundPassengerCount": 28442
+      },
+      {
+        "rank": 3,
+        "airlineName": "泰國航空",
+        "airlineShortName": "泰國",
+        "airlineCode": "TG",
+        "flightCount": 180,
+        "seatCount": 49376,
+        "passengerCount": 35216,
+        "loadFactor": 71.3,
+        "inboundPassengerCount": 17871,
+        "outboundPassengerCount": 17345
+      },
+      {
+        "rank": 4,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 120,
+        "seatCount": 32910,
+        "passengerCount": 29973,
+        "loadFactor": 91.1,
+        "inboundPassengerCount": 14797,
+        "outboundPassengerCount": 15176
+      },
+      {
+        "rank": 5,
+        "airlineName": "泰越捷航空",
+        "airlineShortName": "泰越捷",
+        "airlineCode": "VZ",
+        "flightCount": 146,
+        "seatCount": 29920,
+        "passengerCount": 24032,
+        "loadFactor": 80.3,
+        "inboundPassengerCount": 12166,
+        "outboundPassengerCount": 11866
+      }
+    ]
+  },
+  {
+    "id": "tpe-icn",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "ICN",
+    "destinationCityName": "首爾",
+    "destinationDisplayName": "首爾仁川",
+    "destinationCountry": "韓國",
+    "flightCount": 806,
+    "seatCount": 231790,
+    "passengerCount": 208954,
+    "loadFactor": 90.1,
+    "inboundPassengerCount": 105724,
+    "outboundPassengerCount": 103230,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        126.4505,
+        37.4602
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "韓亞",
+        "airlineShortName": "韓亞",
+        "airlineCode": "",
+        "flightCount": 122,
+        "seatCount": 47476,
+        "passengerCount": 42750,
+        "loadFactor": 90.0,
+        "inboundPassengerCount": 21411,
+        "outboundPassengerCount": 21339
+      },
+      {
+        "rank": 2,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 154,
+        "seatCount": 43458,
+        "passengerCount": 40616,
+        "loadFactor": 93.5,
+        "inboundPassengerCount": 20700,
+        "outboundPassengerCount": 19916
+      },
+      {
+        "rank": 3,
+        "airlineName": "大韓航空",
+        "airlineShortName": "大韓",
+        "airlineCode": "KE",
+        "flightCount": 120,
+        "seatCount": 37372,
+        "passengerCount": 32077,
+        "loadFactor": 85.8,
+        "inboundPassengerCount": 16542,
+        "outboundPassengerCount": 15535
+      },
+      {
+        "rank": 4,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 120,
+        "seatCount": 26856,
+        "passengerCount": 24204,
+        "loadFactor": 90.1,
+        "inboundPassengerCount": 12564,
+        "outboundPassengerCount": 11640
+      },
+      {
+        "rank": 5,
+        "airlineName": "真航空",
+        "airlineShortName": "真航",
+        "airlineCode": "LJ",
+        "flightCount": 72,
+        "seatCount": 25848,
+        "passengerCount": 23296,
+        "loadFactor": 90.1,
+        "inboundPassengerCount": 11605,
+        "outboundPassengerCount": 11691
+      },
+      {
+        "rank": 6,
+        "airlineName": "酷航",
+        "airlineShortName": "酷航",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 21464,
+        "passengerCount": 19424,
+        "loadFactor": 90.5,
+        "inboundPassengerCount": 9667,
+        "outboundPassengerCount": 9757
+      },
+      {
+        "rank": 7,
+        "airlineName": "濟州",
+        "airlineShortName": "濟州",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 11340,
+        "passengerCount": 10317,
+        "loadFactor": 91.0,
+        "inboundPassengerCount": 5179,
+        "outboundPassengerCount": 5138
+      },
+      {
+        "rank": 8,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 60,
+        "seatCount": 10800,
+        "passengerCount": 9637,
+        "loadFactor": 89.2,
+        "inboundPassengerCount": 4761,
+        "outboundPassengerCount": 4876
+      },
+      {
+        "rank": 9,
+        "airlineName": "易斯達航空",
+        "airlineShortName": "易斯達",
+        "airlineCode": "ZE",
+        "flightCount": 38,
+        "seatCount": 7176,
+        "passengerCount": 6633,
+        "loadFactor": 92.4,
+        "inboundPassengerCount": 3295,
+        "outboundPassengerCount": 3338
+      }
+    ]
+  },
+  {
+    "id": "tpe-mnl",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "MNL",
+    "destinationCityName": "馬尼拉",
+    "destinationDisplayName": "馬尼拉",
+    "destinationCountry": "菲律賓",
+    "flightCount": 795,
+    "seatCount": 233270,
+    "passengerCount": 176981,
+    "loadFactor": 75.9,
+    "inboundPassengerCount": 91695,
+    "outboundPassengerCount": 85286,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        121.0198,
+        14.5086
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 180,
+        "seatCount": 58820,
+        "passengerCount": 50867,
+        "loadFactor": 86.5,
+        "inboundPassengerCount": 27130,
+        "outboundPassengerCount": 23737
+      },
+      {
+        "rank": 2,
+        "airlineName": "宿霧太平洋",
+        "airlineShortName": "宿霧太平洋",
+        "airlineCode": "",
+        "flightCount": 120,
+        "seatCount": 54092,
+        "passengerCount": 41076,
+        "loadFactor": 75.9,
+        "inboundPassengerCount": 21219,
+        "outboundPassengerCount": 19857
+      },
+      {
+        "rank": 3,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 120,
+        "seatCount": 37098,
+        "passengerCount": 27433,
+        "loadFactor": 73.9,
+        "inboundPassengerCount": 14456,
+        "outboundPassengerCount": 12977
+      },
+      {
+        "rank": 4,
+        "airlineName": "菲律賓航空",
+        "airlineShortName": "菲律賓",
+        "airlineCode": "PR",
+        "flightCount": 126,
+        "seatCount": 34712,
+        "passengerCount": 24141,
+        "loadFactor": 69.5,
+        "inboundPassengerCount": 12017,
+        "outboundPassengerCount": 12124
+      },
+      {
+        "rank": 5,
+        "airlineName": "菲亞洲",
+        "airlineShortName": "菲亞洲",
+        "airlineCode": "",
+        "flightCount": 156,
+        "seatCount": 28128,
+        "passengerCount": 20692,
+        "loadFactor": 73.6,
+        "inboundPassengerCount": 10466,
+        "outboundPassengerCount": 10226
+      },
+      {
+        "rank": 6,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 60,
+        "seatCount": 11280,
+        "passengerCount": 8815,
+        "loadFactor": 78.1,
+        "inboundPassengerCount": 4658,
+        "outboundPassengerCount": 4157
+      },
+      {
+        "rank": 7,
+        "airlineName": "荷蘭皇家",
+        "airlineShortName": "荷蘭皇家",
+        "airlineCode": "",
+        "flightCount": 33,
+        "seatCount": 9140,
+        "passengerCount": 3957,
+        "loadFactor": 43.3,
+        "inboundPassengerCount": 1749,
+        "outboundPassengerCount": 2208
+      }
+    ]
+  },
+  {
+    "id": "tpe-sin",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "SIN",
+    "destinationCityName": "新加坡",
+    "destinationDisplayName": "新加坡",
+    "destinationCountry": "新加坡",
+    "flightCount": 650,
+    "seatCount": 207877,
+    "passengerCount": 176430,
+    "loadFactor": 84.9,
+    "inboundPassengerCount": 87727,
+    "outboundPassengerCount": 88703,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        103.9915,
+        1.3644
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "酷航",
+        "airlineShortName": "酷航",
+        "airlineCode": "",
+        "flightCount": 195,
+        "seatCount": 70683,
+        "passengerCount": 63936,
+        "loadFactor": 90.5,
+        "inboundPassengerCount": 32380,
+        "outboundPassengerCount": 31556
+      },
+      {
+        "rank": 2,
+        "airlineName": "新加坡航空",
+        "airlineShortName": "新加坡",
+        "airlineCode": "SQ",
+        "flightCount": 154,
+        "seatCount": 50642,
+        "passengerCount": 44862,
+        "loadFactor": 88.6,
+        "inboundPassengerCount": 21308,
+        "outboundPassengerCount": 23554
+      },
+      {
+        "rank": 3,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 120,
+        "seatCount": 38870,
+        "passengerCount": 31717,
+        "loadFactor": 81.6,
+        "inboundPassengerCount": 15821,
+        "outboundPassengerCount": 15896
+      },
+      {
+        "rank": 4,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 121,
+        "seatCount": 29340,
+        "passengerCount": 21926,
+        "loadFactor": 74.7,
+        "inboundPassengerCount": 10970,
+        "outboundPassengerCount": 10956
+      },
+      {
+        "rank": 5,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 60,
+        "seatCount": 18342,
+        "passengerCount": 13989,
+        "loadFactor": 76.3,
+        "inboundPassengerCount": 7248,
+        "outboundPassengerCount": 6741
+      }
+    ]
+  },
+  {
+    "id": "tpe-pvg",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "PVG",
+    "destinationCityName": "上海",
+    "destinationDisplayName": "上海浦東",
+    "destinationCountry": "中國",
+    "flightCount": 580,
+    "seatCount": 172048,
+    "passengerCount": 153197,
+    "loadFactor": 89.0,
+    "inboundPassengerCount": 78737,
+    "outboundPassengerCount": 74460,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        121.8052,
+        31.1443
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 128,
+        "seatCount": 40964,
+        "passengerCount": 36139,
+        "loadFactor": 88.2,
+        "inboundPassengerCount": 18774,
+        "outboundPassengerCount": 17365
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 128,
+        "seatCount": 39866,
+        "passengerCount": 35264,
+        "loadFactor": 88.5,
+        "inboundPassengerCount": 18333,
+        "outboundPassengerCount": 16931
+      },
+      {
+        "rank": 3,
+        "airlineName": "東方",
+        "airlineShortName": "東方",
+        "airlineCode": "",
+        "flightCount": 112,
+        "seatCount": 32098,
+        "passengerCount": 28988,
+        "loadFactor": 90.3,
+        "inboundPassengerCount": 14767,
+        "outboundPassengerCount": 14221
+      },
+      {
+        "rank": 4,
+        "airlineName": "南方",
+        "airlineShortName": "南方",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 21616,
+        "passengerCount": 19225,
+        "loadFactor": 88.9,
+        "inboundPassengerCount": 10113,
+        "outboundPassengerCount": 9112
+      },
+      {
+        "rank": 5,
+        "airlineName": "國航",
+        "airlineShortName": "國航",
+        "airlineCode": "",
+        "flightCount": 68,
+        "seatCount": 21148,
+        "passengerCount": 18019,
+        "loadFactor": 85.2,
+        "inboundPassengerCount": 9042,
+        "outboundPassengerCount": 8977
+      },
+      {
+        "rank": 6,
+        "airlineName": "吉祥",
+        "airlineShortName": "吉祥",
+        "airlineCode": "",
+        "flightCount": 42,
+        "seatCount": 8568,
+        "passengerCount": 8111,
+        "loadFactor": 94.7,
+        "inboundPassengerCount": 3953,
+        "outboundPassengerCount": 4158
+      },
+      {
+        "rank": 7,
+        "airlineName": "春秋",
+        "airlineShortName": "春秋",
+        "airlineCode": "",
+        "flightCount": 42,
+        "seatCount": 7788,
+        "passengerCount": 7451,
+        "loadFactor": 95.7,
+        "inboundPassengerCount": 3755,
+        "outboundPassengerCount": 3696
+      }
+    ]
+  },
+  {
+    "id": "tpe-oka",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "OKA",
+    "destinationCityName": "沖繩",
+    "destinationDisplayName": "沖繩",
+    "destinationCountry": "日本",
+    "flightCount": 808,
+    "seatCount": 164700,
+    "passengerCount": 142896,
+    "loadFactor": 86.8,
+    "inboundPassengerCount": 72288,
+    "outboundPassengerCount": 70608,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        127.6469,
+        26.1958
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "樂桃航空",
+        "airlineShortName": "樂桃",
+        "airlineCode": "MM",
+        "flightCount": 180,
+        "seatCount": 33840,
+        "passengerCount": 29300,
+        "loadFactor": 86.6,
+        "inboundPassengerCount": 14314,
+        "outboundPassengerCount": 14986
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 120,
+        "seatCount": 26356,
+        "passengerCount": 23578,
+        "loadFactor": 89.5,
+        "inboundPassengerCount": 12480,
+        "outboundPassengerCount": 11098
+      },
+      {
+        "rank": 3,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 120,
+        "seatCount": 22080,
+        "passengerCount": 20554,
+        "loadFactor": 93.1,
+        "inboundPassengerCount": 10931,
+        "outboundPassengerCount": 9623
+      },
+      {
+        "rank": 4,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 120,
+        "seatCount": 21600,
+        "passengerCount": 20061,
+        "loadFactor": 92.9,
+        "inboundPassengerCount": 9787,
+        "outboundPassengerCount": 10274
+      },
+      {
+        "rank": 5,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 60,
+        "seatCount": 17870,
+        "passengerCount": 15459,
+        "loadFactor": 86.5,
+        "inboundPassengerCount": 7864,
+        "outboundPassengerCount": 7595
+      },
+      {
+        "rank": 6,
+        "airlineName": "泰亞洲",
+        "airlineShortName": "泰亞洲",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 14160,
+        "passengerCount": 10807,
+        "loadFactor": 76.3,
+        "inboundPassengerCount": 5601,
+        "outboundPassengerCount": 5206
+      },
+      {
+        "rank": 7,
+        "airlineName": "泰越捷航空",
+        "airlineShortName": "泰越捷",
+        "airlineCode": "VZ",
+        "flightCount": 60,
+        "seatCount": 13800,
+        "passengerCount": 10572,
+        "loadFactor": 76.6,
+        "inboundPassengerCount": 5234,
+        "outboundPassengerCount": 5338
+      },
+      {
+        "rank": 8,
+        "airlineName": "日本越洋",
+        "airlineShortName": "日本越洋",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 9900,
+        "passengerCount": 8594,
+        "loadFactor": 86.8,
+        "inboundPassengerCount": 4082,
+        "outboundPassengerCount": 4512
+      },
+      {
+        "rank": 9,
+        "airlineName": "馬印",
+        "airlineShortName": "馬印",
+        "airlineCode": "",
+        "flightCount": 28,
+        "seatCount": 5094,
+        "passengerCount": 3971,
+        "loadFactor": 78.0,
+        "inboundPassengerCount": 1995,
+        "outboundPassengerCount": 1976
+      }
+    ]
+  },
+  {
+    "id": "tpe-pus",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "PUS",
+    "destinationCityName": "釜山",
+    "destinationDisplayName": "釜山",
+    "destinationCountry": "韓國",
+    "flightCount": 753,
+    "seatCount": 144413,
+    "passengerCount": 126346,
+    "loadFactor": 87.5,
+    "inboundPassengerCount": 63012,
+    "outboundPassengerCount": 63334,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        128.9382,
+        35.1796
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 154,
+        "seatCount": 28240,
+        "passengerCount": 25900,
+        "loadFactor": 91.7,
+        "inboundPassengerCount": 13375,
+        "outboundPassengerCount": 12525
+      },
+      {
+        "rank": 2,
+        "airlineName": "釜山",
+        "airlineShortName": "釜山",
+        "airlineCode": "",
+        "flightCount": 118,
+        "seatCount": 26536,
+        "passengerCount": 22160,
+        "loadFactor": 83.5,
+        "inboundPassengerCount": 10984,
+        "outboundPassengerCount": 11176
+      },
+      {
+        "rank": 3,
+        "airlineName": "濟州",
+        "airlineShortName": "濟州",
+        "airlineCode": "",
+        "flightCount": 120,
+        "seatCount": 22680,
+        "passengerCount": 19930,
+        "loadFactor": 87.9,
+        "inboundPassengerCount": 9845,
+        "outboundPassengerCount": 10085
+      },
+      {
+        "rank": 4,
+        "airlineName": "易斯達航空",
+        "airlineShortName": "易斯達",
+        "airlineCode": "ZE",
+        "flightCount": 121,
+        "seatCount": 22869,
+        "passengerCount": 19201,
+        "loadFactor": 84.0,
+        "inboundPassengerCount": 9106,
+        "outboundPassengerCount": 10095
+      },
+      {
+        "rank": 5,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 60,
+        "seatCount": 11040,
+        "passengerCount": 10438,
+        "loadFactor": 94.5,
+        "inboundPassengerCount": 5525,
+        "outboundPassengerCount": 4913
+      },
+      {
+        "rank": 6,
+        "airlineName": "真航空",
+        "airlineShortName": "真航",
+        "airlineCode": "LJ",
+        "flightCount": 60,
+        "seatCount": 11340,
+        "passengerCount": 10342,
+        "loadFactor": 91.2,
+        "inboundPassengerCount": 5186,
+        "outboundPassengerCount": 5156
+      },
+      {
+        "rank": 7,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 60,
+        "seatCount": 10800,
+        "passengerCount": 9867,
+        "loadFactor": 91.4,
+        "inboundPassengerCount": 4921,
+        "outboundPassengerCount": 4946
+      },
+      {
+        "rank": 8,
+        "airlineName": "大韓航空",
+        "airlineShortName": "大韓",
+        "airlineCode": "KE",
+        "flightCount": 60,
+        "seatCount": 10908,
+        "passengerCount": 8508,
+        "loadFactor": 78.0,
+        "inboundPassengerCount": 4070,
+        "outboundPassengerCount": 4438
+      }
+    ]
+  },
+  {
+    "id": "tpe-sgn",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "SGN",
+    "destinationCityName": "胡志明市",
+    "destinationDisplayName": "胡志明市",
+    "destinationCountry": "越南",
+    "flightCount": 522,
+    "seatCount": 144645,
+    "passengerCount": 120772,
+    "loadFactor": 83.5,
+    "inboundPassengerCount": 67796,
+    "outboundPassengerCount": 52976,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        106.6625,
+        10.8188
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 180,
+        "seatCount": 59760,
+        "passengerCount": 51198,
+        "loadFactor": 85.7,
+        "inboundPassengerCount": 29039,
+        "outboundPassengerCount": 22159
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 120,
+        "seatCount": 41428,
+        "passengerCount": 34230,
+        "loadFactor": 82.6,
+        "inboundPassengerCount": 18946,
+        "outboundPassengerCount": 15284
+      },
+      {
+        "rank": 3,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 120,
+        "seatCount": 22560,
+        "passengerCount": 19170,
+        "loadFactor": 85.0,
+        "inboundPassengerCount": 10517,
+        "outboundPassengerCount": 8653
+      },
+      {
+        "rank": 4,
+        "airlineName": "越南航空",
+        "airlineShortName": "越南",
+        "airlineCode": "VN",
+        "flightCount": 60,
+        "seatCount": 11097,
+        "passengerCount": 9375,
+        "loadFactor": 84.5,
+        "inboundPassengerCount": 5334,
+        "outboundPassengerCount": 4041
+      },
+      {
+        "rank": 5,
+        "airlineName": "越捷航空",
+        "airlineShortName": "越捷",
+        "airlineCode": "VJ",
+        "flightCount": 42,
+        "seatCount": 9800,
+        "passengerCount": 6799,
+        "loadFactor": 69.4,
+        "inboundPassengerCount": 3960,
+        "outboundPassengerCount": 2839
+      }
+    ]
+  },
+  {
+    "id": "tpe-fuk",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "FUK",
+    "destinationCityName": "福岡",
+    "destinationDisplayName": "福岡",
+    "destinationCountry": "日本",
+    "flightCount": 518,
+    "seatCount": 125882,
+    "passengerCount": 119816,
+    "loadFactor": 95.2,
+    "inboundPassengerCount": 60911,
+    "outboundPassengerCount": 58905,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        130.4507,
+        33.5859
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 162,
+        "seatCount": 44882,
+        "passengerCount": 42698,
+        "loadFactor": 95.1,
+        "inboundPassengerCount": 22178,
+        "outboundPassengerCount": 20520
+      },
+      {
+        "rank": 2,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 120,
+        "seatCount": 31044,
+        "passengerCount": 30388,
+        "loadFactor": 97.9,
+        "inboundPassengerCount": 15504,
+        "outboundPassengerCount": 14884
+      },
+      {
+        "rank": 3,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 72,
+        "seatCount": 20076,
+        "passengerCount": 19220,
+        "loadFactor": 95.7,
+        "inboundPassengerCount": 9707,
+        "outboundPassengerCount": 9513
+      },
+      {
+        "rank": 4,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 104,
+        "seatCount": 18720,
+        "passengerCount": 17577,
+        "loadFactor": 93.9,
+        "inboundPassengerCount": 8523,
+        "outboundPassengerCount": 9054
+      },
+      {
+        "rank": 5,
+        "airlineName": "馬亞洲",
+        "airlineShortName": "馬亞洲",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 11160,
+        "passengerCount": 9933,
+        "loadFactor": 89.0,
+        "inboundPassengerCount": 4999,
+        "outboundPassengerCount": 4934
+      }
+    ]
+  },
+  {
+    "id": "tpe-han",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "HAN",
+    "destinationCityName": "河內",
+    "destinationDisplayName": "河內",
+    "destinationCountry": "越南",
+    "flightCount": 402,
+    "seatCount": 92800,
+    "passengerCount": 87419,
+    "loadFactor": 94.2,
+    "inboundPassengerCount": 44871,
+    "outboundPassengerCount": 42548,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        105.8069,
+        21.2187
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 120,
+        "seatCount": 31020,
+        "passengerCount": 29823,
+        "loadFactor": 96.1,
+        "inboundPassengerCount": 15090,
+        "outboundPassengerCount": 14733
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 120,
+        "seatCount": 29448,
+        "passengerCount": 27900,
+        "loadFactor": 94.7,
+        "inboundPassengerCount": 14535,
+        "outboundPassengerCount": 13365
+      },
+      {
+        "rank": 3,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 60,
+        "seatCount": 11280,
+        "passengerCount": 10724,
+        "loadFactor": 95.1,
+        "inboundPassengerCount": 5469,
+        "outboundPassengerCount": 5255
+      },
+      {
+        "rank": 4,
+        "airlineName": "越南航空",
+        "airlineShortName": "越南",
+        "airlineCode": "VN",
+        "flightCount": 60,
+        "seatCount": 11192,
+        "passengerCount": 10693,
+        "loadFactor": 95.5,
+        "inboundPassengerCount": 5469,
+        "outboundPassengerCount": 5224
+      },
+      {
+        "rank": 5,
+        "airlineName": "越捷航空",
+        "airlineShortName": "越捷",
+        "airlineCode": "VJ",
+        "flightCount": 42,
+        "seatCount": 9860,
+        "passengerCount": 8279,
+        "loadFactor": 84.0,
+        "inboundPassengerCount": 4308,
+        "outboundPassengerCount": 3971
+      }
+    ]
+  },
+  {
+    "id": "tpe-ngo",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "NGO",
+    "destinationCityName": "名古屋",
+    "destinationDisplayName": "名古屋",
+    "destinationCountry": "日本",
+    "flightCount": 429,
+    "seatCount": 98466,
+    "passengerCount": 86995,
+    "loadFactor": 88.4,
+    "inboundPassengerCount": 43021,
+    "outboundPassengerCount": 43974,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        136.8054,
+        34.8584
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 120,
+        "seatCount": 28480,
+        "passengerCount": 26053,
+        "loadFactor": 91.5,
+        "inboundPassengerCount": 13170,
+        "outboundPassengerCount": 12883
+      },
+      {
+        "rank": 2,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 60,
+        "seatCount": 17820,
+        "passengerCount": 16211,
+        "loadFactor": 91.0,
+        "inboundPassengerCount": 8409,
+        "outboundPassengerCount": 7802
+      },
+      {
+        "rank": 3,
+        "airlineName": "國泰航空",
+        "airlineShortName": "國泰",
+        "airlineCode": "CX",
+        "flightCount": 60,
+        "seatCount": 18584,
+        "passengerCount": 15851,
+        "loadFactor": 85.3,
+        "inboundPassengerCount": 7728,
+        "outboundPassengerCount": 8123
+      },
+      {
+        "rank": 4,
+        "airlineName": "樂桃航空",
+        "airlineShortName": "樂桃",
+        "airlineCode": "MM",
+        "flightCount": 60,
+        "seatCount": 11088,
+        "passengerCount": 10138,
+        "loadFactor": 91.4,
+        "inboundPassengerCount": 4863,
+        "outboundPassengerCount": 5275
+      },
+      {
+        "rank": 5,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 59,
+        "seatCount": 10620,
+        "passengerCount": 9199,
+        "loadFactor": 86.6,
+        "inboundPassengerCount": 4346,
+        "outboundPassengerCount": 4853
+      },
+      {
+        "rank": 6,
+        "airlineName": "日本航空",
+        "airlineShortName": "日本",
+        "airlineCode": "JL",
+        "flightCount": 44,
+        "seatCount": 6336,
+        "passengerCount": 5651,
+        "loadFactor": 89.2,
+        "inboundPassengerCount": 2676,
+        "outboundPassengerCount": 2975
+      },
+      {
+        "rank": 7,
+        "airlineName": "泰獅航空",
+        "airlineShortName": "泰獅",
+        "airlineCode": "SL",
+        "flightCount": 26,
+        "seatCount": 5538,
+        "passengerCount": 3892,
+        "loadFactor": 70.3,
+        "inboundPassengerCount": 1829,
+        "outboundPassengerCount": 2063
+      }
+    ]
+  },
+  {
+    "id": "tpe-mfm",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "MFM",
+    "destinationCityName": "澳門",
+    "destinationDisplayName": "澳門",
+    "destinationCountry": "澳門",
+    "flightCount": 474,
+    "seatCount": 99612,
+    "passengerCount": 86843,
+    "loadFactor": 87.2,
+    "inboundPassengerCount": 45409,
+    "outboundPassengerCount": 41434,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        113.5916,
+        22.1496
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "澳門",
+        "airlineShortName": "澳門",
+        "airlineCode": "",
+        "flightCount": 234,
+        "seatCount": 39596,
+        "passengerCount": 33006,
+        "loadFactor": 83.4,
+        "inboundPassengerCount": 17858,
+        "outboundPassengerCount": 15148
+      },
+      {
+        "rank": 2,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 120,
+        "seatCount": 31788,
+        "passengerCount": 29237,
+        "loadFactor": 92.0,
+        "inboundPassengerCount": 14993,
+        "outboundPassengerCount": 14244
+      },
+      {
+        "rank": 3,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 120,
+        "seatCount": 28228,
+        "passengerCount": 24600,
+        "loadFactor": 87.1,
+        "inboundPassengerCount": 12558,
+        "outboundPassengerCount": 12042
+      }
+    ]
+  },
+  {
+    "id": "tpe-lax",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "LAX",
+    "destinationCityName": "洛杉磯",
+    "destinationDisplayName": "洛杉磯",
+    "destinationCountry": "美國",
+    "flightCount": 296,
+    "seatCount": 96758,
+    "passengerCount": 80165,
+    "loadFactor": 82.9,
+    "inboundPassengerCount": 35381,
+    "outboundPassengerCount": 44784,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        -118.4085,
+        33.9416
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 180,
+        "seatCount": 58350,
+        "passengerCount": 47585,
+        "loadFactor": 81.6,
+        "inboundPassengerCount": 20603,
+        "outboundPassengerCount": 26982
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 56,
+        "seatCount": 20048,
+        "passengerCount": 16915,
+        "loadFactor": 84.4,
+        "inboundPassengerCount": 7594,
+        "outboundPassengerCount": 9321
+      },
+      {
+        "rank": 3,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 60,
+        "seatCount": 18360,
+        "passengerCount": 15665,
+        "loadFactor": 85.3,
+        "inboundPassengerCount": 7184,
+        "outboundPassengerCount": 8481
+      }
+    ]
+  },
+  {
+    "id": "tpe-cts",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "CTS",
+    "destinationCityName": "札幌",
+    "destinationDisplayName": "札幌",
+    "destinationCountry": "日本",
+    "flightCount": 328,
+    "seatCount": 88768,
+    "passengerCount": 78497,
+    "loadFactor": 88.4,
+    "inboundPassengerCount": 40366,
+    "outboundPassengerCount": 38131,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        141.6813,
+        42.7752
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 68,
+        "seatCount": 21992,
+        "passengerCount": 20464,
+        "loadFactor": 93.1,
+        "inboundPassengerCount": 10585,
+        "outboundPassengerCount": 9879
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 60,
+        "seatCount": 18116,
+        "passengerCount": 16274,
+        "loadFactor": 89.8,
+        "inboundPassengerCount": 8672,
+        "outboundPassengerCount": 7602
+      },
+      {
+        "rank": 3,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 60,
+        "seatCount": 18090,
+        "passengerCount": 15939,
+        "loadFactor": 88.1,
+        "inboundPassengerCount": 8308,
+        "outboundPassengerCount": 7631
+      },
+      {
+        "rank": 4,
+        "airlineName": "酷航",
+        "airlineShortName": "酷航",
+        "airlineCode": "",
+        "flightCount": 34,
+        "seatCount": 11378,
+        "passengerCount": 9499,
+        "loadFactor": 83.5,
+        "inboundPassengerCount": 4762,
+        "outboundPassengerCount": 4737
+      },
+      {
+        "rank": 5,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 46,
+        "seatCount": 8280,
+        "passengerCount": 7703,
+        "loadFactor": 93.0,
+        "inboundPassengerCount": 3820,
+        "outboundPassengerCount": 3883
+      },
+      {
+        "rank": 6,
+        "airlineName": "泰亞洲",
+        "airlineShortName": "泰亞洲",
+        "airlineCode": "",
+        "flightCount": 34,
+        "seatCount": 6132,
+        "passengerCount": 4526,
+        "loadFactor": 73.8,
+        "inboundPassengerCount": 2292,
+        "outboundPassengerCount": 2234
+      },
+      {
+        "rank": 7,
+        "airlineName": "泰越捷航空",
+        "airlineShortName": "泰越捷",
+        "airlineCode": "VZ",
+        "flightCount": 26,
+        "seatCount": 4780,
+        "passengerCount": 4092,
+        "loadFactor": 85.6,
+        "inboundPassengerCount": 1927,
+        "outboundPassengerCount": 2165
+      }
+    ]
+  },
+  {
+    "id": "tpe-kul",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "KUL",
+    "destinationCityName": "吉隆坡",
+    "destinationDisplayName": "吉隆坡",
+    "destinationCountry": "馬來西亞",
+    "flightCount": 325,
+    "seatCount": 95253,
+    "passengerCount": 77661,
+    "loadFactor": 81.5,
+    "inboundPassengerCount": 38735,
+    "outboundPassengerCount": 38926,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        101.7099,
+        2.7456
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "亞洲航空",
+        "airlineShortName": "全亞洲",
+        "airlineCode": "D7",
+        "flightCount": 59,
+        "seatCount": 22243,
+        "passengerCount": 18107,
+        "loadFactor": 81.4,
+        "inboundPassengerCount": 9011,
+        "outboundPassengerCount": 9096
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 60,
+        "seatCount": 21480,
+        "passengerCount": 16794,
+        "loadFactor": 78.2,
+        "inboundPassengerCount": 8505,
+        "outboundPassengerCount": 8289
+      },
+      {
+        "rank": 3,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 60,
+        "seatCount": 19400,
+        "passengerCount": 16169,
+        "loadFactor": 83.3,
+        "inboundPassengerCount": 8191,
+        "outboundPassengerCount": 7978
+      },
+      {
+        "rank": 4,
+        "airlineName": "馬來西亞",
+        "airlineShortName": "馬來西亞",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 16460,
+        "passengerCount": 13953,
+        "loadFactor": 84.8,
+        "inboundPassengerCount": 6920,
+        "outboundPassengerCount": 7033
+      },
+      {
+        "rank": 5,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 44,
+        "seatCount": 8272,
+        "passengerCount": 7283,
+        "loadFactor": 88.0,
+        "inboundPassengerCount": 3494,
+        "outboundPassengerCount": 3789
+      },
+      {
+        "rank": 6,
+        "airlineName": "馬印",
+        "airlineShortName": "馬印",
+        "airlineCode": "",
+        "flightCount": 42,
+        "seatCount": 7398,
+        "passengerCount": 5355,
+        "loadFactor": 72.4,
+        "inboundPassengerCount": 2614,
+        "outboundPassengerCount": 2741
+      }
+    ]
+  },
+  {
+    "id": "tpe-sea",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "SEA",
+    "destinationCityName": "西雅圖",
+    "destinationDisplayName": "西雅圖",
+    "destinationCountry": "美國",
+    "flightCount": 247,
+    "seatCount": 78399,
+    "passengerCount": 66308,
+    "loadFactor": 84.6,
+    "inboundPassengerCount": 29625,
+    "outboundPassengerCount": 36683,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        -122.3088,
+        47.4502
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 86,
+        "seatCount": 29412,
+        "passengerCount": 25251,
+        "loadFactor": 85.9,
+        "inboundPassengerCount": 11437,
+        "outboundPassengerCount": 13814
+      },
+      {
+        "rank": 2,
+        "airlineName": "達美",
+        "airlineShortName": "達美",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 18081,
+        "passengerCount": 15632,
+        "loadFactor": 86.5,
+        "inboundPassengerCount": 7032,
+        "outboundPassengerCount": 8600
+      },
+      {
+        "rank": 3,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 60,
+        "seatCount": 18360,
+        "passengerCount": 15170,
+        "loadFactor": 82.6,
+        "inboundPassengerCount": 6623,
+        "outboundPassengerCount": 8547
+      },
+      {
+        "rank": 4,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 41,
+        "seatCount": 12546,
+        "passengerCount": 10255,
+        "loadFactor": 81.7,
+        "inboundPassengerCount": 4533,
+        "outboundPassengerCount": 5722
+      }
+    ]
+  },
+  {
+    "id": "tpe-szx",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "SZX",
+    "destinationCityName": "深圳",
+    "destinationDisplayName": "深圳",
+    "destinationCountry": "中國",
+    "flightCount": 206,
+    "seatCount": 50826,
+    "passengerCount": 44062,
+    "loadFactor": 86.7,
+    "inboundPassengerCount": 22166,
+    "outboundPassengerCount": 21896,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        113.8107,
+        22.6393
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "南方",
+        "airlineShortName": "南方",
+        "airlineCode": "",
+        "flightCount": 52,
+        "seatCount": 14688,
+        "passengerCount": 12855,
+        "loadFactor": 87.5,
+        "inboundPassengerCount": 6003,
+        "outboundPassengerCount": 6852
+      },
+      {
+        "rank": 2,
+        "airlineName": "立榮",
+        "airlineShortName": "立榮",
+        "airlineCode": "",
+        "flightCount": 42,
+        "seatCount": 13948,
+        "passengerCount": 11608,
+        "loadFactor": 83.2,
+        "inboundPassengerCount": 6266,
+        "outboundPassengerCount": 5342
+      },
+      {
+        "rank": 3,
+        "airlineName": "深圳",
+        "airlineShortName": "深圳",
+        "airlineCode": "",
+        "flightCount": 68,
+        "seatCount": 12470,
+        "passengerCount": 10797,
+        "loadFactor": 86.6,
+        "inboundPassengerCount": 5476,
+        "outboundPassengerCount": 5321
+      },
+      {
+        "rank": 4,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 44,
+        "seatCount": 9720,
+        "passengerCount": 8802,
+        "loadFactor": 90.6,
+        "inboundPassengerCount": 4421,
+        "outboundPassengerCount": 4381
+      }
+    ]
+  },
+  {
+    "id": "tpe-dad",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "DAD",
+    "destinationCityName": "峴港",
+    "destinationDisplayName": "峴港",
+    "destinationCountry": "越南",
+    "flightCount": 249,
+    "seatCount": 47024,
+    "passengerCount": 42073,
+    "loadFactor": 89.5,
+    "inboundPassengerCount": 22308,
+    "outboundPassengerCount": 19765,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        108.2022,
+        16.0439
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 90,
+        "seatCount": 17936,
+        "passengerCount": 16530,
+        "loadFactor": 92.2,
+        "inboundPassengerCount": 8715,
+        "outboundPassengerCount": 7815
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 60,
+        "seatCount": 10800,
+        "passengerCount": 9485,
+        "loadFactor": 87.8,
+        "inboundPassengerCount": 5044,
+        "outboundPassengerCount": 4441
+      },
+      {
+        "rank": 3,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 54,
+        "seatCount": 10152,
+        "passengerCount": 8583,
+        "loadFactor": 84.5,
+        "inboundPassengerCount": 4662,
+        "outboundPassengerCount": 3921
+      },
+      {
+        "rank": 4,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 42,
+        "seatCount": 7560,
+        "passengerCount": 6899,
+        "loadFactor": 91.3,
+        "inboundPassengerCount": 3503,
+        "outboundPassengerCount": 3396
+      },
+      {
+        "rank": 5,
+        "airlineName": "越竹",
+        "airlineShortName": "越竹",
+        "airlineCode": "",
+        "flightCount": 3,
+        "seatCount": 576,
+        "passengerCount": 576,
+        "loadFactor": 100.0,
+        "inboundPassengerCount": 384,
+        "outboundPassengerCount": 192
+      }
+    ]
+  },
+  {
+    "id": "tpe-cju",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "CJU",
+    "destinationCityName": "濟州",
+    "destinationDisplayName": "濟州",
+    "destinationCountry": "韓國",
+    "flightCount": 244,
+    "seatCount": 45504,
+    "passengerCount": 40401,
+    "loadFactor": 88.8,
+    "inboundPassengerCount": 20162,
+    "outboundPassengerCount": 20239,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        126.4928,
+        33.5113
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "易斯達航空",
+        "airlineShortName": "易斯達",
+        "airlineCode": "ZE",
+        "flightCount": 64,
+        "seatCount": 12078,
+        "passengerCount": 10433,
+        "loadFactor": 86.4,
+        "inboundPassengerCount": 5283,
+        "outboundPassengerCount": 5150
+      },
+      {
+        "rank": 2,
+        "airlineName": "德威航空",
+        "airlineShortName": "德威",
+        "airlineCode": "TW",
+        "flightCount": 60,
+        "seatCount": 11340,
+        "passengerCount": 10334,
+        "loadFactor": 91.1,
+        "inboundPassengerCount": 5174,
+        "outboundPassengerCount": 5160
+      },
+      {
+        "rank": 3,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 60,
+        "seatCount": 10800,
+        "passengerCount": 9837,
+        "loadFactor": 91.1,
+        "inboundPassengerCount": 4898,
+        "outboundPassengerCount": 4939
+      },
+      {
+        "rank": 4,
+        "airlineName": "真航空",
+        "airlineShortName": "真航",
+        "airlineCode": "LJ",
+        "flightCount": 60,
+        "seatCount": 11286,
+        "passengerCount": 9797,
+        "loadFactor": 86.8,
+        "inboundPassengerCount": 4807,
+        "outboundPassengerCount": 4990
+      }
+    ]
+  },
+  {
+    "id": "tpe-cgk",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "CGK",
+    "destinationCityName": "雅加達",
+    "destinationDisplayName": "雅加達",
+    "destinationCountry": "印尼",
+    "flightCount": 182,
+    "seatCount": 46536,
+    "passengerCount": 38953,
+    "loadFactor": 83.7,
+    "inboundPassengerCount": 21333,
+    "outboundPassengerCount": 17620,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        106.6559,
+        -6.1256
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 80,
+        "seatCount": 21960,
+        "passengerCount": 17856,
+        "loadFactor": 81.3,
+        "inboundPassengerCount": 9829,
+        "outboundPassengerCount": 8027
+      },
+      {
+        "rank": 2,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 60,
+        "seatCount": 16680,
+        "passengerCount": 15242,
+        "loadFactor": 91.4,
+        "inboundPassengerCount": 7938,
+        "outboundPassengerCount": 7304
+      },
+      {
+        "rank": 3,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 42,
+        "seatCount": 7896,
+        "passengerCount": 5855,
+        "loadFactor": 74.2,
+        "inboundPassengerCount": 3566,
+        "outboundPassengerCount": 2289
+      }
+    ]
+  },
+  {
+    "id": "tpe-sdj",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "SDJ",
+    "destinationCityName": "仙台",
+    "destinationDisplayName": "仙台",
+    "destinationCountry": "日本",
+    "flightCount": 140,
+    "seatCount": 38960,
+    "passengerCount": 34861,
+    "loadFactor": 89.5,
+    "inboundPassengerCount": 17915,
+    "outboundPassengerCount": 16946,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        140.9169,
+        38.1397
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 60,
+        "seatCount": 17820,
+        "passengerCount": 16120,
+        "loadFactor": 90.5,
+        "inboundPassengerCount": 8356,
+        "outboundPassengerCount": 7764
+      },
+      {
+        "rank": 2,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 60,
+        "seatCount": 17540,
+        "passengerCount": 16113,
+        "loadFactor": 91.9,
+        "inboundPassengerCount": 8236,
+        "outboundPassengerCount": 7877
+      },
+      {
+        "rank": 3,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 20,
+        "seatCount": 3600,
+        "passengerCount": 2628,
+        "loadFactor": 73.0,
+        "inboundPassengerCount": 1323,
+        "outboundPassengerCount": 1305
+      }
+    ]
+  },
+  {
+    "id": "tpe-dmk",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "DMK",
+    "destinationCityName": "曼谷",
+    "destinationDisplayName": "曼谷廊曼",
+    "destinationCountry": "泰國",
+    "flightCount": 172,
+    "seatCount": 38198,
+    "passengerCount": 31183,
+    "loadFactor": 81.6,
+    "inboundPassengerCount": 15935,
+    "outboundPassengerCount": 15248,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        100.6067,
+        13.9126
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "泰獅航空",
+        "airlineShortName": "泰獅",
+        "airlineCode": "SL",
+        "flightCount": 112,
+        "seatCount": 24038,
+        "passengerCount": 19843,
+        "loadFactor": 82.5,
+        "inboundPassengerCount": 10073,
+        "outboundPassengerCount": 9770
+      },
+      {
+        "rank": 2,
+        "airlineName": "泰亞洲",
+        "airlineShortName": "泰亞洲",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 14160,
+        "passengerCount": 11340,
+        "loadFactor": 80.1,
+        "inboundPassengerCount": 5862,
+        "outboundPassengerCount": 5478
+      }
+    ]
+  },
+  {
+    "id": "tpe-jfk",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "JFK",
+    "destinationCityName": "紐約",
+    "destinationDisplayName": "紐約",
+    "destinationCountry": "美國",
+    "flightCount": 94,
+    "seatCount": 32152,
+    "passengerCount": 28537,
+    "loadFactor": 88.8,
+    "inboundPassengerCount": 13115,
+    "outboundPassengerCount": 15422,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        -73.7781,
+        40.6413
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 60,
+        "seatCount": 19980,
+        "passengerCount": 18017,
+        "loadFactor": 90.2,
+        "inboundPassengerCount": 8588,
+        "outboundPassengerCount": 9429
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 34,
+        "seatCount": 12172,
+        "passengerCount": 10520,
+        "loadFactor": 86.4,
+        "inboundPassengerCount": 4527,
+        "outboundPassengerCount": 5993
+      }
+    ]
+  },
+  {
+    "id": "tpe-cnx",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "CNX",
+    "destinationCityName": "清邁",
+    "destinationDisplayName": "清邁",
+    "destinationCountry": "泰國",
+    "flightCount": 180,
+    "seatCount": 32860,
+    "passengerCount": 28097,
+    "loadFactor": 85.5,
+    "inboundPassengerCount": 14129,
+    "outboundPassengerCount": 13968,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        98.9626,
+        18.7668
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 60,
+        "seatCount": 11040,
+        "passengerCount": 10366,
+        "loadFactor": 93.9,
+        "inboundPassengerCount": 5198,
+        "outboundPassengerCount": 5168
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 60,
+        "seatCount": 10800,
+        "passengerCount": 8572,
+        "loadFactor": 79.4,
+        "inboundPassengerCount": 4386,
+        "outboundPassengerCount": 4186
+      },
+      {
+        "rank": 3,
+        "airlineName": "泰亞洲",
+        "airlineShortName": "泰亞洲",
+        "airlineCode": "",
+        "flightCount": 34,
+        "seatCount": 6132,
+        "passengerCount": 4806,
+        "loadFactor": 78.4,
+        "inboundPassengerCount": 2360,
+        "outboundPassengerCount": 2446
+      },
+      {
+        "rank": 4,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 26,
+        "seatCount": 4888,
+        "passengerCount": 4353,
+        "loadFactor": 89.1,
+        "inboundPassengerCount": 2185,
+        "outboundPassengerCount": 2168
+      }
+    ]
+  },
+  {
+    "id": "tpe-ont",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "ONT",
+    "destinationCityName": "安大略",
+    "destinationDisplayName": "安大略",
+    "destinationCountry": "美國",
+    "flightCount": 90,
+    "seatCount": 30140,
+    "passengerCount": 25779,
+    "loadFactor": 85.5,
+    "inboundPassengerCount": 11685,
+    "outboundPassengerCount": 14094,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        -117.6012,
+        34.056
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 56,
+        "seatCount": 19736,
+        "passengerCount": 16962,
+        "loadFactor": 85.9,
+        "inboundPassengerCount": 7750,
+        "outboundPassengerCount": 9212
+      },
+      {
+        "rank": 2,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 34,
+        "seatCount": 10404,
+        "passengerCount": 8817,
+        "loadFactor": 84.7,
+        "inboundPassengerCount": 3935,
+        "outboundPassengerCount": 4882
+      }
+    ]
+  },
+  {
+    "id": "tpe-ist",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "IST",
+    "destinationCityName": "伊斯坦堡",
+    "destinationDisplayName": "伊斯坦堡",
+    "destinationCountry": "土耳其",
+    "flightCount": 86,
+    "seatCount": 27956,
+    "passengerCount": 24851,
+    "loadFactor": 88.9,
+    "inboundPassengerCount": 11665,
+    "outboundPassengerCount": 13186,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        28.7519,
+        41.2753
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "土耳其航空",
+        "airlineShortName": "土耳其",
+        "airlineCode": "TK",
+        "flightCount": 86,
+        "seatCount": 27956,
+        "passengerCount": 24851,
+        "loadFactor": 88.9,
+        "inboundPassengerCount": 11665,
+        "outboundPassengerCount": 13186
+      }
+    ]
+  },
+  {
+    "id": "tpe-xmn",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "XMN",
+    "destinationCityName": "廈門",
+    "destinationDisplayName": "廈門",
+    "destinationCountry": "中國",
+    "flightCount": 120,
+    "seatCount": 26630,
+    "passengerCount": 23662,
+    "loadFactor": 88.9,
+    "inboundPassengerCount": 11946,
+    "outboundPassengerCount": 11716,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        118.1275,
+        24.544
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "華信",
+        "airlineShortName": "華信",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 14210,
+        "passengerCount": 11912,
+        "loadFactor": 83.8,
+        "inboundPassengerCount": 6122,
+        "outboundPassengerCount": 5790
+      },
+      {
+        "rank": 2,
+        "airlineName": "廈門",
+        "airlineShortName": "廈門",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 12420,
+        "passengerCount": 11750,
+        "loadFactor": 94.6,
+        "inboundPassengerCount": 5824,
+        "outboundPassengerCount": 5926
+      }
+    ]
+  },
+  {
+    "id": "tpe-kmj",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "KMJ",
+    "destinationCityName": "熊本",
+    "destinationDisplayName": "熊本",
+    "destinationCountry": "日本",
+    "flightCount": 102,
+    "seatCount": 25380,
+    "passengerCount": 22582,
+    "loadFactor": 89.0,
+    "inboundPassengerCount": 11414,
+    "outboundPassengerCount": 11168,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        130.855,
+        32.8373
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 60,
+        "seatCount": 17820,
+        "passengerCount": 15567,
+        "loadFactor": 87.4,
+        "inboundPassengerCount": 7695,
+        "outboundPassengerCount": 7872
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 42,
+        "seatCount": 7560,
+        "passengerCount": 7015,
+        "loadFactor": 92.8,
+        "inboundPassengerCount": 3719,
+        "outboundPassengerCount": 3296
+      }
+    ]
+  },
+  {
+    "id": "tpe-cdg",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "CDG",
+    "destinationCityName": "巴黎",
+    "destinationDisplayName": "巴黎",
+    "destinationCountry": "法國",
+    "flightCount": 59,
+    "seatCount": 20827,
+    "passengerCount": 19817,
+    "loadFactor": 95.2,
+    "inboundPassengerCount": 9744,
+    "outboundPassengerCount": 10073,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        2.55,
+        49.0097
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 59,
+        "seatCount": 20827,
+        "passengerCount": 19817,
+        "loadFactor": 95.2,
+        "inboundPassengerCount": 9744,
+        "outboundPassengerCount": 10073
+      }
+    ]
+  },
+  {
+    "id": "tpe-hnd",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "HND",
+    "destinationCityName": "東京",
+    "destinationDisplayName": "東京羽田",
+    "destinationCountry": "日本",
+    "flightCount": 120,
+    "seatCount": 22080,
+    "passengerCount": 19474,
+    "loadFactor": 88.2,
+    "inboundPassengerCount": 9303,
+    "outboundPassengerCount": 10171,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        139.7798,
+        35.5494
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "樂桃航空",
+        "airlineShortName": "樂桃",
+        "airlineCode": "MM",
+        "flightCount": 60,
+        "seatCount": 11280,
+        "passengerCount": 10070,
+        "loadFactor": 89.3,
+        "inboundPassengerCount": 4992,
+        "outboundPassengerCount": 5078
+      },
+      {
+        "rank": 2,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 60,
+        "seatCount": 10800,
+        "passengerCount": 9404,
+        "loadFactor": 87.1,
+        "inboundPassengerCount": 4311,
+        "outboundPassengerCount": 5093
+      }
+    ]
+  },
+  {
+    "id": "tpe-iah",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "IAH",
+    "destinationCityName": "休士頓",
+    "destinationDisplayName": "休士頓",
+    "destinationCountry": "美國",
+    "flightCount": 60,
+    "seatCount": 19980,
+    "passengerCount": 18675,
+    "loadFactor": 93.5,
+    "inboundPassengerCount": 9111,
+    "outboundPassengerCount": 9564,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        -95.3414,
+        29.9844
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 60,
+        "seatCount": 19980,
+        "passengerCount": 18675,
+        "loadFactor": 93.5,
+        "inboundPassengerCount": 9111,
+        "outboundPassengerCount": 9564
+      }
+    ]
+  },
+  {
+    "id": "tpe-pnh",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "PNH",
+    "destinationCityName": "金邊",
+    "destinationDisplayName": "金邊",
+    "destinationCountry": "柬埔寨",
+    "flightCount": 98,
+    "seatCount": 24698,
+    "passengerCount": 18161,
+    "loadFactor": 73.5,
+    "inboundPassengerCount": 10293,
+    "outboundPassengerCount": 7868,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        104.8442,
+        11.5466
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 60,
+        "seatCount": 18540,
+        "passengerCount": 14186,
+        "loadFactor": 76.5,
+        "inboundPassengerCount": 7920,
+        "outboundPassengerCount": 6266
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 38,
+        "seatCount": 6158,
+        "passengerCount": 3975,
+        "loadFactor": 64.6,
+        "inboundPassengerCount": 2373,
+        "outboundPassengerCount": 1602
+      }
+    ]
+  },
+  {
+    "id": "tpe-ord",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "ORD",
+    "destinationCityName": "芝加哥",
+    "destinationDisplayName": "芝加哥",
+    "destinationCountry": "美國",
+    "flightCount": 60,
+    "seatCount": 19980,
+    "passengerCount": 17439,
+    "loadFactor": 87.3,
+    "inboundPassengerCount": 8063,
+    "outboundPassengerCount": 9376,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        -87.9073,
+        41.9742
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 60,
+        "seatCount": 19980,
+        "passengerCount": 17439,
+        "loadFactor": 87.3,
+        "inboundPassengerCount": 8063,
+        "outboundPassengerCount": 9376
+      }
+    ]
+  },
+  {
+    "id": "tpe-fra",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "FRA",
+    "destinationCityName": "法蘭克福",
+    "destinationDisplayName": "法蘭克福",
+    "destinationCountry": "德國",
+    "flightCount": 60,
+    "seatCount": 18828,
+    "passengerCount": 16573,
+    "loadFactor": 88.0,
+    "inboundPassengerCount": 7381,
+    "outboundPassengerCount": 9192,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        8.5706,
+        50.0379
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 60,
+        "seatCount": 18828,
+        "passengerCount": 16573,
+        "loadFactor": 88.0,
+        "inboundPassengerCount": 7381,
+        "outboundPassengerCount": 9192
+      }
+    ]
+  },
+  {
+    "id": "tpe-pqc",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "PQC",
+    "destinationCityName": "富國島",
+    "destinationDisplayName": "富國島",
+    "destinationCountry": "越南",
+    "flightCount": 96,
+    "seatCount": 21512,
+    "passengerCount": 15893,
+    "loadFactor": 73.9,
+    "inboundPassengerCount": 8291,
+    "outboundPassengerCount": 7602,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        103.9931,
+        10.1698
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "太陽富國",
+        "airlineShortName": "太陽富國",
+        "airlineCode": "",
+        "flightCount": 44,
+        "seatCount": 10384,
+        "passengerCount": 7887,
+        "loadFactor": 76.0,
+        "inboundPassengerCount": 4515,
+        "outboundPassengerCount": 3372
+      },
+      {
+        "rank": 2,
+        "airlineName": "越捷航空",
+        "airlineShortName": "越捷",
+        "airlineCode": "VJ",
+        "flightCount": 26,
+        "seatCount": 6240,
+        "passengerCount": 4128,
+        "loadFactor": 66.2,
+        "inboundPassengerCount": 1860,
+        "outboundPassengerCount": 2268
+      },
+      {
+        "rank": 3,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 26,
+        "seatCount": 4888,
+        "passengerCount": 3878,
+        "loadFactor": 79.3,
+        "inboundPassengerCount": 1916,
+        "outboundPassengerCount": 1962
+      }
+    ]
+  },
+  {
+    "id": "tpe-bne",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "BNE",
+    "destinationCityName": "布里斯本",
+    "destinationDisplayName": "布里斯本",
+    "destinationCountry": "澳洲",
+    "flightCount": 60,
+    "seatCount": 19260,
+    "passengerCount": 15327,
+    "loadFactor": 79.6,
+    "inboundPassengerCount": 7197,
+    "outboundPassengerCount": 8130,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        153.1175,
+        -27.3842
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 25,
+        "seatCount": 8550,
+        "passengerCount": 7972,
+        "loadFactor": 93.2,
+        "inboundPassengerCount": 3959,
+        "outboundPassengerCount": 4013
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 35,
+        "seatCount": 10710,
+        "passengerCount": 7355,
+        "loadFactor": 68.7,
+        "inboundPassengerCount": 3238,
+        "outboundPassengerCount": 4117
+      }
+    ]
+  },
+  {
+    "id": "tpe-dfw",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "DFW",
+    "destinationCityName": "達拉斯",
+    "destinationDisplayName": "達拉斯",
+    "destinationCountry": "美國",
+    "flightCount": 60,
+    "seatCount": 16680,
+    "passengerCount": 13963,
+    "loadFactor": 83.7,
+    "inboundPassengerCount": 6304,
+    "outboundPassengerCount": 7659,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        -97.0403,
+        32.8998
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 60,
+        "seatCount": 16680,
+        "passengerCount": 13963,
+        "loadFactor": 83.7,
+        "inboundPassengerCount": 6304,
+        "outboundPassengerCount": 7659
+      }
+    ]
+  },
+  {
+    "id": "tpe-tfu",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "TFU",
+    "destinationCityName": "成都",
+    "destinationDisplayName": "成都天府",
+    "destinationCountry": "中國",
+    "flightCount": 66,
+    "seatCount": 16218,
+    "passengerCount": 13923,
+    "loadFactor": 85.8,
+    "inboundPassengerCount": 7125,
+    "outboundPassengerCount": 6798,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        104.445,
+        30.319
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "國航",
+        "airlineShortName": "國航",
+        "airlineCode": "",
+        "flightCount": 34,
+        "seatCount": 8378,
+        "passengerCount": 6795,
+        "loadFactor": 81.1,
+        "inboundPassengerCount": 3586,
+        "outboundPassengerCount": 3209
+      },
+      {
+        "rank": 2,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 16,
+        "seatCount": 4960,
+        "passengerCount": 4394,
+        "loadFactor": 88.6,
+        "inboundPassengerCount": 2170,
+        "outboundPassengerCount": 2224
+      },
+      {
+        "rank": 3,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 16,
+        "seatCount": 2880,
+        "passengerCount": 2734,
+        "loadFactor": 94.9,
+        "inboundPassengerCount": 1369,
+        "outboundPassengerCount": 1365
+      }
+    ]
+  },
+  {
+    "id": "tpe-syd",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "SYD",
+    "destinationCityName": "雪梨",
+    "destinationDisplayName": "雪梨",
+    "destinationCountry": "澳洲",
+    "flightCount": 42,
+    "seatCount": 12852,
+    "passengerCount": 12167,
+    "loadFactor": 94.7,
+    "inboundPassengerCount": 6004,
+    "outboundPassengerCount": 6163,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        151.1772,
+        -33.9461
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 42,
+        "seatCount": 12852,
+        "passengerCount": 12167,
+        "loadFactor": 94.7,
+        "inboundPassengerCount": 6004,
+        "outboundPassengerCount": 6163
+      }
+    ]
+  },
+  {
+    "id": "tpe-okj",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "OKJ",
+    "destinationCityName": "岡山",
+    "destinationDisplayName": "岡山",
+    "destinationCountry": "日本",
+    "flightCount": 78,
+    "seatCount": 14040,
+    "passengerCount": 12005,
+    "loadFactor": 85.5,
+    "inboundPassengerCount": 5962,
+    "outboundPassengerCount": 6043,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        133.8553,
+        34.7569
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 78,
+        "seatCount": 14040,
+        "passengerCount": 12005,
+        "loadFactor": 85.5,
+        "inboundPassengerCount": 5962,
+        "outboundPassengerCount": 6043
+      }
+    ]
+  },
+  {
+    "id": "tpe-nkg",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "NKG",
+    "destinationCityName": "南京",
+    "destinationDisplayName": "南京",
+    "destinationCountry": "中國",
+    "flightCount": 68,
+    "seatCount": 12148,
+    "passengerCount": 10606,
+    "loadFactor": 87.3,
+    "inboundPassengerCount": 5517,
+    "outboundPassengerCount": 5089,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        118.862,
+        31.742
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "東方",
+        "airlineShortName": "東方",
+        "airlineCode": "",
+        "flightCount": 68,
+        "seatCount": 12148,
+        "passengerCount": 10606,
+        "loadFactor": 87.3,
+        "inboundPassengerCount": 5517,
+        "outboundPassengerCount": 5089
+      }
+    ]
+  },
+  {
+    "id": "tpe-ukb",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "UKB",
+    "destinationCityName": "神戶",
+    "destinationDisplayName": "神戶",
+    "destinationCountry": "日本",
+    "flightCount": 60,
+    "seatCount": 11176,
+    "passengerCount": 10037,
+    "loadFactor": 89.8,
+    "inboundPassengerCount": 5218,
+    "outboundPassengerCount": 4819,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        135.2239,
+        34.6328
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 34,
+        "seatCount": 6392,
+        "passengerCount": 5721,
+        "loadFactor": 89.5,
+        "inboundPassengerCount": 2984,
+        "outboundPassengerCount": 2737
+      },
+      {
+        "rank": 2,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 26,
+        "seatCount": 4784,
+        "passengerCount": 4316,
+        "loadFactor": 90.2,
+        "inboundPassengerCount": 2234,
+        "outboundPassengerCount": 2082
+      }
+    ]
+  },
+  {
+    "id": "tpe-mel",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "MEL",
+    "destinationCityName": "墨爾本",
+    "destinationDisplayName": "墨爾本",
+    "destinationCountry": "澳洲",
+    "flightCount": 33,
+    "seatCount": 10098,
+    "passengerCount": 9617,
+    "loadFactor": 95.2,
+    "inboundPassengerCount": 4740,
+    "outboundPassengerCount": 4877,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        144.8433,
+        -37.6733
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 33,
+        "seatCount": 10098,
+        "passengerCount": 9617,
+        "loadFactor": 95.2,
+        "inboundPassengerCount": 4740,
+        "outboundPassengerCount": 4877
+      }
+    ]
+  },
+  {
+    "id": "tpe-tak",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "TAK",
+    "destinationCityName": "高松",
+    "destinationDisplayName": "高松",
+    "destinationCountry": "日本",
+    "flightCount": 60,
+    "seatCount": 10800,
+    "passengerCount": 9592,
+    "loadFactor": 88.8,
+    "inboundPassengerCount": 5199,
+    "outboundPassengerCount": 4393,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        134.0156,
+        34.2142
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 60,
+        "seatCount": 10800,
+        "passengerCount": 9592,
+        "loadFactor": 88.8,
+        "inboundPassengerCount": 5199,
+        "outboundPassengerCount": 4393
+      }
+    ]
+  },
+  {
+    "id": "tpe-foc",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "FOC",
+    "destinationCityName": "福州",
+    "destinationDisplayName": "福州",
+    "destinationCountry": "中國",
+    "flightCount": 60,
+    "seatCount": 10176,
+    "passengerCount": 9568,
+    "loadFactor": 94.0,
+    "inboundPassengerCount": 4729,
+    "outboundPassengerCount": 4839,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        119.6633,
+        25.9351
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "廈門",
+        "airlineShortName": "廈門",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 10176,
+        "passengerCount": 9568,
+        "loadFactor": 94.0,
+        "inboundPassengerCount": 4729,
+        "outboundPassengerCount": 4839
+      }
+    ]
+  },
+  {
+    "id": "tpe-muc",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "MUC",
+    "destinationCityName": "慕尼黑",
+    "destinationDisplayName": "慕尼黑",
+    "destinationCountry": "德國",
+    "flightCount": 34,
+    "seatCount": 9857,
+    "passengerCount": 9320,
+    "loadFactor": 94.6,
+    "inboundPassengerCount": 4432,
+    "outboundPassengerCount": 4888,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        11.7861,
+        48.3538
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 34,
+        "seatCount": 9857,
+        "passengerCount": 9320,
+        "loadFactor": 94.6,
+        "inboundPassengerCount": 4432,
+        "outboundPassengerCount": 4888
+      }
+    ]
+  },
+  {
+    "id": "tpe-akl",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "AKL",
+    "destinationCityName": "奧克蘭",
+    "destinationDisplayName": "奧克蘭",
+    "destinationCountry": "紐西蘭",
+    "flightCount": 34,
+    "seatCount": 9944,
+    "passengerCount": 8221,
+    "loadFactor": 82.7,
+    "inboundPassengerCount": 4175,
+    "outboundPassengerCount": 4046,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        174.785,
+        -37.0082
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "紐西蘭",
+        "airlineShortName": "紐西蘭",
+        "airlineCode": "",
+        "flightCount": 34,
+        "seatCount": 9944,
+        "passengerCount": 8221,
+        "loadFactor": 82.7,
+        "inboundPassengerCount": 4175,
+        "outboundPassengerCount": 4046
+      }
+    ]
+  },
+  {
+    "id": "tpe-bki",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "BKI",
+    "destinationCityName": "亞庇",
+    "destinationDisplayName": "亞庇",
+    "destinationCountry": "馬來西亞",
+    "flightCount": 60,
+    "seatCount": 11160,
+    "passengerCount": 7514,
+    "loadFactor": 67.3,
+    "inboundPassengerCount": 3681,
+    "outboundPassengerCount": 3833,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        116.0512,
+        5.9372
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "馬亞洲",
+        "airlineShortName": "馬亞洲",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 11160,
+        "passengerCount": 7514,
+        "loadFactor": 67.3,
+        "inboundPassengerCount": 3681,
+        "outboundPassengerCount": 3833
+      }
+    ]
+  },
+  {
+    "id": "tpe-prg",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "PRG",
+    "destinationCityName": "布拉格",
+    "destinationDisplayName": "布拉格",
+    "destinationCountry": "捷克",
+    "flightCount": 26,
+    "seatCount": 7956,
+    "passengerCount": 6958,
+    "loadFactor": 87.5,
+    "inboundPassengerCount": 3158,
+    "outboundPassengerCount": 3800,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        14.2632,
+        50.1008
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 26,
+        "seatCount": 7956,
+        "passengerCount": 6958,
+        "loadFactor": 87.5,
+        "inboundPassengerCount": 3158,
+        "outboundPassengerCount": 3800
+      }
+    ]
+  },
+  {
+    "id": "tpe-ckg",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "CKG",
+    "destinationCityName": "重慶",
+    "destinationDisplayName": "重慶",
+    "destinationCountry": "中國",
+    "flightCount": 42,
+    "seatCount": 7072,
+    "passengerCount": 6016,
+    "loadFactor": 85.1,
+    "inboundPassengerCount": 3034,
+    "outboundPassengerCount": 2982,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        106.6417,
+        29.7192
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "國航",
+        "airlineShortName": "國航",
+        "airlineCode": "",
+        "flightCount": 42,
+        "seatCount": 7072,
+        "passengerCount": 6016,
+        "loadFactor": 85.1,
+        "inboundPassengerCount": 3034,
+        "outboundPassengerCount": 2982
+      }
+    ]
+  },
+  {
+    "id": "tpe-ror",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "ROR",
+    "destinationCityName": "帛琉",
+    "destinationDisplayName": "帛琉",
+    "destinationCountry": "帛琉",
+    "flightCount": 36,
+    "seatCount": 6480,
+    "passengerCount": 4934,
+    "loadFactor": 76.1,
+    "inboundPassengerCount": 2389,
+    "outboundPassengerCount": 2545,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        134.5442,
+        7.3673
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 36,
+        "seatCount": 6480,
+        "passengerCount": 4934,
+        "loadFactor": 76.1,
+        "inboundPassengerCount": 2389,
+        "outboundPassengerCount": 2545
+      }
+    ]
+  },
+  {
+    "id": "tpe-wuh",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "WUH",
+    "destinationCityName": "武漢",
+    "destinationDisplayName": "武漢",
+    "destinationCountry": "中國",
+    "flightCount": 26,
+    "seatCount": 4448,
+    "passengerCount": 4261,
+    "loadFactor": 95.8,
+    "inboundPassengerCount": 2156,
+    "outboundPassengerCount": 2105,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        114.2081,
+        30.7838
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "東方",
+        "airlineShortName": "東方",
+        "airlineCode": "",
+        "flightCount": 18,
+        "seatCount": 3024,
+        "passengerCount": 2923,
+        "loadFactor": 96.7,
+        "inboundPassengerCount": 1490,
+        "outboundPassengerCount": 1433
+      },
+      {
+        "rank": 2,
+        "airlineName": "南方",
+        "airlineShortName": "南方",
+        "airlineCode": "",
+        "flightCount": 8,
+        "seatCount": 1424,
+        "passengerCount": 1338,
+        "loadFactor": 94.0,
+        "inboundPassengerCount": 666,
+        "outboundPassengerCount": 672
+      }
+    ]
+  },
+  {
+    "id": "tpe-auh",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "AUH",
+    "destinationCityName": "阿布達比",
+    "destinationDisplayName": "阿布達比",
+    "destinationCountry": "阿拉伯聯合大公國",
+    "flightCount": 26,
+    "seatCount": 7540,
+    "passengerCount": 2802,
+    "loadFactor": 37.2,
+    "inboundPassengerCount": 1066,
+    "outboundPassengerCount": 1736,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        54.6511,
+        24.4539
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "阿提哈德",
+        "airlineShortName": "阿提哈德",
+        "airlineCode": "",
+        "flightCount": 26,
+        "seatCount": 7540,
+        "passengerCount": 2802,
+        "loadFactor": 37.2,
+        "inboundPassengerCount": 1066,
+        "outboundPassengerCount": 1736
+      }
+    ]
+  },
+  {
+    "id": "tpe-shi",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "SHI",
+    "destinationCityName": "下地島",
+    "destinationDisplayName": "下地島",
+    "destinationCountry": "日本",
+    "flightCount": 26,
+    "seatCount": 4888,
+    "passengerCount": 2616,
+    "loadFactor": 53.5,
+    "inboundPassengerCount": 1217,
+    "outboundPassengerCount": 1399,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        125.1447,
+        24.8267
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "星宇航空",
+        "airlineShortName": "星宇",
+        "airlineCode": "JX",
+        "flightCount": 26,
+        "seatCount": 4888,
+        "passengerCount": 2616,
+        "loadFactor": 53.5,
+        "inboundPassengerCount": 1217,
+        "outboundPassengerCount": 1399
+      }
+    ]
+  },
+  {
+    "id": "tpe-cxr",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "CXR",
+    "destinationCityName": "芽莊",
+    "destinationDisplayName": "芽莊金蘭",
+    "destinationCountry": "越南",
+    "flightCount": 14,
+    "seatCount": 3260,
+    "passengerCount": 2359,
+    "loadFactor": 72.4,
+    "inboundPassengerCount": 1175,
+    "outboundPassengerCount": 1184,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        109.2194,
+        11.9982
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "越捷航空",
+        "airlineShortName": "越捷",
+        "airlineCode": "VJ",
+        "flightCount": 14,
+        "seatCount": 3260,
+        "passengerCount": 2359,
+        "loadFactor": 72.4,
+        "inboundPassengerCount": 1175,
+        "outboundPassengerCount": 1184
+      }
+    ]
+  },
+  {
+    "id": "tpe-hkt",
+    "originAirportCode": "TPE",
+    "originCityName": "台北",
+    "destinationAirportCode": "HKT",
+    "destinationCityName": "普吉",
+    "destinationDisplayName": "普吉",
+    "destinationCountry": "泰國",
+    "flightCount": 17,
+    "seatCount": 3060,
+    "passengerCount": 2054,
+    "loadFactor": 67.1,
+    "inboundPassengerCount": 1145,
+    "outboundPassengerCount": 909,
+    "coordinates": {
+      "origin": [
+        121.2328,
+        25.0777
+      ],
+      "destination": [
+        98.3169,
+        8.1132
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "台灣虎航",
+        "airlineShortName": "台灣虎航",
+        "airlineCode": "IT",
+        "flightCount": 17,
+        "seatCount": 3060,
+        "passengerCount": 2054,
+        "loadFactor": 67.1,
+        "inboundPassengerCount": 1145,
+        "outboundPassengerCount": 909
+      }
+    ]
+  },
+  {
+    "id": "tsa-hnd",
+    "originAirportCode": "TSA",
+    "originCityName": "台北",
+    "destinationAirportCode": "HND",
+    "destinationCityName": "東京",
+    "destinationDisplayName": "東京羽田",
+    "destinationCountry": "日本",
+    "flightCount": 480,
+    "seatCount": 133788,
+    "passengerCount": 124946,
+    "loadFactor": 93.4,
+    "inboundPassengerCount": 64178,
+    "outboundPassengerCount": 60768,
+    "coordinates": {
+      "origin": [
+        121.5525,
+        25.0694
+      ],
+      "destination": [
+        139.7798,
+        35.5494
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 120,
+        "seatCount": 41040,
+        "passengerCount": 38688,
+        "loadFactor": 94.3,
+        "inboundPassengerCount": 19970,
+        "outboundPassengerCount": 18718
+      },
+      {
+        "rank": 2,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 120,
+        "seatCount": 36840,
+        "passengerCount": 34616,
+        "loadFactor": 94.0,
+        "inboundPassengerCount": 17912,
+        "outboundPassengerCount": 16704
+      },
+      {
+        "rank": 3,
+        "airlineName": "全日空",
+        "airlineShortName": "全日空",
+        "airlineCode": "NH",
+        "flightCount": 120,
+        "seatCount": 29076,
+        "passengerCount": 26705,
+        "loadFactor": 91.8,
+        "inboundPassengerCount": 13625,
+        "outboundPassengerCount": 13080
+      },
+      {
+        "rank": 4,
+        "airlineName": "日本航空",
+        "airlineShortName": "日本",
+        "airlineCode": "JL",
+        "flightCount": 120,
+        "seatCount": 26832,
+        "passengerCount": 24937,
+        "loadFactor": 92.9,
+        "inboundPassengerCount": 12671,
+        "outboundPassengerCount": 12266
+      }
+    ]
+  },
+  {
+    "id": "tsa-sha",
+    "originAirportCode": "TSA",
+    "originCityName": "台北",
+    "destinationAirportCode": "SHA",
+    "destinationCityName": "上海",
+    "destinationDisplayName": "上海虹橋",
+    "destinationCountry": "中國",
+    "flightCount": 222,
+    "seatCount": 66528,
+    "passengerCount": 60751,
+    "loadFactor": 91.3,
+    "inboundPassengerCount": 31132,
+    "outboundPassengerCount": 29619,
+    "coordinates": {
+      "origin": [
+        121.5525,
+        25.0694
+      ],
+      "destination": [
+        121.3363,
+        31.1979
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 52,
+        "seatCount": 17784,
+        "passengerCount": 16499,
+        "loadFactor": 92.8,
+        "inboundPassengerCount": 8586,
+        "outboundPassengerCount": 7913
+      },
+      {
+        "rank": 2,
+        "airlineName": "東方",
+        "airlineShortName": "東方",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 17772,
+        "passengerCount": 16366,
+        "loadFactor": 92.1,
+        "inboundPassengerCount": 8241,
+        "outboundPassengerCount": 8125
+      },
+      {
+        "rank": 3,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 52,
+        "seatCount": 15964,
+        "passengerCount": 14890,
+        "loadFactor": 93.3,
+        "inboundPassengerCount": 7740,
+        "outboundPassengerCount": 7150
+      },
+      {
+        "rank": 4,
+        "airlineName": "國航",
+        "airlineShortName": "國航",
+        "airlineCode": "",
+        "flightCount": 34,
+        "seatCount": 10574,
+        "passengerCount": 9044,
+        "loadFactor": 85.5,
+        "inboundPassengerCount": 4612,
+        "outboundPassengerCount": 4432
+      },
+      {
+        "rank": 5,
+        "airlineName": "上海",
+        "airlineShortName": "上海",
+        "airlineCode": "",
+        "flightCount": 24,
+        "seatCount": 4434,
+        "passengerCount": 3952,
+        "loadFactor": 89.1,
+        "inboundPassengerCount": 1953,
+        "outboundPassengerCount": 1999
+      }
+    ]
+  },
+  {
+    "id": "tsa-gmp",
+    "originAirportCode": "TSA",
+    "originCityName": "台北",
+    "destinationAirportCode": "GMP",
+    "destinationCityName": "首爾",
+    "destinationDisplayName": "首爾金浦",
+    "destinationCountry": "韓國",
+    "flightCount": 120,
+    "seatCount": 21743,
+    "passengerCount": 20424,
+    "loadFactor": 93.9,
+    "inboundPassengerCount": 10421,
+    "outboundPassengerCount": 10003,
+    "coordinates": {
+      "origin": [
+        121.5525,
+        25.0694
+      ],
+      "destination": [
+        126.7906,
+        37.5583
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "德威航空",
+        "airlineShortName": "德威",
+        "airlineCode": "TW",
+        "flightCount": 34,
+        "seatCount": 6426,
+        "passengerCount": 6120,
+        "loadFactor": 95.2,
+        "inboundPassengerCount": 3063,
+        "outboundPassengerCount": 3057
+      },
+      {
+        "rank": 2,
+        "airlineName": "長榮航空",
+        "airlineShortName": "長榮",
+        "airlineCode": "BR",
+        "flightCount": 34,
+        "seatCount": 6256,
+        "passengerCount": 5708,
+        "loadFactor": 91.2,
+        "inboundPassengerCount": 3021,
+        "outboundPassengerCount": 2687
+      },
+      {
+        "rank": 3,
+        "airlineName": "易斯達航空",
+        "airlineShortName": "易斯達",
+        "airlineCode": "ZE",
+        "flightCount": 26,
+        "seatCount": 4881,
+        "passengerCount": 4629,
+        "loadFactor": 94.8,
+        "inboundPassengerCount": 2312,
+        "outboundPassengerCount": 2317
+      },
+      {
+        "rank": 4,
+        "airlineName": "中華航空",
+        "airlineShortName": "中華",
+        "airlineCode": "CI",
+        "flightCount": 26,
+        "seatCount": 4180,
+        "passengerCount": 3967,
+        "loadFactor": 94.9,
+        "inboundPassengerCount": 2025,
+        "outboundPassengerCount": 1942
+      }
+    ]
+  },
+  {
+    "id": "tsa-pvg",
+    "originAirportCode": "TSA",
+    "originCityName": "台北",
+    "destinationAirportCode": "PVG",
+    "destinationCityName": "上海",
+    "destinationDisplayName": "上海浦東",
+    "destinationCountry": "中國",
+    "flightCount": 112,
+    "seatCount": 19980,
+    "passengerCount": 17916,
+    "loadFactor": 89.7,
+    "inboundPassengerCount": 9113,
+    "outboundPassengerCount": 8803,
+    "coordinates": {
+      "origin": [
+        121.5525,
+        25.0694
+      ],
+      "destination": [
+        121.8052,
+        31.1443
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "上海",
+        "airlineShortName": "上海",
+        "airlineCode": "",
+        "flightCount": 86,
+        "seatCount": 15196,
+        "passengerCount": 13731,
+        "loadFactor": 90.4,
+        "inboundPassengerCount": 6935,
+        "outboundPassengerCount": 6796
+      },
+      {
+        "rank": 2,
+        "airlineName": "立榮",
+        "airlineShortName": "立榮",
+        "airlineCode": "",
+        "flightCount": 26,
+        "seatCount": 4784,
+        "passengerCount": 4185,
+        "loadFactor": 87.5,
+        "inboundPassengerCount": 2178,
+        "outboundPassengerCount": 2007
+      }
+    ]
+  },
+  {
+    "id": "tsa-xmn",
+    "originAirportCode": "TSA",
+    "originCityName": "台北",
+    "destinationAirportCode": "XMN",
+    "destinationCityName": "廈門",
+    "destinationDisplayName": "廈門",
+    "destinationCountry": "中國",
+    "flightCount": 86,
+    "seatCount": 14960,
+    "passengerCount": 13899,
+    "loadFactor": 92.9,
+    "inboundPassengerCount": 7074,
+    "outboundPassengerCount": 6825,
+    "coordinates": {
+      "origin": [
+        121.5525,
+        25.0694
+      ],
+      "destination": [
+        118.1275,
+        24.544
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "廈門",
+        "airlineShortName": "廈門",
+        "airlineCode": "",
+        "flightCount": 60,
+        "seatCount": 10176,
+        "passengerCount": 9617,
+        "loadFactor": 94.5,
+        "inboundPassengerCount": 4873,
+        "outboundPassengerCount": 4744
+      },
+      {
+        "rank": 2,
+        "airlineName": "立榮",
+        "airlineShortName": "立榮",
+        "airlineCode": "",
+        "flightCount": 26,
+        "seatCount": 4784,
+        "passengerCount": 4282,
+        "loadFactor": 89.5,
+        "inboundPassengerCount": 2201,
+        "outboundPassengerCount": 2081
+      }
+    ]
+  },
+  {
+    "id": "tsa-foc",
+    "originAirportCode": "TSA",
+    "originCityName": "台北",
+    "destinationAirportCode": "FOC",
+    "destinationCityName": "福州",
+    "destinationDisplayName": "福州",
+    "destinationCountry": "中國",
+    "flightCount": 78,
+    "seatCount": 13002,
+    "passengerCount": 11573,
+    "loadFactor": 89.0,
+    "inboundPassengerCount": 6072,
+    "outboundPassengerCount": 5501,
+    "coordinates": {
+      "origin": [
+        121.5525,
+        25.0694
+      ],
+      "destination": [
+        119.6633,
+        25.9351
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "廈門",
+        "airlineShortName": "廈門",
+        "airlineCode": "",
+        "flightCount": 52,
+        "seatCount": 8828,
+        "passengerCount": 8093,
+        "loadFactor": 91.7,
+        "inboundPassengerCount": 4145,
+        "outboundPassengerCount": 3948
+      },
+      {
+        "rank": 2,
+        "airlineName": "華信",
+        "airlineShortName": "華信",
+        "airlineCode": "",
+        "flightCount": 26,
+        "seatCount": 4174,
+        "passengerCount": 3480,
+        "loadFactor": 83.4,
+        "inboundPassengerCount": 1927,
+        "outboundPassengerCount": 1553
+      }
+    ]
+  },
+  {
+    "id": "tsa-tfu",
+    "originAirportCode": "TSA",
+    "originCityName": "台北",
+    "destinationAirportCode": "TFU",
+    "destinationCityName": "成都",
+    "destinationDisplayName": "成都天府",
+    "destinationCountry": "中國",
+    "flightCount": 34,
+    "seatCount": 10044,
+    "passengerCount": 8848,
+    "loadFactor": 88.1,
+    "inboundPassengerCount": 4443,
+    "outboundPassengerCount": 4405,
+    "coordinates": {
+      "origin": [
+        121.5525,
+        25.0694
+      ],
+      "destination": [
+        104.445,
+        30.319
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "四川",
+        "airlineShortName": "四川",
+        "airlineCode": "",
+        "flightCount": 34,
+        "seatCount": 10044,
+        "passengerCount": 8848,
+        "loadFactor": 88.1,
+        "inboundPassengerCount": 4443,
+        "outboundPassengerCount": 4405
+      }
+    ]
+  },
+  {
+    "id": "tsa-ckg",
+    "originAirportCode": "TSA",
+    "originCityName": "台北",
+    "destinationAirportCode": "CKG",
+    "destinationCityName": "重慶",
+    "destinationDisplayName": "重慶",
+    "destinationCountry": "中國",
+    "flightCount": 36,
+    "seatCount": 6350,
+    "passengerCount": 5787,
+    "loadFactor": 91.1,
+    "inboundPassengerCount": 2882,
+    "outboundPassengerCount": 2905,
+    "coordinates": {
+      "origin": [
+        121.5525,
+        25.0694
+      ],
+      "destination": [
+        106.6417,
+        29.7192
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "四川",
+        "airlineShortName": "四川",
+        "airlineCode": "",
+        "flightCount": 26,
+        "seatCount": 4680,
+        "passengerCount": 4305,
+        "loadFactor": 92.0,
+        "inboundPassengerCount": 2161,
+        "outboundPassengerCount": 2144
+      },
+      {
+        "rank": 2,
+        "airlineName": "國航",
+        "airlineShortName": "國航",
+        "airlineCode": "",
+        "flightCount": 10,
+        "seatCount": 1670,
+        "passengerCount": 1482,
+        "loadFactor": 88.7,
+        "inboundPassengerCount": 721,
+        "outboundPassengerCount": 761
+      }
+    ]
+  },
+  {
+    "id": "tsa-wuh",
+    "originAirportCode": "TSA",
+    "originCityName": "台北",
+    "destinationAirportCode": "WUH",
+    "destinationCityName": "武漢",
+    "destinationDisplayName": "武漢",
+    "destinationCountry": "中國",
+    "flightCount": 18,
+    "seatCount": 2892,
+    "passengerCount": 2633,
+    "loadFactor": 91.0,
+    "inboundPassengerCount": 1364,
+    "outboundPassengerCount": 1269,
+    "coordinates": {
+      "origin": [
+        121.5525,
+        25.0694
+      ],
+      "destination": [
+        114.2081,
+        30.7838
+      ]
+    },
+    "dataSourceLabel": "民航局 115年4月 按航點及航空公司統計",
+    "airlineRankings": [
+      {
+        "rank": 1,
+        "airlineName": "華信",
+        "airlineShortName": "華信",
+        "airlineCode": "",
+        "flightCount": 18,
+        "seatCount": 2892,
+        "passengerCount": 2633,
+        "loadFactor": 91.0,
+        "inboundPassengerCount": 1364,
+        "outboundPassengerCount": 1269
+      }
+    ]
+  }
+]
