@@ -140,7 +140,7 @@ scripts/
 - `index.html`：靜態 title / description / og / twitter / JSON-LD（預設首頁內容）
 - `src/utils/seo.ts`：路由切換後動態更新所有 meta，canonical / og:url 依路徑產生
 - 主要目標關鍵字：`台灣航空載客率`、`台灣航空 載客率`
-- 正式網址目前設定為 `https://taiwan-airline-loadfactor.vercel.app/`，若改用自訂網域須同步更新 `SITE_BASE` 與 `og-image.png`（均在 `seo.ts` 集中定義）
+- 正式網址目前設定為 `https://taiwan-airline-loadfactor.vercel.app/`，若改用自訂網域須同步更新 `SITE_BASE`、`sitemap.xml`、`robots.txt` 與 `og-image.svg`
 
 ## 本地開發
 

@@ -4,8 +4,8 @@
 
 const SITE_BASE = 'https://taiwan-airline-loadfactor.vercel.app'
 const SITE_NAME = '台灣航空載客率分析'
-const OG_IMAGE  = `${SITE_BASE}/og-image.png`
-// 正式上線前請將 og-image.png 換成實際 1200×630 圖片。
+const OG_IMAGE  = `${SITE_BASE}/og-image.svg`
+// 若改成社群平台相容性更高的 PNG，請同步更新 index.html。
 
 // ── 各頁面 SEO 資料（集中維護） ────────────────────────────────────
 
