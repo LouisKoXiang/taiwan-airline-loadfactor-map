@@ -1,9 +1,9 @@
-// ── 網站基礎設定（正式上線前統一修改此區） ──────────────────────────
-// 切換為正式 domain 時，請同步更新 SITE_BASE。
+// ── 網站基礎設定 ───────────────────────────────────────────────
+// 若改用自訂網域，請同步更新 SITE_BASE。
 // 切換為 history mode 時，createWebHashHistory() 改為 createWebHistory() 即可；
 // pageUrl() 目前已輸出正式網址格式，不含 hash。
 
-const SITE_BASE = 'https://taiwan-airline-loadfactor-map.example.com'
+const SITE_BASE = 'https://aiwan-airline-loadfactor.vercel.app'
 const SITE_NAME = '台灣航空載客率分析'
 const OG_IMAGE  = `${SITE_BASE}/og-image.png`
 // 正式上線前請將 og-image.png 換成實際 1200×630 圖片。
