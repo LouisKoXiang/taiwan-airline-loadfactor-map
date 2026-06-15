@@ -19,8 +19,8 @@ export const getArcPath = (route: RouteCoords, projection: d3.GeoProjection): st
   const dist = Math.sqrt(dx * dx + dy * dy)
   if (dist < 2) return `M ${x1} ${y1} L ${x2} ${y2}`
 
-  // Quadratic Bézier — control point on the left-perpendicular of the direction vector,
-  // flipped so the arc always bows upward (toward screen-top / north on the map).
+  // 二次貝茲曲線：控制點取在方向向量的左側垂線上，
+  // 並依方向翻轉，讓弧線固定朝畫面上方（地圖北側）彎曲。
   const curve = Math.min(130, Math.max(28, dist * 0.22))
   const mx = (x1 + x2) / 2
   const my = (y1 + y2) / 2

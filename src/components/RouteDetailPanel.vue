@@ -18,7 +18,7 @@ const displayStats = computed(() => props.stats ?? props.route)
 <template>
   <Transition name="panel-slide">
     <aside v-if="route" class="detail-panel">
-      <!-- Header -->
+      <!-- 標題 -->
       <div class="detail-panel__header">
         <div class="detail-panel__titles">
           <span class="eyebrow">航點詳情</span>
@@ -35,7 +35,7 @@ const displayStats = computed(() => props.stats ?? props.route)
         </button>
       </div>
 
-      <!-- Route path indicator -->
+      <!-- 航線路徑指示 -->
       <div class="detail-route">
         <span class="route-code">{{ route.originAirportCode }}</span>
         <div class="route-line-graphic">
@@ -48,7 +48,7 @@ const displayStats = computed(() => props.stats ?? props.route)
         <span class="route-code">{{ route.destinationAirportCode }}</span>
       </div>
 
-      <!-- Stats grid -->
+      <!-- 統計數據區塊 -->
       <dl class="detail-stats">
         <div>
           <dt>飛行架次</dt>
@@ -68,7 +68,7 @@ const displayStats = computed(() => props.stats ?? props.route)
         </div>
       </dl>
 
-      <!-- Airline ranking (top 5) -->
+      <!-- 航空公司排名（前五名） -->
       <section class="airline-list">
         <span class="section-label">航空公司排名</span>
         <div
@@ -90,7 +90,7 @@ const displayStats = computed(() => props.stats ?? props.route)
         </div>
       </section>
 
-      <!-- Inbound/outbound chart -->
+      <!-- 入境 / 出境圖表 -->
       <section class="panel-section">
         <span class="section-label">入境 / 出境</span>
         <PassengerCompareChart

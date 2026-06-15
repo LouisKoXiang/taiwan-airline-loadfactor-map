@@ -3,7 +3,87 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>台灣航點探索地圖</title>
+
+    <!-- ── 主要 SEO 設定 ─────────────────────────────────────────────── -->
+    <title>台灣航運四雄載客率分析｜中華航空、長榮航空、星宇航空、台灣虎航</title>
+    <meta name="description" content="比較中華航空、長榮航空、星宇航空、台灣虎航的每月載客率、載客人數、飛行架次與航點表現，使用民航局公開資料製作互動式航空數據視覺化。" />
+    <meta name="keywords" content="台灣航空, 航運四雄, 載客率, 中華航空, 長榮航空, 星宇航空, 台灣虎航, 民航局, 航線統計, 航點分析, 航空股, 航空公司比較" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- ── 標準網址 ────────────────────────────────────────────────── -->
+    <link rel="canonical" href="https://taiwan-airline-loadfactor-map.example.com/" />
+
+    <!-- ── Open Graph 社群分享資訊 ───────────────────────────────────────────────── -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:site_name"   content="台灣航運四雄載客率分析" />
+    <meta property="og:locale"      content="zh_TW" />
+    <meta property="og:url"         content="https://taiwan-airline-loadfactor-map.example.com/" />
+    <meta property="og:title"       content="台灣航運四雄載客率分析｜中華航空、長榮航空、星宇航空、台灣虎航" />
+    <meta property="og:description" content="比較中華航空、長榮航空、星宇航空、台灣虎航的每月載客率、載客人數、飛行架次與航點表現，使用民航局公開資料製作互動式航空數據視覺化。" />
+    <meta property="og:image"       content="https://taiwan-airline-loadfactor-map.example.com/og-image.png" />
+    <!-- 正式上線前請將 og:image 換成實際的 1200×630 圖片路徑。 -->
+
+    <!-- ── Twitter 分享卡片 ─────────────────────────────────────────────── -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="台灣航運四雄載客率分析｜中華航空、長榮航空、星宇航空、台灣虎航" />
+    <meta name="twitter:description" content="比較中華航空、長榮航空、星宇航空、台灣虎航的每月載客率、載客人數、飛行架次與航點表現，使用民航局公開資料製作互動式航空數據視覺化。" />
+    <meta name="twitter:image"       content="https://taiwan-airline-loadfactor-map.example.com/og-image.png" />
+
+    <!-- ── 結構化資料 ──────────────────────────────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://taiwan-airline-loadfactor-map.example.com/#website",
+          "url": "https://taiwan-airline-loadfactor-map.example.com/",
+          "name": "台灣航運四雄載客率分析",
+          "description": "比較中華航空、長榮航空、星宇航空、台灣虎航的每月載客率、載客人數、飛行架次與航點表現，使用民航局公開資料製作互動式航空數據視覺化。",
+          "inLanguage": "zh-TW"
+        },
+        {
+          "@type": "Dataset",
+          "@id": "https://taiwan-airline-loadfactor-map.example.com/#dataset",
+          "name": "台灣四大航空公司每月載客率資料集",
+          "description": "依據中華民國交通部民用航空局每月公開統計表，整理中華航空、長榮航空、星宇航空與台灣虎航的每月航線表現。資料可持續擴充，每匯入一份新月份 ODS 即自動合併。指標涵蓋載客率、載客人數、飛行架次、座位數，以及各航點入境與出境旅客人數，出發機場包含桃園（TPE）、高雄（KHH）、松山（TSA）、台中（RMQ）。",
+          "url": "https://taiwan-airline-loadfactor-map.example.com/",
+          "license": "https://data.gov.tw/license",
+          "isPartOf": {
+            "@type": "DataCatalog",
+            "name": "交通部民用航空局公開資料"
+          },
+          "creator": {
+            "@type": "Organization",
+            "name": "中華民國交通部民用航空局",
+            "url": "https://www.caa.gov.tw/"
+          },
+          "variableMeasured": [
+            { "@type": "PropertyValue", "name": "載客率",   "unitText": "百分比" },
+            { "@type": "PropertyValue", "name": "載客人數", "unitText": "人次"   },
+            { "@type": "PropertyValue", "name": "飛行架次", "unitText": "架次"   },
+            { "@type": "PropertyValue", "name": "座位數",   "unitText": "位"     }
+          ],
+          "about": [
+            { "@type": "Thing", "name": "中華航空" },
+            { "@type": "Thing", "name": "長榮航空" },
+            { "@type": "Thing", "name": "星宇航空" },
+            { "@type": "Thing", "name": "台灣虎航" }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://taiwan-airline-loadfactor-map.example.com/#app",
+          "name": "台灣航空視覺化",
+          "applicationCategory": "DataVisualization",
+          "operatingSystem": "Web",
+          "url": "https://taiwan-airline-loadfactor-map.example.com/",
+          "description": "互動式台灣航空載客率與航線視覺化工具，資料來源為交通部民用航空局公開資料，可依月份切換並觀察各航空公司自身的航點表現變化。",
+          "inLanguage": "zh-TW"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="app"></div>

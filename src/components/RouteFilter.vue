@@ -20,7 +20,7 @@ const airports = [
 
 <template>
   <section class="filter-panel" aria-label="航點篩選">
-    <!-- Origin airport -->
+    <!-- 出發機場 -->
     <div class="field">
       <span class="field-label">出發機場</span>
       <div class="airport-tabs">
@@ -37,7 +37,7 @@ const airports = [
       </div>
     </div>
 
-    <!-- Destination search -->
+    <!-- 目的地搜尋 -->
     <label class="field">
       <span class="field-label">目的地搜尋</span>
       <div class="search-wrap">
@@ -50,7 +50,7 @@ const airports = [
       </div>
     </label>
 
-    <!-- Airline + Country row -->
+    <!-- 航空公司與國家篩選 -->
     <div class="filter-row">
       <label class="field">
         <span class="field-label">航空公司</span>
@@ -67,7 +67,7 @@ const airports = [
       </label>
     </div>
 
-    <!-- Metric switch + reset -->
+    <!-- 視角切換與重設 -->
     <div class="filter-footer">
       <div class="metric-switch">
         <span class="field-label">視角</span>

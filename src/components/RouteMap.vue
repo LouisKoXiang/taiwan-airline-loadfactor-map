@@ -49,7 +49,7 @@ const originRoutes = (routeList: Route[]) => {
   })
 }
 
-// Full SVG rebuild — called on size or data changes only
+// 完整重建 SVG：只在尺寸或資料變更時呼叫。
 const render = () => {
   if (!svgRef.value) return
 
@@ -63,11 +63,11 @@ const render = () => {
   const path = d3.geoPath(projection)
   const root = svg.append('g').attr('class', 'map-root')
 
-  // Base: graticule
+  // 底圖：經緯線
   const graticule = d3.geoGraticule().step([15, 15])
   root.append('path').datum(graticule()).attr('class', 'graticule').attr('d', path)
 
-  // Base: land
+  // 底圖：陸地
   root
     .append('g')
     .attr('class', 'land-layer')
@@ -77,7 +77,7 @@ const render = () => {
     .attr('d', path)
     .attr('class', 'land')
 
-  // Base: continent labels
+  // 底圖：洲名標籤
   root
     .append('g')
     .attr('class', 'continent-labels')
@@ -88,7 +88,7 @@ const render = () => {
     .attr('y', (d) => projection(d.coordinates)?.[1] ?? 0)
     .text((d) => d.name)
 
-  // Arcs
+  // 航線弧線
   const metricExtent = d3.extent(
     routes.value,
     (r) => getMetricValue(r, routeStore.filters.viewMetric),
@@ -120,7 +120,7 @@ const render = () => {
     .on('pointerleave', hideTooltip)
     .on('click', (_, r) => routeStore.selectRoute(r.id))
 
-  // Destination markers
+  // 目的地標記
   root
     .append('g')
     .attr('class', 'marker-layer')
@@ -149,7 +149,7 @@ const render = () => {
     .on('pointerleave', hideTooltip)
     .on('click', (_, r) => routeStore.selectRoute(r.id))
 
-  // Origin markers (always on top)
+  // 出發地標記（永遠位於最上層）
   root
     .append('g')
     .attr('class', 'origin-layer')
@@ -168,7 +168,7 @@ const render = () => {
       return `translate(${px},${py})`
     })
 
-  // Zoom
+  // 地圖縮放
   zoomBehavior = d3
     .zoom<SVGSVGElement, unknown>()
     .scaleExtent([1, 7])
@@ -184,7 +184,7 @@ const render = () => {
   svg.call(zoomBehavior)
 }
 
-// Lightweight update — only flips CSS classes on existing DOM nodes
+// 輕量更新：只切換既有 DOM 節點上的 CSS class。
 const updateSelection = () => {
   if (!svgRef.value) return
   const svg = d3.select(svgRef.value)
@@ -205,7 +205,7 @@ const showTooltip = (event: PointerEvent, route: Route) => {
   const bounds = wrapperRef.value?.getBoundingClientRect()
   let x = event.clientX - (bounds?.left ?? 0) + 18
   let y = event.clientY - (bounds?.top ?? 0) + 18
-  // Keep tooltip inside panel
+  // 讓 tooltip 維持在地圖面板內。
   const panelW = bounds?.width ?? 900
   if (x + 240 > panelW) x = event.clientX - (bounds?.left ?? 0) - 250
   tooltip.value = { visible: true, x, y, route }
@@ -222,7 +222,7 @@ const zoomToRoute = (animate = true) => {
   const origin = currentProjection(routeStore.selectedRoute.coordinates.origin)
   if (!dest || !origin) return
 
-  // Center between origin and destination, zoom 2.2×
+  // 以出發地與目的地中點置中，並放大 2.2 倍。
   const cx = (dest[0] + origin[0]) / 2
   const cy = (dest[1] + origin[1]) / 2
 
@@ -280,7 +280,7 @@ onBeforeUnmount(() => {
   <section ref="wrapperRef" class="map-panel">
     <svg ref="svgRef" class="route-map" role="img" aria-label="台灣出發的全球航線地圖"></svg>
 
-    <!-- Floating map controls -->
+    <!-- 浮動地圖控制 -->
     <div class="map-controls">
       <button
         v-if="currentZoom > 1.05"
@@ -304,14 +304,14 @@ onBeforeUnmount(() => {
       </button>
     </div>
 
-    <!-- Legend -->
+    <!-- 圖例 -->
     <div class="map-legend">
       <span><i class="legend-swatch legend-high"></i>高載客率 ≥85%</span>
       <span><i class="legend-swatch legend-mid"></i>中載客率 75–84%</span>
       <span><i class="legend-swatch legend-low"></i>低載客率 &lt;75%</span>
     </div>
 
-    <!-- Tooltip -->
+    <!-- 地圖提示框 -->
     <Transition name="tooltip-fade">
       <div
         v-if="tooltip.visible && tooltip.route"

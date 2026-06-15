@@ -52,7 +52,7 @@ export const useRouteStore = defineStore('route-store', () => {
     })
   })
 
-  // Auto-deselect when the current selection is filtered out
+  // 目前選取航點被篩掉時，自動清除選取狀態。
   watch(filteredRoutes, (newRoutes) => {
     if (selectedRouteId.value && !newRoutes.find((r) => r.id === selectedRouteId.value)) {
       selectedRouteId.value = ''
@@ -64,7 +64,7 @@ export const useRouteStore = defineStore('route-store', () => {
     filteredRoutes.value.find((route) => route.id === selectedRouteId.value),
   )
 
-  // Airline comparison uses origin + search + country filters but ignores airline filter
+  // 航空公司比較使用出發地、搜尋與國家篩選，但不套用航空公司篩選。
   const comparisonBaseRoutes = computed(() => {
     const term = filters.value.searchTerm.trim().toLowerCase()
 

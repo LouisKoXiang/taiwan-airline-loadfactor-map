@@ -1,4 +1,4 @@
-/* ─── Tokens ─────────────────────────────────────────────────────────── */
+/* ─── 設計變數 ─────────────────────────────────────────────────────────── */
 :root {
   --blue-900: #0b2233;
   --blue-800: #0e3552;
@@ -31,21 +31,22 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* ─── Reset ─────────────────────────────────────────────────────────── */
+/* ─── 基礎重設 ─────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; min-width: 320px; min-height: 100vh; overflow: hidden; color: var(--ink-800); background: var(--blue-50); }
+body { margin: 0; min-width: 320px; min-height: 100vh; color: var(--ink-800); background: var(--blue-50); }
 h1, h2, p { margin: 0; }
 button, input, select { font: inherit; cursor: pointer; }
 a { color: inherit; }
 
-/* ─── App shell ──────────────────────────────────────────────────────── */
+/* ─── 應用程式外框 ──────────────────────────────────────────────────────── */
 .app-shell {
   display: grid;
   grid-template-columns: minmax(380px, 420px) minmax(0, 1fr);
-  height: 100vh;
+  height: 100%;
+  overflow: hidden;
 }
 
-/* ─── Sidebar ────────────────────────────────────────────────────────── */
+/* ─── 側邊欄 ────────────────────────────────────────────────────────── */
 .sidebar {
   position: relative;
   z-index: 2;
@@ -63,7 +64,7 @@ a { color: inherit; }
   scrollbar-color: var(--ink-100) transparent;
 }
 
-/* ─── Hero ───────────────────────────────────────────────────────────── */
+/* ─── 主標題區 ───────────────────────────────────────────────────────────── */
 .hero-copy {
   padding-bottom: 16px;
   border-bottom: 1px solid var(--ink-100);
@@ -94,7 +95,7 @@ a { color: inherit; }
   line-height: 1.65;
 }
 
-/* ─── Summary strip ──────────────────────────────────────────────────── */
+/* ─── 摘要列 ──────────────────────────────────────────────────── */
 .summary-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -125,7 +126,7 @@ a { color: inherit; }
   font-weight: 700;
 }
 
-/* ─── Filter panel ───────────────────────────────────────────────────── */
+/* ─── 篩選面板 ───────────────────────────────────────────────────── */
 .filter-panel {
   display: grid;
   gap: 12px;
@@ -146,7 +147,7 @@ a { color: inherit; }
   text-transform: uppercase;
 }
 
-/* Airport tabs */
+/* 機場分頁 */
 .airport-tabs {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -189,7 +190,7 @@ a { color: inherit; }
   color: rgb(255 255 255 / 0.72);
 }
 
-/* Search */
+/* 搜尋框 */
 .search-wrap {
   position: relative;
   display: flex;
@@ -220,7 +221,7 @@ a { color: inherit; }
   box-shadow: 0 0 0 3px rgb(31 143 255 / 0.12);
 }
 
-/* Airline + country row */
+/* 航空公司與國家列 */
 .filter-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -247,7 +248,7 @@ a { color: inherit; }
   box-shadow: 0 0 0 3px rgb(31 143 255 / 0.12);
 }
 
-/* Filter footer: metric switch + reset */
+/* 篩選面板底部：指標切換與重設 */
 .filter-footer {
   display: flex;
   align-items: center;
@@ -303,7 +304,7 @@ a { color: inherit; }
   border-color: rgb(220 50 50 / 0.36);
 }
 
-/* ─── Airline comparison ─────────────────────────────────────────────── */
+/* ─── 航空公司比較 ─────────────────────────────────────────────── */
 .airline-comparison {
   border: 1px solid var(--ink-100);
   border-radius: 12px;
@@ -441,14 +442,14 @@ a { color: inherit; }
   white-space: nowrap;
 }
 
-/* ─── Route list ─────────────────────────────────────────────────────── */
+/* ─── 航點列表 ─────────────────────────────────────────────────────── */
 .route-list {
   display: grid;
   gap: 10px;
   padding-bottom: 24px;
 }
 
-/* ─── Selected route heading ─────────────────────────────────────────── */
+/* ─── 已選航點標題 ─────────────────────────────────────────── */
 .selected-route-heading {
   display: grid;
   gap: 4px;
@@ -490,7 +491,7 @@ a { color: inherit; }
   font-size: 1.05rem;
 }
 
-/* ─── Airline route item ─────────────────────────────────────────────── */
+/* ─── 航點內航空公司項目 ─────────────────────────────────────────────── */
 .airline-route-item {
   display: grid;
   grid-template-columns: 40px minmax(0, 1fr);
@@ -556,7 +557,7 @@ a { color: inherit; }
   font-weight: 700;
 }
 
-/* ─── Route card ─────────────────────────────────────────────────────── */
+/* ─── 航點卡片 ─────────────────────────────────────────────────────── */
 .route-card {
   display: grid;
   grid-template-columns: 100px minmax(0, 1fr);
@@ -577,7 +578,7 @@ a { color: inherit; }
   cursor: pointer;
 }
 
-/* Visual area (replaces Unsplash images) */
+/* 視覺區塊（取代 Unsplash 圖片） */
 .route-card__visual {
   position: relative;
   display: flex;
@@ -586,7 +587,7 @@ a { color: inherit; }
   padding: 10px 8px;
 }
 
-/* Region gradients */
+/* 地區漸層 */
 .region-east-asia  { background: linear-gradient(145deg, #0a2e4a 0%, #0f5f8a 100%); }
 .region-sea        { background: linear-gradient(145deg, #0a3b28 0%, #1a7a56 100%); }
 .region-europe     { background: linear-gradient(145deg, #200e52 0%, #5830b0 100%); }
@@ -669,7 +670,7 @@ a { color: inherit; }
   white-space: nowrap;
 }
 
-/* ─── Empty state ────────────────────────────────────────────────────── */
+/* ─── 空狀態 ────────────────────────────────────────────────────── */
 .empty-state {
   display: grid;
   justify-items: center;
@@ -694,7 +695,7 @@ a { color: inherit; }
   font-size: 0.82rem;
 }
 
-/* ─── Map stage ──────────────────────────────────────────────────────── */
+/* ─── 地圖舞台 ──────────────────────────────────────────────────────── */
 .map-stage {
   position: relative;
   min-width: 0;
@@ -718,7 +719,7 @@ a { color: inherit; }
   height: 100%;
 }
 
-/* ─── SVG map elements ───────────────────────────────────────────────── */
+/* ─── SVG 地圖元素 ───────────────────────────────────────────────── */
 .graticule {
   fill: none;
   stroke: rgb(255 255 255 / 0.055);
@@ -742,7 +743,7 @@ a { color: inherit; }
   user-select: none;
 }
 
-/* Route arcs */
+/* 航線弧線 */
 .route-line {
   fill: none;
   stroke-linecap: round;
@@ -768,7 +769,7 @@ a { color: inherit; }
   pointer-events: none;
 }
 
-/* Destination markers */
+/* 目的地標記 */
 .marker, .route-line { cursor: pointer; }
 
 .marker-content { pointer-events: all; }
@@ -823,7 +824,7 @@ a { color: inherit; }
   pointer-events: none;
 }
 
-/* Origin markers */
+/* 出發地標記 */
 .origin-marker circle:first-child {
   fill: rgb(31 143 255 / 0.2);
   stroke: var(--blue-400);
@@ -844,7 +845,7 @@ a { color: inherit; }
   pointer-events: none;
 }
 
-/* ─── Map controls ───────────────────────────────────────────────────── */
+/* ─── 地圖控制 ───────────────────────────────────────────────────── */
 .map-controls {
   position: absolute;
   top: 14px;
@@ -889,7 +890,7 @@ a { color: inherit; }
   background: rgb(80 40 5 / 0.88);
 }
 
-/* ─── Legend ─────────────────────────────────────────────────────────── */
+/* ─── 圖例 ─────────────────────────────────────────────────────────── */
 .map-legend {
   position: absolute;
   left: 18px;
@@ -925,7 +926,7 @@ a { color: inherit; }
 .legend-mid   { background: #4ed4ff; }
 .legend-low   { background: #7a9aaa; }
 
-/* ─── Tooltip ────────────────────────────────────────────────────────── */
+/* ─── 地圖提示框 ────────────────────────────────────────────────────────── */
 .map-tooltip {
   position: absolute;
   z-index: 8;
@@ -978,11 +979,11 @@ a { color: inherit; }
   font-size: 0.72rem;
 }
 
-/* Tooltip transition */
+/* 地圖提示框轉場 */
 .tooltip-fade-enter-active, .tooltip-fade-leave-active { transition: opacity 120ms ease; }
 .tooltip-fade-enter-from, .tooltip-fade-leave-to { opacity: 0; }
 
-/* ─── Detail panel ───────────────────────────────────────────────────── */
+/* ─── 詳情面板 ───────────────────────────────────────────────────── */
 .detail-panel {
   position: absolute;
   top: 20px;
@@ -1046,7 +1047,7 @@ a { color: inherit; }
   color: var(--ink-800);
 }
 
-/* Route path graphic */
+/* 航線路徑圖示 */
 .detail-route {
   display: flex;
   align-items: center;
@@ -1094,7 +1095,7 @@ a { color: inherit; }
   transform: rotate(45deg);
 }
 
-/* Stats grid */
+/* 統計數據格線 */
 .detail-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1126,7 +1127,7 @@ a { color: inherit; }
 
 .stat-highlight { color: var(--blue-600) !important; }
 
-/* Airline list in panel */
+/* 面板內航空公司列表 */
 .airline-list {
   display: grid;
   gap: 1px;
@@ -1211,18 +1212,18 @@ a { color: inherit; }
   white-space: nowrap;
 }
 
-/* Panel section */
+/* 面板區塊 */
 .panel-section {
   margin-top: 4px;
 }
 
-/* Detail panel transition */
+/* 詳情面板轉場 */
 .panel-slide-enter-active { transition: opacity 220ms ease, transform 220ms ease; }
 .panel-slide-leave-active { transition: opacity 160ms ease, transform 160ms ease; }
 .panel-slide-enter-from { opacity: 0; transform: translateX(16px); }
 .panel-slide-leave-to   { opacity: 0; transform: translateX(16px); }
 
-/* ─── Mini chart ─────────────────────────────────────────────────────── */
+/* ─── 小型圖表 ─────────────────────────────────────────────────────── */
 .mini-chart {
   width: 100%;
   height: 116px;
@@ -1241,18 +1242,560 @@ a { color: inherit; }
   font-weight: 900;
 }
 
-/* ─── Slide-down transition (AirlineComparison body) ─────────────────── */
+/* ─── 下滑展開轉場（航空公司比較內容） ─────────────────── */
 .slide-down-enter-active { transition: max-height 280ms ease, opacity 200ms ease; max-height: 600px; }
 .slide-down-leave-active { transition: max-height 220ms ease, opacity 160ms ease; max-height: 600px; }
 .slide-down-enter-from  { max-height: 0; opacity: 0; overflow: hidden; }
 .slide-down-leave-to    { max-height: 0; opacity: 0; overflow: hidden; }
 
-/* ─── Responsive ─────────────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════════════
+   導覽列
+   ══════════════════════════════════════════════════════════════════════ */
+.site-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.page-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.app-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: 52px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--ink-100);
+  background: rgb(255 255 255 / 0.95);
+  backdrop-filter: blur(16px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ink-900);
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-brand svg { color: var(--blue-500); }
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 8px;
+  color: var(--ink-400);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 140ms, background 140ms;
+}
+
+.nav-link:hover {
+  background: var(--ink-50);
+  color: var(--ink-800);
+}
+
+.nav-link.active {
+  background: var(--blue-100);
+  color: var(--blue-700);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   航空公司成長分析頁
+   ══════════════════════════════════════════════════════════════════════ */
+
+.growth-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 28px 64px;
+  display: grid;
+  gap: 28px;
+}
+
+/* 頁首 */
+.growth-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.growth-header-text h1 {
+  color: var(--ink-900);
+  font-size: 1.85rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.growth-header-text p {
+  color: var(--ink-400);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 580px;
+  margin: 0;
+}
+
+.month-select-wrap {
+  display: grid;
+  gap: 5px;
+  flex: 0 0 auto;
+}
+
+.month-select {
+  min-height: 38px;
+  padding: 0 28px 0 10px;
+  border: 1px solid var(--ink-100);
+  border-radius: 8px;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238fa0a8' stroke-width='2.5' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 10px center;
+  appearance: none;
+  color: var(--ink-800);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+
+/* 航空公司切換器 */
+.airline-switcher {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.airline-tab {
+  display: grid;
+  gap: 2px;
+  min-width: 120px;
+  padding: 11px 18px;
+  border: 2px solid var(--ink-100);
+  border-radius: 12px;
+  background: #fff;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 160ms, background 160ms, box-shadow 160ms;
+}
+
+.airline-tab:hover {
+  border-color: var(--ink-200, #c0cdd2);
+  background: var(--ink-50);
+}
+
+.airline-tab.active {
+  border-color: var(--tab-accent, var(--blue-500));
+  background: color-mix(in srgb, var(--tab-accent, var(--blue-500)) 8%, #fff);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--tab-accent, var(--blue-500)) 20%, transparent);
+}
+
+.tab-code {
+  color: var(--ink-400);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.airline-tab.active .tab-code {
+  color: var(--tab-accent, var(--blue-500));
+}
+
+.tab-name {
+  color: var(--ink-800);
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+/* KPI 格線 */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.kpi-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px;
+  border: 1px solid var(--ink-100);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.kpi-card--accent {
+  border-color: color-mix(in srgb, var(--accent, var(--blue-500)) 28%, transparent);
+  background: color-mix(in srgb, var(--accent, var(--blue-500)) 5%, #fff);
+}
+
+.kpi-card--muted {
+  background: var(--ink-50);
+}
+
+.kpi-card--growth {
+  border-color: rgb(43 181 106 / 0.25);
+  background: rgb(43 181 106 / 0.05);
+}
+
+.kpi-label {
+  color: var(--ink-400);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kpi-value {
+  color: var(--ink-900);
+  font-size: 1.55rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.kpi-value--accent {
+  color: var(--accent, var(--blue-500));
+}
+
+.kpi-value--na {
+  color: var(--ink-300);
+  font-size: 1.3rem;
+}
+
+.kpi-unit {
+  color: var(--ink-400);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.kpi-note {
+  font-style: italic;
+  color: var(--ink-300);
+}
+
+/* 圖表區塊 */
+.charts-section {
+  display: grid;
+  gap: 16px;
+}
+
+.charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.metric-bar-chart,
+.trend-chart-wrap {
+  border: 1px solid var(--ink-100);
+  border-radius: 12px;
+  background: #fff;
+  padding: 16px 18px;
+}
+
+.chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.chart-title {
+  color: var(--ink-600);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.chart-overflow-note {
+  color: var(--ink-300);
+  font-size: 0.72rem;
+}
+
+.chart-wrapper {
+  overflow-x: hidden;
+}
+
+.bar-svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+/* SVG 長條圖文字樣式 */
+.bar-label {
+  fill: var(--ink-700);
+  font-size: 11px;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.bar-sublabel {
+  fill: var(--ink-300);
+  font-size: 9px;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.bar-value {
+  fill: var(--ink-600);
+  font-size: 10px;
+  font-weight: 800;
+  font-family: inherit;
+}
+
+.bar-value--inside {
+  fill: #fff;
+}
+
+/* 趨勢圖空狀態 */
+.trend-empty {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 40px 16px;
+  color: var(--ink-300);
+  text-align: center;
+}
+
+.trend-empty p {
+  margin: 0;
+  color: var(--ink-500, #617880);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.trend-empty small {
+  color: var(--ink-300);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  max-width: 280px;
+}
+
+/* 航點資料表 */
+.route-table-section {
+  border: 1px solid var(--ink-100);
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--ink-100);
+  flex-wrap: wrap;
+}
+
+.table-header h2 {
+  color: var(--ink-900);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.sort-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--ink-100);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink-500, #617880);
+  font-size: 0.76rem;
+  font-weight: 700;
+  transition: background 140ms, border-color 140ms, color 140ms;
+}
+
+.sort-btn:hover {
+  border-color: var(--blue-300);
+  color: var(--blue-700);
+}
+
+.sort-btn.active {
+  border-color: var(--blue-400);
+  background: var(--blue-100);
+  color: var(--blue-700);
+}
+
+.sort-arrow {
+  font-size: 0.72rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.route-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.route-data-table th {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--ink-100);
+  color: var(--ink-400);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+.route-data-table th:hover {
+  color: var(--blue-700);
+}
+
+.route-data-table th.sorted {
+  color: var(--blue-600);
+}
+
+.route-data-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--ink-50);
+  color: var(--ink-800);
+  white-space: nowrap;
+}
+
+.route-data-table tbody tr:hover td {
+  background: var(--blue-50);
+}
+
+.route-data-table td.sorted {
+  background: rgb(31 143 255 / 0.04);
+}
+
+.num-col {
+  text-align: right !important;
+}
+
+.code-cell {
+  font-weight: 800;
+  color: var(--blue-600) !important;
+  letter-spacing: 0.04em;
+}
+
+.country-cell {
+  color: var(--ink-400) !important;
+  font-size: 0.78rem;
+}
+
+.lf-badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.lf-high  { background: rgb(31 143 255 / 0.12); color: var(--blue-700); }
+.lf-mid   { background: rgb(78 212 255 / 0.12); color: #0a7a9a; }
+.lf-low   { background: var(--ink-50); color: var(--ink-500, #617880); }
+
+/* ─── 趨勢圖文字 ────────────────────────────────────────────────────── */
+.trend-svg { display: block; width: 100%; }
+
+.trend-x-label {
+  fill: var(--ink-400);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.trend-y-label {
+  fill: var(--ink-300);
+  font-size: 10px;
+}
+
+.trend-val {
+  fill: var(--ink-400);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.trend-val--current {
+  fill: var(--ink-800);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+/* ─── MoM 成長率 KPI ─────────────────────────────────────────────────── */
+.kpi-value--pos { color: var(--green-500); }
+.kpi-value--neg { color: #e03030; }
+
+/* ─── SEO 說明文字區塊 ────────────────────────────────────────────────── */
+.seo-blurb {
+  margin-top: 56px;
+  padding: 24px 28px;
+  border-top: 1px solid var(--ink-100);
+  border-radius: 12px;
+  background: var(--blue-50);
+}
+
+.seo-blurb h2 {
+  color: var(--ink-600);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+}
+
+.seo-blurb p {
+  color: var(--ink-400);
+  font-size: 0.84rem;
+  line-height: 1.75;
+  max-width: 72ch;
+}
+
+.seo-blurb p + p { margin-top: 8px; }
+
+/* ─── 響應式版面 ─────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 @media (max-width: 1080px) {
   body { overflow: auto; }
   .app-shell { grid-template-columns: 1fr; height: auto; min-height: 100vh; }
   .map-stage { order: -1; min-height: 58vh; }
   .sidebar { max-height: none; }
+  .charts-row { grid-template-columns: 1fr; }
+  .growth-page { padding: 20px 16px 48px; }
 }
 
 @media (max-width: 640px) {
@@ -1264,4 +1807,9 @@ a { color: inherit; }
   .detail-panel { top: 12px; right: 12px; width: calc(100% - 24px); }
   .map-legend { left: 12px; bottom: 12px; }
   .route-card { grid-template-columns: 88px minmax(0, 1fr); }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .airline-switcher { gap: 6px; }
+  .airline-tab { min-width: 0; padding: 9px 12px; }
+  .growth-header { flex-direction: column; }
+  .growth-header-text h1 { font-size: 1.45rem; }
 }
