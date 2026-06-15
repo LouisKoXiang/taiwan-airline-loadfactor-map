@@ -21,18 +21,20 @@ const accent = () => props.accentColor ?? '#1f8fff'
 
 const render = () => {
   if (!svgRef.value || !wrapperRef.value) return
+  const svg = d3.select(svgRef.value)
+  svg.selectAll('*').remove()
+
   const data = props.trendPoints
   if (data.length < 2) return
 
   const W = wrapperRef.value.clientWidth || 300
   const H = 200
+  const compact = W < 420
   const mTop = 28
-  const mRight = 20
+  const mRight = compact ? 12 : 20
   const mBottom = 38
-  const mLeft = 46
+  const mLeft = compact ? 36 : 46
 
-  const svg = d3.select(svgRef.value)
-  svg.selectAll('*').remove()
   svg.attr('viewBox', `0 0 ${W} ${H}`).attr('height', H)
 
   const x = d3.scalePoint<string>()

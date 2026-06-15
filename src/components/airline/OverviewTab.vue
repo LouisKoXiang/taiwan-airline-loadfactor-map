@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useAirlineGrowthStore } from '../../stores/airlineGrowthStore'
 import MetricBarChart from './MetricBarChart.vue'
 import TrendChart from './TrendChart.vue'
+import RouteTimelineMatrix from './RouteTimelineMatrix.vue'
 import { AIRLINE_META } from '../../types/airline'
 
 const store = useAirlineGrowthStore()
@@ -46,7 +47,13 @@ const flightChartItems = computed(() =>
 
 <template>
   <section class="charts-section">
+    <!-- 第一區：月趨勢圖 + 載客率排行 -->
     <div class="charts-row">
+      <TrendChart
+        :trend-points="store.trendData"
+        :current-month="store.activeMonth"
+        :accent-color="accent"
+      />
       <MetricBarChart
         :items="lfChartItems"
         title="各航點載客率"
@@ -54,24 +61,24 @@ const flightChartItems = computed(() =>
         :format-value="(v) => v.toFixed(1)"
         :accent-color="accent"
       />
+    </div>
+
+    <!-- 第二區：航點月份矩陣（滿版） -->
+    <RouteTimelineMatrix />
+
+    <!-- 第三區：載客人數 + 飛行架次排行 -->
+    <div class="charts-row">
       <MetricBarChart
         :items="paxChartItems"
         title="各航點載客人數"
         :format-value="formatNum"
         :accent-color="accent"
       />
-    </div>
-    <div class="charts-row">
       <MetricBarChart
         :items="flightChartItems"
         title="各航點飛行架次"
         unit=" 次"
         :format-value="(v) => formatNum(v)"
-        :accent-color="accent"
-      />
-      <TrendChart
-        :trend-points="store.trendData"
-        :current-month="store.activeMonth"
         :accent-color="accent"
       />
     </div>

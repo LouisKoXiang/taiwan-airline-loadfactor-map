@@ -20,6 +20,14 @@ const airports = [
 
 <template>
   <section class="filter-panel" aria-label="航點篩選">
+    <!-- 資料月份 -->
+    <label class="field">
+      <span class="field-label">資料月份</span>
+      <select v-model="routeStore.filters.month">
+        <option v-for="m in routeStore.availableMonths" :key="m" :value="m">{{ m }}</option>
+      </select>
+    </label>
+
     <!-- 出發機場 -->
     <div class="field">
       <span class="field-label">出發機場</span>

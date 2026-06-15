@@ -29,20 +29,21 @@ const MAX = 25
 
 const render = () => {
   if (!svgRef.value || !wrapperRef.value) return
+  const svg = d3.select(svgRef.value)
+  svg.selectAll('*').remove()
 
   const data = props.items.slice(0, props.maxItems ?? MAX)
   if (data.length === 0) return
 
   const W = wrapperRef.value.clientWidth || 300
   const rowH = 28
-  const marginLeft = 92
-  const marginRight = 72
+  const compact = W < 420
+  const marginLeft = compact ? 74 : 92
+  const marginRight = compact ? 50 : 72
   const marginTop = 8
   const marginBottom = 4
   const H = marginTop + data.length * rowH + marginBottom
 
-  const svg = d3.select(svgRef.value)
-  svg.selectAll('*').remove()
   svg.attr('viewBox', `0 0 ${W} ${H}`).attr('height', H)
 
   const xMax = d3.max(data, (d) => d.value) ?? 1
@@ -96,7 +97,10 @@ const render = () => {
     .attr('dy', '0.35em')
     .attr('text-anchor', 'end')
     .attr('class', 'bar-label')
-    .text((d) => d.label.length > 6 ? `${d.label.slice(0, 5)}…` : d.label)
+    .text((d) => {
+      const limit = compact ? 4 : 6
+      return d.label.length > limit ? `${d.label.slice(0, limit - 1)}…` : d.label
+    })
 
   // 輔助標籤（出發機場代碼）
   if (data.some((d) => d.subLabel)) {
@@ -119,19 +123,19 @@ const render = () => {
     .join('text')
     .attr('x', (d) => {
       const barEnd = x(d.value)
-      const labelWidth = 52 // 預估像素寬度
+      const labelWidth = compact ? 42 : 52 // 預估像素寬度
       return barEnd + labelWidth > W ? barEnd - 4 : barEnd + 5
     })
     .attr('y', (d) => yPos(d) + y.bandwidth() / 2)
     .attr('dy', '0.35em')
     .attr('text-anchor', (d) => {
       const barEnd = x(d.value)
-      const labelWidth = 52
+      const labelWidth = compact ? 42 : 52
       return barEnd + labelWidth > W ? 'end' : 'start'
     })
     .attr('class', (d) => {
       const barEnd = x(d.value)
-      return barEnd + 52 > W ? 'bar-value bar-value--inside' : 'bar-value'
+      return barEnd + (compact ? 42 : 52) > W ? 'bar-value bar-value--inside' : 'bar-value'
     })
     .text((d) => `${fmt(d.value)}${props.unit ?? ''}`)
 }

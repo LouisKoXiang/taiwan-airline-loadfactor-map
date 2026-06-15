@@ -1,10 +1,60 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useAirlineGrowthStore } from '../../stores/airlineGrowthStore'
+import type { MonthlyAirlineRouteStat } from '../../types/airline'
 
 const store = useAirlineGrowthStore()
 const fmt = new Intl.NumberFormat('zh-TW')
 const formatNum = (n: number) => fmt.format(Math.round(n))
+const collapsedRows = ref(new Set<string>())
+
+type YoYRoute = MonthlyAirlineRouteStat & {
+  yoyLoadFactorPp?: number
+  yoyPassengerPct?: number
+  yoyFlightPct?: number
+  yoySeatPct?: number
+  isNew: boolean
+}
+
+function rowKey(r: Pick<MonthlyAirlineRouteStat, 'originAirportCode' | 'destinationAirportCode'>) {
+  return `${r.originAirportCode}-${r.destinationAirportCode}`
+}
+
+const allRowsCollapsed = computed(() =>
+  store.routesWithYoY.length > 0 &&
+  store.routesWithYoY.every((r) => collapsedRows.value.has(rowKey(r))),
+)
+
+function isRowCollapsed(r: Pick<MonthlyAirlineRouteStat, 'originAirportCode' | 'destinationAirportCode'>) {
+  return collapsedRows.value.has(rowKey(r))
+}
+
+function toggleRow(r: Pick<MonthlyAirlineRouteStat, 'originAirportCode' | 'destinationAirportCode'>) {
+  const next = new Set(collapsedRows.value)
+  const key = rowKey(r)
+  if (next.has(key)) next.delete(key)
+  else next.add(key)
+  collapsedRows.value = next
+}
+
+function toggleAllRows() {
+  collapsedRows.value = allRowsCollapsed.value
+    ? new Set()
+    : new Set(store.routesWithYoY.map((r) => rowKey(r)))
+}
+
+function rowSummary(r: YoYRoute) {
+  const status = r.isNew ? '新增' : diffText(r.yoyLoadFactorPp, 'pp')
+  return `${r.destinationCityName}・${r.loadFactor.toFixed(1)}%・${status}`
+}
+
+watch(
+  () => store.routesWithYoY.map((r) => rowKey(r)).join('|'),
+  () => {
+    collapsedRows.value = new Set(store.routesWithYoY.map((r) => rowKey(r)))
+  },
+  { immediate: true },
+)
 
 function diffClass(val: number | undefined) {
   if (val === undefined) return ''
@@ -92,6 +142,11 @@ const summaryCards = computed(() => {
       <p class="yoy-summary-text">{{ store.yoySummary.summaryText }}</p>
 
       <!-- 各航線同期比較表 -->
+      <div class="table-mobile-toolbar">
+        <button type="button" class="mobile-collapse-all-btn" @click="toggleAllRows">
+          {{ allRowsCollapsed ? '全部展開' : '全部收合' }}
+        </button>
+      </div>
       <div class="table-wrap">
         <table class="route-data-table yoy-table">
           <thead>
@@ -111,40 +166,53 @@ const summaryCards = computed(() => {
             </tr>
           </thead>
           <tbody>
-            <tr v-for="r in store.routesWithYoY" :key="`${r.originAirportCode}-${r.destinationAirportCode}`">
-              <td class="code-cell">{{ r.originAirportCode }}</td>
-              <td class="code-cell">{{ r.destinationAirportCode }}</td>
-              <td>{{ r.destinationCityName }}</td>
-              <td class="num-col">
+            <tr
+              v-for="r in store.routesWithYoY"
+              :key="`${r.originAirportCode}-${r.destinationAirportCode}`"
+              :class="{ 'mobile-collapsed': isRowCollapsed(r) }"
+            >
+              <td class="mobile-card-toggle">
+                <button type="button" @click="toggleRow(r)">
+                  <span class="mobile-card-route">
+                    <strong>{{ r.originAirportCode }} → {{ r.destinationAirportCode }}</strong>
+                    <small>{{ rowSummary(r) }}</small>
+                  </span>
+                  <span class="mobile-card-state">{{ isRowCollapsed(r) ? '展開' : '收合' }}</span>
+                </button>
+              </td>
+              <td class="code-cell" data-label="出發">{{ r.originAirportCode }}</td>
+              <td class="code-cell" data-label="目的地">{{ r.destinationAirportCode }}</td>
+              <td data-label="城市">{{ r.destinationCityName }}</td>
+              <td class="num-col" data-label="本月載客率">
                 <span class="lf-badge" :class="r.loadFactor >= 90 ? 'lf-high' : r.loadFactor >= 80 ? 'lf-mid' : 'lf-low'">
                   {{ r.loadFactor.toFixed(1) }}%
                 </span>
               </td>
-              <td class="num-col">
+              <td class="num-col" data-label="載客率 vs 去年">
                 <span v-if="!r.isNew" class="yoy-diff" :class="diffClass(r.yoyLoadFactorPp)">
                   {{ diffText(r.yoyLoadFactorPp, 'pp') }}
                 </span>
                 <span v-else class="route-tag route-tag--new">新增</span>
               </td>
-              <td class="num-col">{{ formatNum(r.passengerCount) }}</td>
-              <td class="num-col">
+              <td class="num-col" data-label="本月載客人數">{{ formatNum(r.passengerCount) }}</td>
+              <td class="num-col" data-label="旅客 vs 去年">
                 <span v-if="!r.isNew" class="yoy-diff" :class="diffClass(r.yoyPassengerPct)">
                   {{ diffText(r.yoyPassengerPct, '%') }}
                 </span>
               </td>
-              <td class="num-col">{{ formatNum(r.flightCount) }}</td>
-              <td class="num-col">
+              <td class="num-col" data-label="本月架次">{{ formatNum(r.flightCount) }}</td>
+              <td class="num-col" data-label="架次 vs 去年">
                 <span v-if="!r.isNew" class="yoy-diff" :class="diffClass(r.yoyFlightPct)">
                   {{ diffText(r.yoyFlightPct, '%') }}
                 </span>
               </td>
-              <td class="num-col">{{ formatNum(r.seatCount) }}</td>
-              <td class="num-col">
+              <td class="num-col" data-label="本月座位">{{ formatNum(r.seatCount) }}</td>
+              <td class="num-col" data-label="座位 vs 去年">
                 <span v-if="!r.isNew" class="yoy-diff" :class="diffClass(r.yoySeatPct)">
                   {{ diffText(r.yoySeatPct, '%') }}
                 </span>
               </td>
-              <td>
+              <td data-label="狀態">
                 <span v-if="r.isNew" class="route-tag route-tag--new">新增</span>
                 <span v-else class="route-tag route-tag--continue">持續</span>
               </td>

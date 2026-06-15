@@ -67,6 +67,28 @@ interface DetailRow extends MonthlyAirlineRouteStat {
   tags: string[]
 }
 
+interface TimelineCell {
+  month: string
+  hasService: boolean
+  flightCount?: number
+  passengerCount?: number
+  seatCount?: number
+  loadFactor?: number
+}
+
+interface TimelineRow {
+  routeKey: string
+  originAirportCode: string
+  destinationAirportCode: string
+  destinationCityName: string
+  destinationCountry: string
+  activeMonthCount: number
+  latestPassengerCount: number
+  latestFlightCount: number
+  latestLoadFactor?: number
+  months: TimelineCell[]
+}
+
 const allRecords = rawData as MonthlyAirlineRouteStat[]
 
 // ── 月份排序工具（避免字串排序把 10月 排在 1月 之前） ───────────────
@@ -477,6 +499,100 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
     }),
   )
 
+  // ── 矩陣顯示月份：目前月份往前 12 個月 ────────────────────────
+  const visibleTimelineMonths = computed<string[]>(() => {
+    const endKey = monthSortKey(activeMonth.value)
+    if (endKey === 0) return []
+    const match = activeMonth.value.match(/(\d+)年(\d+)月/)
+    if (!match) return []
+    // 往前 12 個月：年份減 1，月份不變
+    const startKey = (parseInt(match[1]) - 1) * 100 + parseInt(match[2])
+    return monthsForAirline.value.filter((m) => {
+      const k = monthSortKey(m)
+      return k >= startKey && k <= endKey
+    })
+  })
+
+  // ── 航點月份矩陣 ─────────────────────────────────────────────
+  const routeTimelineMatrix = computed<TimelineRow[]>(() => {
+    const months = visibleTimelineMonths.value
+    if (months.length === 0) return []
+
+    const monthSet = new Set(months)
+    const rangeRecs = allRecords.filter(
+      (r) => r.airlineName === selectedAirline.value && monthSet.has(r.month),
+    )
+
+    type RouteInfo = {
+      originAirportCode: string
+      destinationAirportCode: string
+      destinationCityName: string
+      destinationCountry: string
+      records: Map<string, MonthlyAirlineRouteStat>
+    }
+    const routeInfoMap = new Map<string, RouteInfo>()
+
+    for (const r of rangeRecs) {
+      const key = routeKey(r)
+      if (!routeInfoMap.has(key)) {
+        routeInfoMap.set(key, {
+          originAirportCode: r.originAirportCode,
+          destinationAirportCode: r.destinationAirportCode,
+          destinationCityName: r.destinationCityName,
+          destinationCountry: r.destinationCountry,
+          records: new Map(),
+        })
+      }
+      routeInfoMap.get(key)!.records.set(r.month, r)
+    }
+
+    const current = activeMonth.value
+
+    const rows: TimelineRow[] = [...routeInfoMap.entries()].map(([key, info]) => {
+      const monthCells: TimelineCell[] = months.map((m) => {
+        const rec = info.records.get(m)
+        if (!rec) return { month: m, hasService: false }
+        return {
+          month: m,
+          hasService: true,
+          flightCount: rec.flightCount,
+          passengerCount: rec.passengerCount,
+          seatCount: rec.seatCount,
+          loadFactor: rec.loadFactor,
+        }
+      })
+
+      const currentRec = info.records.get(current)
+
+      return {
+        routeKey: key,
+        originAirportCode: info.originAirportCode,
+        destinationAirportCode: info.destinationAirportCode,
+        destinationCityName: info.destinationCityName,
+        destinationCountry: info.destinationCountry,
+        activeMonthCount: monthCells.filter((c) => c.hasService).length,
+        latestPassengerCount: currentRec?.passengerCount ?? 0,
+        latestFlightCount: currentRec?.flightCount ?? 0,
+        latestLoadFactor: currentRec?.loadFactor,
+        months: monthCells,
+      }
+    })
+
+    // 只顯示區間內有班次變化的航點：有些月份有飛、有些月份無班。
+    const changedRows = rows.filter((row) =>
+      row.activeMonthCount > 0 && row.activeMonthCount < months.length,
+    )
+
+    // 排序：① 目前月份有飛 → ② activeMonthCount 多 → ③ latestPassengerCount 多
+    return changedRows.sort((a, b) => {
+      const aActive = a.latestPassengerCount > 0 ? 1 : 0
+      const bActive = b.latestPassengerCount > 0 ? 1 : 0
+      if (aActive !== bActive) return bActive - aActive
+      if (a.activeMonthCount !== b.activeMonthCount) return b.activeMonthCount - a.activeMonthCount
+      return b.latestPassengerCount - a.latestPassengerCount
+    })
+  })
+
   return {
     selectedAirline,
     selectedMonth,
@@ -503,5 +619,7 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
     opportunityRoutes,
     routeDetailTags,
     detailRows,
+    visibleTimelineMonths,
+    routeTimelineMatrix,
   }
 })

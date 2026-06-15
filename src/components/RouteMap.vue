@@ -247,7 +247,7 @@ const resetZoom = () => {
 onMounted(() => {
   resizeObserver = new ResizeObserver(([entry]) => {
     const { width, height } = entry.contentRect
-    size.value = { width: Math.max(600, width), height: Math.max(480, height) }
+    size.value = { width: Math.max(320, width), height: Math.max(360, height) }
   })
   if (wrapperRef.value) resizeObserver.observe(wrapperRef.value)
   render()

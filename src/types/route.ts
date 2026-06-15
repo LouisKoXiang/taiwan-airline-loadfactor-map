@@ -36,6 +36,7 @@ export interface Route {
 export type ViewMetric = 'passengers' | 'loadFactor' | 'flightCount'
 
 export interface RouteFilters {
+  month: string
   originAirportCode: string
   searchTerm: string
   airlineName: string
