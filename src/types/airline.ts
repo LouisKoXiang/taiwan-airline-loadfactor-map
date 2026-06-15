@@ -53,3 +53,5 @@ export const AIRLINE_META: Record<AirlineName, { code: string; accent: string }>
   星宇航空: { code: 'JX', accent: '#0e6699' },
   台灣虎航: { code: 'IT', accent: '#d9580a' },
 }
+
+export type AnalysisTab = 'overview' | 'yoy' | 'changes' | 'opportunities' | 'details'

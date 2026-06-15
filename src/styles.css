@@ -1784,6 +1784,367 @@ a { color: inherit; }
 
 .seo-blurb p + p { margin-top: 8px; }
 
+/* ── KPI 同期差異腳注 ─────────────────────────────────────────────────── */
+.kpi-yoy {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink-300);
+  margin-top: auto;
+}
+
+.kpi-yoy--pos { color: var(--green-500); }
+.kpi-yoy--neg { color: #e03030; }
+
+/* ── 分析 Tab 列 ─────────────────────────────────────────────────────── */
+.analysis-tabs {
+  display: flex;
+  gap: 10px;
+  padding: 8px;
+  background: #e7f4f7;
+  border-radius: 18px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.analysis-tabs::-webkit-scrollbar { display: none; }
+
+.analysis-tab {
+  flex: 1 0 132px;
+  min-height: 54px;
+  padding: 0 24px;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  color: #078ca0;
+  font-size: 1rem;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: background 140ms, color 140ms, box-shadow 140ms;
+}
+
+.analysis-tab:hover {
+  color: #056f80;
+  background: rgb(255 255 255 / 0.55);
+}
+
+.analysis-tab.active {
+  background: #fff;
+  color: #078ca0;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgb(14 28 36 / 0.1);
+}
+
+.analysis-tab:focus-visible {
+  outline: 3px solid rgb(31 143 255 / 0.28);
+  outline-offset: 2px;
+}
+
+/* ── Tab 面板容器 ────────────────────────────────────────────────────── */
+.tab-panel {
+  min-height: 200px;
+}
+
+/* ── 航線標籤 ────────────────────────────────────────────────────────── */
+.route-tag {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin-right: 3px;
+}
+
+.route-tag--full       { background: rgb(31 143 255 / 0.12); color: var(--blue-700); }
+.route-tag--new        { background: rgb(43 181 106 / 0.14); color: #1a7a45; }
+.route-tag--growth     { background: rgb(245 158 11 / 0.14); color: #b45309; }
+.route-tag--opportunity { background: rgb(139 92 246 / 0.12); color: #6d28d9; }
+.route-tag--increase   { background: rgb(43 181 106 / 0.12); color: #16703d; }
+.route-tag--decrease   { background: rgb(224 48 48 / 0.1); color: #b03030; }
+.route-tag--continue   { background: var(--ink-50); color: var(--ink-400); }
+
+.tags-cell {
+  white-space: nowrap;
+}
+
+/* ── 同期差異數字 ─────────────────────────────────────────────────────── */
+.yoy-diff {
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.yoy-diff--pos { color: var(--green-500); }
+.yoy-diff--neg { color: #e03030; }
+
+/* ── 同期比較 Tab ────────────────────────────────────────────────────── */
+.yoy-tab,
+.changes-tab,
+.opp-tab {
+  display: grid;
+  gap: 20px;
+}
+
+.yoy-empty {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 48px 16px;
+  border: 1px dashed var(--ink-100);
+  border-radius: 12px;
+  color: var(--ink-400);
+  text-align: center;
+}
+
+.yoy-empty p { margin: 0; font-size: 0.92rem; font-weight: 700; }
+.yoy-empty small { color: var(--ink-300); font-size: 0.78rem; line-height: 1.6; max-width: 300px; }
+
+.yoy-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.yoy-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 16px 18px;
+  border: 1px solid var(--ink-100);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.yoy-card--pos { border-color: rgb(43 181 106 / 0.25); background: rgb(43 181 106 / 0.05); }
+.yoy-card--neg { border-color: rgb(224 48 48 / 0.2);   background: rgb(224 48 48 / 0.04); }
+
+.yoy-card-label {
+  color: var(--ink-400);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.yoy-card-value {
+  color: var(--ink-900);
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.yoy-card-diff {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-300);
+}
+
+.yoy-card-diff.yoy-diff--pos { color: var(--green-500); }
+.yoy-card-diff.yoy-diff--neg { color: #e03030; }
+
+.yoy-summary-text {
+  padding: 12px 16px;
+  border-left: 3px solid var(--blue-300);
+  background: var(--blue-50);
+  border-radius: 0 8px 8px 0;
+  color: var(--ink-600);
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.yoy-table th,
+.yoy-table td {
+  white-space: nowrap;
+}
+
+/* ── 航點異動 Tab ─────────────────────────────────────────────────────── */
+.changes-none {
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--ink-400);
+  font-size: 0.9rem;
+  border: 1px dashed var(--ink-100);
+  border-radius: 12px;
+}
+
+.changes-section { display: grid; gap: 10px; }
+
+.changes-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--ink-800);
+  margin: 0;
+}
+
+.changes-section-title--added { color: #1a7a45; }
+.changes-section-title--removed { color: #b03030; }
+.changes-section-title--increased { color: var(--blue-700); }
+.changes-section-title--decreased { color: #b45309; }
+
+.changes-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.changes-summary-card {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid var(--ink-100);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.changes-summary-card span {
+  color: var(--ink-400);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.changes-summary-card strong {
+  color: var(--ink-900);
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.changes-empty-line {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px dashed var(--ink-100);
+  border-radius: 10px;
+  color: var(--ink-300);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.changes-count {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 900;
+  background: var(--ink-50);
+  color: var(--ink-600);
+}
+
+.changes-list { display: grid; gap: 8px; }
+
+.change-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--ink-100);
+  background: #fff;
+  flex-wrap: wrap;
+}
+
+.change-item--added  { border-color: rgb(43 181 106 / 0.2); background: rgb(43 181 106 / 0.03); }
+.change-item--removed { border-color: rgb(224 48 48 / 0.15); background: rgb(224 48 48 / 0.03); }
+.change-item--increased { border-color: rgb(31 143 255 / 0.16); background: rgb(31 143 255 / 0.035); }
+.change-item--decreased { border-color: rgb(245 158 11 / 0.18); background: rgb(245 158 11 / 0.04); }
+
+.change-item-route {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.change-arrow { color: var(--ink-300); font-size: 0.84rem; }
+
+.change-city {
+  color: var(--ink-800);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.change-item-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--ink-600);
+  font-weight: 700;
+}
+
+.change-prev-label {
+  color: var(--ink-400);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* ── 增班潛力 Tab ─────────────────────────────────────────────────────── */
+.opp-intro p {
+  color: var(--ink-400);
+  font-size: 0.86rem;
+  line-height: 1.65;
+  padding: 12px 16px;
+  background: var(--blue-50);
+  border-radius: 8px;
+  margin: 0;
+}
+
+.opp-list { display: grid; gap: 10px; }
+
+.opp-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border: 1px solid rgb(31 143 255 / 0.15);
+  border-radius: 12px;
+  background: #fff;
+  flex-wrap: wrap;
+}
+
+.opp-item-main {
+  display: grid;
+  gap: 4px;
+}
+
+.opp-item-route {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.opp-arrow { color: var(--ink-300); }
+
+.opp-city {
+  color: var(--ink-800);
+  font-size: 0.9rem;
+}
+
+.opp-reason {
+  color: var(--blue-600);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.opp-item-metrics {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--ink-600);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.opp-metric { white-space: nowrap; }
+
 /* ─── 響應式版面 ─────────────────────────────────────────────────────── */
 @media (max-width: 1200px) {
   .kpi-grid { grid-template-columns: repeat(3, 1fr); }
@@ -1795,6 +2156,8 @@ a { color: inherit; }
   .map-stage { order: -1; min-height: 58vh; }
   .sidebar { max-height: none; }
   .charts-row { grid-template-columns: 1fr; }
+  .yoy-summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .changes-summary-grid { grid-template-columns: repeat(2, 1fr); }
   .growth-page { padding: 20px 16px 48px; }
 }
 
@@ -1812,4 +2175,15 @@ a { color: inherit; }
   .airline-tab { min-width: 0; padding: 9px 12px; }
   .growth-header { flex-direction: column; }
   .growth-header-text h1 { font-size: 1.45rem; }
+  .analysis-tabs { margin-inline: -2px; }
+  .analysis-tab {
+    flex-basis: 112px;
+    min-height: 48px;
+    padding-inline: 18px;
+    font-size: 0.92rem;
+  }
+  .yoy-summary-grid,
+  .changes-summary-grid {
+    grid-template-columns: 1fr;
+  }
 }

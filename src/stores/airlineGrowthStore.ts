@@ -1,8 +1,71 @@
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import rawData from '../data/monthlyAirlineRoutes.json'
-import type { AirlineMonthlySummary, AirlineName, MonthlyAirlineRouteStat, SortDir, SortKey } from '../types/airline'
+import type { AnalysisTab, AirlineMonthlySummary, AirlineName, MonthlyAirlineRouteStat, SortDir, SortKey } from '../types/airline'
 import { FOUR_AIRLINES } from '../types/airline'
+
+interface RouteWithYoY extends MonthlyAirlineRouteStat {
+  previousFlightCount?: number
+  previousSeatCount?: number
+  previousPassengerCount?: number
+  previousLoadFactor?: number
+  yoyLoadFactorPp?: number
+  yoyPassengerPct?: number
+  yoyFlightPct?: number
+  yoySeatPct?: number
+  isNew: boolean
+}
+
+interface YoySummaryData {
+  currentMonth: string
+  previousYearMonth: string
+  hasPreviousYearData: boolean
+  currentAvgLoadFactor: number
+  previousAvgLoadFactor?: number
+  loadFactorPp?: number
+  currentPassengerCount: number
+  previousPassengerCount?: number
+  passengerPct?: number
+  currentFlightCount: number
+  previousFlightCount?: number
+  flightPct?: number
+  currentSeatCount: number
+  previousSeatCount?: number
+  seatPct?: number
+  currentRouteCount: number
+  previousRouteCount?: number
+  routeCountChange?: number
+  summaryText: string
+}
+
+interface RouteChangeItem {
+  originAirportCode: string
+  destinationAirportCode: string
+  destinationCityName: string
+  destinationCountry: string
+  currentFlightCount: number
+  previousFlightCount: number
+  flightDiff: number
+  flightChangePercent?: number
+  currentLoadFactor?: number
+  previousLoadFactor?: number
+  currentPassengerCount: number
+  previousPassengerCount: number
+}
+
+interface OpportunityRoute extends MonthlyAirlineRouteStat {
+  reason: string
+  yoyPassengerPct?: number
+}
+
+interface DetailRow extends MonthlyAirlineRouteStat {
+  yoyLoadFactorPp?: number
+  yoyPassengerPct?: number
+  yoyFlightPct?: number
+  yoySeatPct?: number
+  isNew: boolean
+  tags: string[]
+}
 
 const allRecords = rawData as MonthlyAirlineRouteStat[]
 
@@ -15,6 +78,51 @@ function monthSortKey(m: string): number {
 
 function sortMonths(months: Iterable<string>): string[] {
   return [...months].sort((a, b) => monthSortKey(a) - monthSortKey(b))
+}
+
+function routeKey(r: Pick<MonthlyAirlineRouteStat, 'originAirportCode' | 'destinationAirportCode'>) {
+  return `${r.originAirportCode}-${r.destinationAirportCode}`
+}
+
+function pctChange(current: number, previous: number): number | undefined {
+  if (previous === 0) return undefined
+  return Math.round(((current - previous) / previous) * 1000) / 10
+}
+
+function ppChange(current: number, previous: number): number {
+  return Math.round((current - previous) * 10) / 10
+}
+
+function median(values: number[]): number {
+  if (values.length === 0) return 0
+  const sorted = [...values].sort((a, b) => a - b)
+  const mid = Math.floor(sorted.length / 2)
+  return sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid]
+}
+
+function toChangeItem(current?: MonthlyAirlineRouteStat, previous?: MonthlyAirlineRouteStat): RouteChangeItem {
+  const base = current ?? previous
+  if (!base) {
+    throw new Error('route change item requires current or previous route')
+  }
+  const currentFlightCount = current?.flightCount ?? 0
+  const previousFlightCount = previous?.flightCount ?? 0
+  return {
+    originAirportCode: base.originAirportCode,
+    destinationAirportCode: base.destinationAirportCode,
+    destinationCityName: base.destinationCityName,
+    destinationCountry: base.destinationCountry,
+    currentFlightCount,
+    previousFlightCount,
+    flightDiff: currentFlightCount - previousFlightCount,
+    flightChangePercent: previousFlightCount > 0
+      ? pctChange(currentFlightCount, previousFlightCount)
+      : undefined,
+    currentLoadFactor: current?.loadFactor,
+    previousLoadFactor: previous?.loadFactor,
+    currentPassengerCount: current?.passengerCount ?? 0,
+    previousPassengerCount: previous?.passengerCount ?? 0,
+  }
 }
 
 export const useAirlineGrowthStore = defineStore('airline-growth', () => {
@@ -144,6 +252,231 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
     }),
   )
 
+  // ── 分析 Tab 狀態 ──────────────────────────────────────────────
+  const activeTab = ref<AnalysisTab>('overview')
+  const setActiveTab = (tab: AnalysisTab) => { activeTab.value = tab }
+
+  // ── 去年同月 ────────────────────────────────────────────────────
+  const previousYearMonth = computed(() => {
+    const match = activeMonth.value.match(/(\d+)年(\d+)月/)
+    if (!match) return ''
+    return `${parseInt(match[1]) - 1}年${match[2]}月`
+  })
+
+  const hasPreviousYearData = computed(() =>
+    previousYearMonth.value !== '' &&
+    allRecords.some((r) => r.airlineName === selectedAirline.value && r.month === previousYearMonth.value),
+  )
+
+  // ── 含同期比較的航線資料 ─────────────────────────────────────
+  const routesWithYoY = computed<RouteWithYoY[]>(() => {
+    const prevRecs = hasPreviousYearData.value
+      ? allRecords.filter((r) => r.airlineName === selectedAirline.value && r.month === previousYearMonth.value)
+      : []
+
+    return airlineRecords.value.map((r) => {
+      const prev = prevRecs.find(
+        (p) => p.originAirportCode === r.originAirportCode && p.destinationAirportCode === r.destinationAirportCode,
+      )
+      if (!prev) return { ...r, isNew: hasPreviousYearData.value }
+
+      const yoyLoadFactorPp = ppChange(r.loadFactor, prev.loadFactor)
+      const yoyPassengerPct = pctChange(r.passengerCount, prev.passengerCount)
+      const yoyFlightPct = pctChange(r.flightCount, prev.flightCount)
+      const yoySeatPct = pctChange(r.seatCount, prev.seatCount)
+
+      return {
+        ...r,
+        previousFlightCount: prev.flightCount,
+        previousSeatCount: prev.seatCount,
+        previousPassengerCount: prev.passengerCount,
+        previousLoadFactor: prev.loadFactor,
+        yoyLoadFactorPp,
+        yoyPassengerPct,
+        yoyFlightPct,
+        yoySeatPct,
+        isNew: false,
+      }
+    })
+  })
+
+  // ── 同期整體摘要 ────────────────────────────────────────────────
+  const yoySummary = computed<YoySummaryData>(() => {
+    if (!hasPreviousYearData.value) {
+      return {
+        currentMonth: activeMonth.value,
+        previousYearMonth: previousYearMonth.value,
+        hasPreviousYearData: false,
+        currentAvgLoadFactor: summary.value.avgLoadFactor,
+        currentPassengerCount: summary.value.passengerCount,
+        currentFlightCount: summary.value.flightCount,
+        currentSeatCount: summary.value.seatCount,
+        currentRouteCount: summary.value.routeCount,
+        summaryText: `目前沒有 ${previousYearMonth.value || '去年同月'} 的同期資料，暫無法計算年增表現。`,
+      }
+    }
+
+    const prevRecs = allRecords.filter(
+      (r) => r.airlineName === selectedAirline.value && r.month === previousYearMonth.value,
+    )
+    const prevSeats = prevRecs.reduce((s, r) => s + r.seatCount, 0)
+    const prevPax = prevRecs.reduce((s, r) => s + r.passengerCount, 0)
+    const prevFlights = prevRecs.reduce((s, r) => s + r.flightCount, 0)
+    const prevLf = prevSeats > 0 ? (prevPax / prevSeats) * 100 : 0
+
+    const loadFactorPp = ppChange(summary.value.avgLoadFactor, prevLf)
+    const passengerPct = pctChange(summary.value.passengerCount, prevPax)
+    const flightPct = pctChange(summary.value.flightCount, prevFlights)
+    const seatPct = pctChange(summary.value.seatCount, prevSeats)
+    const routeCountChange = summary.value.routeCount - prevRecs.length
+
+    const d = (val: number, unit: string) => `${val >= 0 ? '提升' : '下降'} ${Math.abs(val).toFixed(1)}${unit}`
+    const p = (val: number | undefined) => val === undefined ? '無法計算' : `${val >= 0 ? '年增' : '年減'} ${Math.abs(val).toFixed(1)}%`
+
+    const summaryText = `${selectedAirline.value} ${activeMonth.value}平均載客率為 ${summary.value.avgLoadFactor.toFixed(1)}%，較 ${previousYearMonth.value} ${d(loadFactorPp, 'pp')}；載客人數${p(passengerPct)}，飛行架次${p(flightPct)}。`
+
+    return {
+      currentMonth: activeMonth.value,
+      previousYearMonth: previousYearMonth.value,
+      hasPreviousYearData: true,
+      currentAvgLoadFactor: summary.value.avgLoadFactor,
+      previousAvgLoadFactor: Math.round(prevLf * 10) / 10,
+      loadFactorPp,
+      currentPassengerCount: summary.value.passengerCount,
+      previousPassengerCount: prevPax,
+      passengerPct,
+      currentFlightCount: summary.value.flightCount,
+      previousFlightCount: prevFlights,
+      flightPct,
+      currentSeatCount: summary.value.seatCount,
+      previousSeatCount: prevSeats,
+      seatPct,
+      currentRouteCount: summary.value.routeCount,
+      previousRouteCount: prevRecs.length,
+      routeCountChange,
+      summaryText,
+    }
+  })
+
+  // ── 航線異動（新增 / 停飛 / 增班 / 減班）──────────────────────
+  const routeChanges = computed(() => {
+    if (!hasPreviousYearData.value) {
+      return {
+        newRoutes: [] as RouteChangeItem[],
+        suspendedRoutes: [] as RouteChangeItem[],
+        increasedRoutes: [] as RouteChangeItem[],
+        decreasedRoutes: [] as RouteChangeItem[],
+      }
+    }
+
+    const prevRecs = allRecords.filter(
+      (r) => r.airlineName === selectedAirline.value && r.month === previousYearMonth.value,
+    )
+    const currentMap = new Map(airlineRecords.value.map((r) => [routeKey(r), r]))
+    const prevMap = new Map(prevRecs.map((r) => [routeKey(r), r]))
+    const newRoutes: RouteChangeItem[] = []
+    const suspendedRoutes: RouteChangeItem[] = []
+    const increasedRoutes: RouteChangeItem[] = []
+    const decreasedRoutes: RouteChangeItem[] = []
+
+    for (const [key, current] of currentMap) {
+      const previous = prevMap.get(key)
+      if (!previous) {
+        newRoutes.push(toChangeItem(current, undefined))
+        continue
+      }
+
+      const item = toChangeItem(current, previous)
+      const absDiff = Math.abs(item.flightDiff)
+      const absPct = Math.abs(item.flightChangePercent ?? 0)
+      if (absDiff >= 8 || absPct >= 30) {
+        if (item.flightDiff > 0) increasedRoutes.push(item)
+        if (item.flightDiff < 0) decreasedRoutes.push(item)
+      }
+    }
+
+    for (const [key, previous] of prevMap) {
+      if (!currentMap.has(key)) {
+        suspendedRoutes.push(toChangeItem(undefined, previous))
+      }
+    }
+
+    const byAbsDiff = (a: RouteChangeItem, b: RouteChangeItem) => Math.abs(b.flightDiff) - Math.abs(a.flightDiff)
+
+    return {
+      newRoutes: newRoutes.sort(byAbsDiff),
+      suspendedRoutes: suspendedRoutes.sort(byAbsDiff),
+      increasedRoutes: increasedRoutes.sort(byAbsDiff),
+      decreasedRoutes: decreasedRoutes.sort(byAbsDiff),
+    }
+  })
+
+  // ── 增班潛力航線：LF ≥ 90% 且（低於中位架次或同期旅客增長 ≥ 20%） ──
+  const opportunityRoutes = computed<OpportunityRoute[]>(() => {
+    const recs = airlineRecords.value
+    if (recs.length === 0) return []
+
+    const medianFlights = median(recs.map((r) => r.flightCount))
+
+    return recs.flatMap((r) => {
+      if (r.loadFactor < 90) return []
+      const yoyRow = routesWithYoY.value.find(
+        (rr) => rr.originAirportCode === r.originAirportCode && rr.destinationAirportCode === r.destinationAirportCode,
+      )
+      const belowMedian = r.flightCount < medianFlights
+      const highPaxGrowth = (yoyRow?.yoyPassengerPct ?? 0) >= 20
+      if (!belowMedian && !highPaxGrowth) return []
+
+      const reasons: string[] = []
+      if (belowMedian) reasons.push(`載客率 ${r.loadFactor.toFixed(1)}%，班次低於當月中位數`)
+      if (highPaxGrowth && yoyRow?.yoyPassengerPct !== undefined) {
+        reasons.push(`載客人數較去年同期成長 ${yoyRow.yoyPassengerPct.toFixed(1)}%`)
+      }
+      return [{ ...r, reason: reasons.join('；'), yoyPassengerPct: yoyRow?.yoyPassengerPct }]
+    }).sort((a, b) => b.loadFactor - a.loadFactor || b.passengerCount - a.passengerCount)
+  })
+
+  // ── 航線標籤 ─────────────────────────────────────────────────────
+  const routeDetailTags = computed(() => {
+    const map = new Map<string, string[]>()
+    const oppKeys = new Set(
+      opportunityRoutes.value.map((r) => routeKey(r)),
+    )
+    const increasedKeys = new Set(routeChanges.value.increasedRoutes.map((r) => `${r.originAirportCode}-${r.destinationAirportCode}`))
+    const decreasedKeys = new Set(routeChanges.value.decreasedRoutes.map((r) => `${r.originAirportCode}-${r.destinationAirportCode}`))
+
+    for (const r of routesWithYoY.value) {
+      const key = routeKey(r)
+      const tags: string[] = []
+      if (r.isNew) tags.push('新航點')
+      if (r.loadFactor >= 90) tags.push('高需求')
+      if (oppKeys.has(key)) tags.push('增班潛力')
+      if (increasedKeys.has(key)) tags.push('增班')
+      if (decreasedKeys.has(key)) tags.push('減班')
+      map.set(key, tags)
+    }
+    return map
+  })
+
+  // ── 明細列（含同期比較與標籤） ────────────────────────────────
+  const detailRows = computed<DetailRow[]>(() =>
+    sortedRoutes.value.map((r) => {
+      const key = `${r.originAirportCode}-${r.destinationAirportCode}`
+      const yoyRow = routesWithYoY.value.find(
+        (rr) => rr.originAirportCode === r.originAirportCode && rr.destinationAirportCode === r.destinationAirportCode,
+      )
+      return {
+        ...r,
+        yoyLoadFactorPp: yoyRow?.yoyLoadFactorPp,
+        yoyPassengerPct: yoyRow?.yoyPassengerPct,
+        yoyFlightPct: yoyRow?.yoyFlightPct,
+        yoySeatPct: yoyRow?.yoySeatPct,
+        isNew: yoyRow?.isNew ?? false,
+        tags: routeDetailTags.value.get(key) ?? [],
+      }
+    }),
+  )
+
   return {
     selectedAirline,
     selectedMonth,
@@ -160,5 +493,15 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
     trendData,
     momGrowth,
     fourAirlinesSummary,
+    activeTab,
+    setActiveTab,
+    previousYearMonth,
+    hasPreviousYearData,
+    routesWithYoY,
+    yoySummary,
+    routeChanges,
+    opportunityRoutes,
+    routeDetailTags,
+    detailRows,
   }
 })
