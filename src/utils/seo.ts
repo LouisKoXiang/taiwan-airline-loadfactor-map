@@ -1,9 +1,8 @@
 // ── 網站基礎設定 ───────────────────────────────────────────────
 // 若改用自訂網域，請同步更新 SITE_BASE。
-// 切換為 history mode 時，createWebHashHistory() 改為 createWebHistory() 即可；
-// pageUrl() 目前已輸出正式網址格式，不含 hash。
+// 目前使用 Vue Router history mode，canonical / og:url 均不含 hash。
 
-const SITE_BASE = 'https://aiwan-airline-loadfactor.vercel.app'
+const SITE_BASE = 'https://taiwan-airline-loadfactor.vercel.app'
 const SITE_NAME = '台灣航空載客率分析'
 const OG_IMAGE  = `${SITE_BASE}/og-image.png`
 // 正式上線前請將 og-image.png 換成實際 1200×630 圖片。
@@ -41,11 +40,8 @@ const PAGE_META: Record<string, PageMeta> = {
 
 const DEFAULT_META = PAGE_META['airline-growth']
 
-// ── 頁面完整 URL 產生（集中封裝，history/hash 皆可切換） ──────────
-// canonical 與 og:url 採用 history mode 格式（不含 '#'），
-// 這也是正式部署後的目標網址格式。
-// 若專案目前仍停留在 hash router，可改成：
-//   return path === '/' ? `${SITE_BASE}/` : `${SITE_BASE}/#${path}`
+// ── 頁面完整 URL 產生（集中封裝） ───────────────────────────────
+// canonical 與 og:url 採用 history mode 格式（不含 '#'）。
 
 function pageUrl(path: string): string {
   return path === '/' ? `${SITE_BASE}/` : `${SITE_BASE}${path}`

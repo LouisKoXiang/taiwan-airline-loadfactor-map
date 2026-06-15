@@ -1,10 +1,10 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import RouteExplorerView from '../views/RouteExplorerView.vue'
 import AirlineGrowthView from '../views/AirlineGrowthView.vue'
 import { updatePageMeta } from '../utils/seo'
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',

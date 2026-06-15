@@ -132,23 +132,15 @@ scripts/
 
 > **History mode 注意事項**
 >
-> 目前使用 `createWebHashHistory()`，實際網址為 `/#/routes` 格式。
-> SEO meta（canonical / og:url）已採 history-mode 格式（`/routes`），為未來切換預留。
->
-> 若要切換為 history mode：
-> 1. 將 `src/router/index.ts` 中的 `createWebHashHistory()` 改為 `createWebHistory()`
-> 2. 靜態部署需設定 fallback（所有路徑導向 `index.html`）：
->    - **Nginx**：`try_files $uri $uri/ /index.html;`
->    - **Netlify**：在 `public/_redirects` 加入 `/* /index.html 200`
->    - **Vercel**：在 `vercel.json` 設定 rewrites
->    - **GitHub Pages**：需搭配 404.html redirect trick 或使用 hash mode
+> 專案目前使用 `createWebHistory()`，實際網址為 `/routes` 格式，不使用 `/#/routes`。
+> Vercel 透過 `vercel.json` rewrites 將所有路徑導回 `index.html`，避免重新整理或直接開啟內頁時出現 404。
 
 ## SEO
 
 - `index.html`：靜態 title / description / og / twitter / JSON-LD（預設首頁內容）
 - `src/utils/seo.ts`：路由切換後動態更新所有 meta，canonical / og:url 依路徑產生
 - 主要目標關鍵字：`台灣航空載客率`、`台灣航空 載客率`
-- 正式網址目前設定為 `https://aiwan-airline-loadfactor.vercel.app/`，若改用自訂網域須同步更新 `SITE_BASE` 與 `og-image.png`（均在 `seo.ts` 集中定義）
+- 正式網址目前設定為 `https://taiwan-airline-loadfactor.vercel.app/`，若改用自訂網域須同步更新 `SITE_BASE` 與 `og-image.png`（均在 `seo.ts` 集中定義）
 
 ## 本地開發
 
