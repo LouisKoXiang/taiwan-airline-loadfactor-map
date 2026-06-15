@@ -89,7 +89,12 @@ const render = () => {
       .curve(d3.curveMonotoneX),
     )
 
-  // X 軸月份標籤
+  // X 軸標籤：月份多時動態抽樣，避免重疊
+  // 每個標籤至少需要 44px，以此計算最多顯示幾個
+  const innerW = W - mLeft - mRight
+  const maxLabels = Math.max(2, Math.floor(innerW / 44))
+  const step = data.length <= maxLabels ? 1 : Math.ceil(data.length / maxLabels)
+
   svg.append('g')
     .selectAll<SVGTextElement, TrendPoint>('text')
     .data(data)
@@ -99,6 +104,10 @@ const render = () => {
     .attr('dy', '0.35em')
     .attr('text-anchor', 'middle')
     .attr('class', 'trend-x-label')
+    // 顯示抽樣標籤、最後一筆、以及目前選取月份
+    .attr('opacity', (d, i) =>
+      (i % step === 0 || i === data.length - 1 || d.month === props.currentMonth) ? 1 : 0,
+    )
     .text((d) => d.month.replace(/(\d+)年(\d+)月/, '$1/$2'))
 
   // Y 軸刻度標籤
@@ -113,18 +122,22 @@ const render = () => {
     .attr('class', 'trend-y-label')
     .text((d) => `${d}%`)
 
-  // 資料點與數值標籤
+  // 資料點：月份多時縮小半徑
+  const dotR = data.length > 8 ? 2.5 : 3.5
+  const dotRCurrent = data.length > 8 ? 4.5 : 5.5
+
   svg.append('g')
     .selectAll<SVGCircleElement, TrendPoint>('circle')
     .data(data)
     .join('circle')
     .attr('cx', (d) => x(d.month)!)
     .attr('cy', (d) => y(d.avgLoadFactor))
-    .attr('r', (d) => d.month === props.currentMonth ? 5.5 : 3.5)
+    .attr('r', (d) => d.month === props.currentMonth ? dotRCurrent : dotR)
     .attr('fill', (d) => d.month === props.currentMonth ? accent() : '#fff')
     .attr('stroke', accent())
-    .attr('stroke-width', 2.2)
+    .attr('stroke-width', 2)
 
+  // 數值標籤：月份多時僅顯示當月
   svg.append('g')
     .selectAll<SVGTextElement, TrendPoint>('text')
     .data(data)
@@ -133,6 +146,7 @@ const render = () => {
     .attr('y', (d) => y(d.avgLoadFactor) - 10)
     .attr('text-anchor', 'middle')
     .attr('class', (d) => d.month === props.currentMonth ? 'trend-val trend-val--current' : 'trend-val')
+    .attr('opacity', (d) => (step === 1 || d.month === props.currentMonth) ? 1 : 0)
     .text((d) => `${d.avgLoadFactor.toFixed(1)}%`)
 }
 

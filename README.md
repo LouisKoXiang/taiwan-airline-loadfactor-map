@@ -40,26 +40,24 @@
 - `src/data/realRoutes.json` — 117 條航線（全航空公司，供地圖頁用）
 - `src/data/monthlyAirlineRoutes.json` — 供分析頁用的多月份資料（四雄）
 
-### 目前已匯入資料
+### 已匯入資料
 
-| ODS 檔案 | 月份 | 筆數 |
-|----------|------|------|
-| `115年1月_1752_092220.ods` | 115年1月 | 196 |
-| `115年2月_1752_144521.ods` | 115年2月 | 200 |
-| `115年3月_1752_101519.ods` | 115年3月 | 203 |
-| `115年4月_1752_144902.ods` | 115年4月 | 201 |
+目前收錄月份與筆數以 `src/data/*.ods` 及 `src/data/monthlyAirlineRoutes.json` 為準。
+ODS 檔案新增後執行 parser 即自動更新，不需手動修改程式碼。
 
-**合計：800 筆**（中華航空、長榮航空、星宇航空、台灣虎航各月航線資料）
-
-資料集可持續擴充，每放入新月份 ODS 並執行 parser 即自動合併，不需手動修改任何程式碼。
-
-## 新增月份資料
+## 資料更新方式
 
 ```bash
-# 下載新月份 ODS 放入 src/data/
+# 新增或更新單一月份
 mise exec -- python scripts/parseOds.py src/data/116年1月_xxxx_xxxx.ods
-# 自動合併至 monthlyAirlineRoutes.json，不重複追加
+
+# 全量重建（重新解析 src/data/ 下所有 ODS）
+mise exec -- python scripts/parseOds.py --all
 ```
+
+> **全量重建**：直接清空並重寫整份 JSON，適合初次建立或需要修正所有月份時使用。
+>
+> **單檔更新**：只移除同月份舊資料，再寫入新解析結果，不影響其他月份。
 
 ## 技術架構
 

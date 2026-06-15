@@ -6,19 +6,29 @@ import { FOUR_AIRLINES } from '../types/airline'
 
 const allRecords = rawData as MonthlyAirlineRouteStat[]
 
+// ── 月份排序工具（避免字串排序把 10月 排在 1月 之前） ───────────────
+function monthSortKey(m: string): number {
+  const match = m.match(/(\d+)年(\d+)月/)
+  if (!match) return 0
+  return parseInt(match[1]) * 100 + parseInt(match[2])
+}
+
+function sortMonths(months: Iterable<string>): string[] {
+  return [...months].sort((a, b) => monthSortKey(a) - monthSortKey(b))
+}
+
 export const useAirlineGrowthStore = defineStore('airline-growth', () => {
   // ── 篩選狀態 ─────────────────────────────────────────────────────
   const selectedAirline = ref<AirlineName>('中華航空')
   // 預設使用最新可用月份，避免月份選擇器空白。
   const selectedMonth = ref<string>(
-    [...new Set(allRecords.map((r) => r.month))].sort().at(-1) ?? '',
+    sortMonths(new Set(allRecords.map((r) => r.month))).at(-1) ?? '',
   )
 
   // ── 衍生資料：所有可用月份 ─────────────
-  const availableMonths = computed(() => {
-    const months = [...new Set(allRecords.map((r) => r.month))].sort()
-    return months
-  })
+  const availableMonths = computed(() =>
+    sortMonths(new Set(allRecords.map((r) => r.month))),
+  )
 
   // 未選月份時回退到最新月份。
   const activeMonth = computed(() => selectedMonth.value || availableMonths.value.at(-1) || '')
@@ -77,9 +87,9 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
     [...airlineRecords.value].sort((a, b) => b.loadFactor - a.loadFactor),
   )
 
-  // ── 跨月份輔助資料（供未來成長率使用） ─────────────────────
+  // ── 跨月份輔助資料（月份依時間順序排列） ─────────────────────
   const monthsForAirline = computed(() =>
-    [...new Set(allRecords.filter((r) => r.airlineName === selectedAirline.value).map((r) => r.month))].sort(),
+    sortMonths(new Set(allRecords.filter((r) => r.airlineName === selectedAirline.value).map((r) => r.month))),
   )
 
   const hasMultipleMonths = computed(() => monthsForAirline.value.length > 1)
