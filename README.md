@@ -2,6 +2,8 @@
 
 以交通部民用航空局公開統計資料整理台灣航空載客率、載客人數、飛行架次與航點變化，聚焦中華航空、長榮航空、星宇航空與台灣虎航的每月航線表現。
 
+正式站：[https://taiwan-airline-loadfactor.vercel.app/](https://taiwan-airline-loadfactor.vercel.app/)
+
 ![Vue 3](https://img.shields.io/badge/Vue-3-42b883?logo=vuedotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
 ![D3.js](https://img.shields.io/badge/D3.js-7-f9a03c?logo=d3dotjs&logoColor=white)
