@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Analytics } from '@vercel/analytics/vue'
 import { RouterView } from 'vue-router'
 import NavBar from './components/NavBar.vue'
 </script>
@@ -9,5 +10,6 @@ import NavBar from './components/NavBar.vue'
     <div class="page-content">
       <RouterView />
     </div>
+    <Analytics />
   </div>
 </template>
