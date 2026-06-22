@@ -10,6 +10,7 @@ import OpportunityRoutesTab from '../components/airline/OpportunityRoutesTab.vue
 import RouteDetailsTab from '../components/airline/RouteDetailsTab.vue'
 import { AIRLINE_META, FOUR_AIRLINES } from '../types/airline'
 import type { AirlineName } from '../types/airline'
+import { trackAirlineSelect, trackMonthSelect } from '../utils/analytics'
 
 const store = useAirlineGrowthStore()
 const route = useRoute()
@@ -36,7 +37,12 @@ watch(
 )
 
 function selectAirline(name: AirlineName) {
+  trackAirlineSelect(name, store.activeMonth, route.fullPath)
   router.push(airlinePaths[name])
+}
+
+function handleMonthChange() {
+  trackMonthSelect(store.activeMonth, store.selectedAirline, route.fullPath)
 }
 
 // KPI 同期差異輔助（型別安全）
@@ -68,7 +74,7 @@ const yoyFlight = computed(() => {
       <!-- 月份選擇器 -->
       <div class="month-select-wrap">
         <label class="field-label" for="month-sel">資料月份</label>
-        <select id="month-sel" v-model="store.selectedMonth" class="month-select">
+        <select id="month-sel" v-model="store.selectedMonth" class="month-select" @change="handleMonthChange">
           <option v-for="m in store.availableMonths" :key="m" :value="m">{{ m }}</option>
         </select>
       </div>

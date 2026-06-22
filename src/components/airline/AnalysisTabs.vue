@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { useAirlineGrowthStore } from '../../stores/airlineGrowthStore'
 import type { AnalysisTab } from '../../types/airline'
+import { trackAnalysisTab } from '../../utils/analytics'
+import { useRoute } from 'vue-router'
 
 const store = useAirlineGrowthStore()
+const route = useRoute()
 
 const TABS: { key: AnalysisTab; label: string }[] = [
   { key: 'overview', label: '總覽' },
@@ -11,6 +14,11 @@ const TABS: { key: AnalysisTab; label: string }[] = [
   { key: 'opportunities', label: '增班潛力' },
   { key: 'details', label: '明細' },
 ]
+
+function selectTab(tab: AnalysisTab) {
+  trackAnalysisTab(tab, store.selectedAirline, store.activeMonth, route.fullPath)
+  store.setActiveTab(tab)
+}
 </script>
 
 <template>
@@ -23,7 +31,7 @@ const TABS: { key: AnalysisTab; label: string }[] = [
       :aria-selected="store.activeTab === tab.key"
       class="analysis-tab"
       :class="{ active: store.activeTab === tab.key }"
-      @click="store.setActiveTab(tab.key)"
+      @click="selectTab(tab.key)"
     >
       {{ tab.label }}
     </button>
