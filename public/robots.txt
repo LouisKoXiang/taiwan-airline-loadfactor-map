@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://taiwan-airline-loadfactor.vercel.app/sitemap.xml
+Sitemap: https://taiwanairlinedata.com/sitemap.xml

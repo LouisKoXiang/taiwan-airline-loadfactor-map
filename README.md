@@ -2,7 +2,7 @@
 
 以交通部民用航空局公開統計資料整理台灣航空載客率、載客人數、飛行架次與航點變化，聚焦中華航空、長榮航空、星宇航空與台灣虎航的每月航線表現。
 
-正式站：[https://taiwan-airline-loadfactor.vercel.app/](https://taiwan-airline-loadfactor.vercel.app/)
+正式站：[https://taiwanairlinedata.com/](https://taiwanairlinedata.com/)
 
 ![Vue 3](https://img.shields.io/badge/Vue-3-42b883?logo=vuedotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
@@ -146,7 +146,7 @@ scripts/
 - `index.html`：靜態 title / description / og / twitter / JSON-LD（預設首頁內容）
 - `src/utils/seo.ts`：路由切換後動態更新所有 meta，canonical / og:url 依路徑產生
 - 主要目標關鍵字：`台灣航空載客率`、`台灣航空 載客率`
-- 正式網址目前設定為 `https://taiwan-airline-loadfactor.vercel.app/`，若改用自訂網域須同步更新 `SITE_BASE`、`sitemap.xml`、`robots.txt` 與 `og-image.svg`
+- 正式網址目前設定為 `https://taiwanairlinedata.com/`，若改用自訂網域須同步更新 `SITE_BASE`、`sitemap.xml`、`robots.txt` 與 `og-image.svg`
 
 ## 本地開發
 

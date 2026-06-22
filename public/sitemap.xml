@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://taiwan-airline-loadfactor.vercel.app/</loc>
+    <loc>https://taiwanairlinedata.com/</loc>
     <lastmod>2026-06-22</lastmod>
   </url>
   <url>
-    <loc>https://taiwan-airline-loadfactor.vercel.app/routes</loc>
+    <loc>https://taiwanairlinedata.com/routes</loc>
     <lastmod>2026-06-22</lastmod>
   </url>
   <url>
-    <loc>https://taiwan-airline-loadfactor.vercel.app/airlines/china-airlines</loc>
+    <loc>https://taiwanairlinedata.com/airlines/china-airlines</loc>
     <lastmod>2026-06-22</lastmod>
   </url>
   <url>
-    <loc>https://taiwan-airline-loadfactor.vercel.app/airlines/eva-air</loc>
+    <loc>https://taiwanairlinedata.com/airlines/eva-air</loc>
     <lastmod>2026-06-22</lastmod>
   </url>
   <url>
-    <loc>https://taiwan-airline-loadfactor.vercel.app/airlines/starlux</loc>
+    <loc>https://taiwanairlinedata.com/airlines/starlux</loc>
     <lastmod>2026-06-22</lastmod>
   </url>
   <url>
-    <loc>https://taiwan-airline-loadfactor.vercel.app/airlines/tigerair-taiwan</loc>
+    <loc>https://taiwanairlinedata.com/airlines/tigerair-taiwan</loc>
     <lastmod>2026-06-22</lastmod>
   </url>
 </urlset>

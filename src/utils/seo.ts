@@ -2,7 +2,7 @@
 // 若改用自訂網域，請同步更新 SITE_BASE。
 // 目前使用 Vue Router history mode，canonical / og:url 均不含 hash。
 
-const SITE_BASE = 'https://taiwan-airline-loadfactor.vercel.app'
+const SITE_BASE = 'https://taiwanairlinedata.com'
 const SITE_NAME = '台灣航空載客率分析'
 const OG_IMAGE  = `${SITE_BASE}/og-image.svg`
 // 若改成社群平台相容性更高的 PNG，請同步更新 index.html。

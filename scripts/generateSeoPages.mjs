@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 
-const SITE_BASE = 'https://taiwan-airline-loadfactor.vercel.app'
+const SITE_BASE = 'https://taiwanairlinedata.com'
 const DIST_DIR = 'dist'
 const OG_IMAGE = `${SITE_BASE}/og-image.svg`
 
