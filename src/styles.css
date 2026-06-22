@@ -1790,6 +1790,13 @@ a { color: inherit; }
   max-width: 72ch;
 }
 
+.seo-blurb a {
+  color: var(--blue-500);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .seo-blurb p + p { margin-top: 8px; }
 
 /* ── KPI 同期差異腳注 ─────────────────────────────────────────────────── */
@@ -1808,7 +1815,7 @@ a { color: inherit; }
   display: flex;
   gap: 10px;
   padding: 8px;
-  background: #e7f4f7;
+  background: color-mix(in srgb, var(--analysis-accent, var(--blue-500)) 10%, #f4fbfd);
   border-radius: 18px;
   overflow-x: auto;
   scrollbar-width: none;
@@ -1823,7 +1830,7 @@ a { color: inherit; }
   border: none;
   border-radius: 14px;
   background: transparent;
-  color: #078ca0;
+  color: color-mix(in srgb, var(--analysis-accent, var(--blue-500)) 82%, var(--ink-700));
   font-size: 1rem;
   font-weight: 800;
   white-space: nowrap;
@@ -1831,19 +1838,19 @@ a { color: inherit; }
 }
 
 .analysis-tab:hover {
-  color: #056f80;
+  color: var(--analysis-accent, var(--blue-500));
   background: rgb(255 255 255 / 0.55);
 }
 
 .analysis-tab.active {
   background: #fff;
-  color: #078ca0;
+  color: var(--analysis-accent, var(--blue-500));
   font-weight: 800;
-  box-shadow: 0 2px 8px rgb(14 28 36 / 0.1);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--analysis-accent, var(--blue-500)) 16%, transparent);
 }
 
 .analysis-tab:focus-visible {
-  outline: 3px solid rgb(31 143 255 / 0.28);
+  outline: 3px solid color-mix(in srgb, var(--analysis-accent, var(--blue-500)) 28%, transparent);
   outline-offset: 2px;
 }
 

@@ -12,6 +12,10 @@ const router = createRouter({
       component: AirlineGrowthView,
     },
     {
+      path: '/airlines',
+      redirect: '/',
+    },
+    {
       path: '/airlines/china-airlines',
       name: 'airline-china-airlines',
       component: AirlineGrowthView,

@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useAirlineGrowthStore } from '../../stores/airlineGrowthStore'
+import { AIRLINE_META } from '../../types/airline'
 import type { AnalysisTab } from '../../types/airline'
 import { trackAnalysisTab } from '../../utils/analytics'
 import { useRoute } from 'vue-router'
 
 const store = useAirlineGrowthStore()
 const route = useRoute()
+const accent = computed(() => AIRLINE_META[store.selectedAirline].accent)
 
 const TABS: { key: AnalysisTab; label: string }[] = [
   { key: 'overview', label: '總覽' },
@@ -22,7 +25,12 @@ function selectTab(tab: AnalysisTab) {
 </script>
 
 <template>
-  <div class="analysis-tabs" role="tablist" aria-label="分析維度">
+  <div
+    class="analysis-tabs"
+    role="tablist"
+    aria-label="分析維度"
+    :style="{ '--analysis-accent': accent }"
+  >
     <button
       v-for="tab in TABS"
       :key="tab.key"

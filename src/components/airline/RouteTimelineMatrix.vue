@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import * as d3 from 'd3'
 import { useAirlineGrowthStore } from '../../stores/airlineGrowthStore'
+import { AIRLINE_META } from '../../types/airline'
 
 const store = useAirlineGrowthStore()
+const serviceColor = computed(() => AIRLINE_META[store.selectedAirline].accent)
 
 const wrapperRef = ref<HTMLDivElement | null>(null)
 const svgRef = ref<SVGSVGElement | null>(null)
@@ -36,8 +38,6 @@ const tooltipContent = ref<TooltipContent>({
   hasService: false,
 })
 const fmt = new Intl.NumberFormat('zh-TW')
-
-const SERVICE_COLOR = '#1f8fff'   // 有班次：單一藍色
 
 function parseMonth(month: string) {
   const match = month.match(/(\d+)年(\d+)月/)
@@ -282,7 +282,7 @@ const render = () => {
     .attr('fill', 'var(--ink-100)')
     .style('pointer-events', 'none')
 
-  // 有班次（flightCount > 0）：單一藍色圓點
+  // 有班次（flightCount > 0）：使用目前航司代表色
   svg.append('g')
     .selectAll<SVGCircleElement, FlatCell>('circle')
     .data(cells.filter((c) => c.hasService && (c.flightCount ?? 0) > 0))
@@ -290,7 +290,7 @@ const render = () => {
     .attr('cx', (c) => cx(c.ci))
     .attr('cy', (c) => cy(c.ri))
     .attr('r', dotR)
-    .attr('fill', SERVICE_COLOR)
+    .attr('fill', serviceColor.value)
     .attr('stroke', '#fff')
     .attr('stroke-width', 1.5)
     .style('pointer-events', 'none')
@@ -330,7 +330,7 @@ onMounted(() => {
 })
 
 watch(
-  () => [store.routeTimelineMatrix, store.visibleTimelineMonths],
+  () => [store.routeTimelineMatrix, store.visibleTimelineMonths, store.selectedAirline],
   () => { tooltipVisible.value = false; render() },
   { deep: false },
 )
@@ -347,7 +347,7 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
       </div>
       <div class="matrix-legend">
         <span class="matrix-legend-item">
-          <span class="matrix-legend-dot" style="background:#1f8fff"></span>有班次
+          <span class="matrix-legend-dot" :style="{ background: serviceColor }"></span>有班次
         </span>
         <span class="matrix-legend-item matrix-legend-item--dash">
           <span class="matrix-legend-dash"></span>無班次

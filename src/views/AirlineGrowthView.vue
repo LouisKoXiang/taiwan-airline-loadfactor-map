@@ -18,6 +18,16 @@ const router = useRouter()
 const fmt = new Intl.NumberFormat('zh-TW')
 const formatNum = (n: number) => fmt.format(Math.round(n))
 const accent = computed(() => AIRLINE_META[store.selectedAirline].accent)
+const displayMonth = computed(() => store.activeMonth.replace(/(\d+)年(\d+)月/, '$1 年 $2 月'))
+const isHomePage = computed(() => route.name === 'airline-growth')
+const pageTitle = computed(() =>
+  isHomePage.value ? '台灣航空載客率分析' : `${store.selectedAirline}載客率分析`,
+)
+const pageDescription = computed(() =>
+  isHomePage.value
+    ? '比較中華航空、長榮航空、星宇航空、台灣虎航的每月載客率、航線與航點表現。'
+    : `台灣航空載客率資料庫｜${displayMonth.value}${store.selectedAirline}航線、航點、載客人數與載客率表現。`,
+)
 
 const airlinePaths: Record<AirlineName, string> = {
   中華航空: '/airlines/china-airlines',
@@ -68,8 +78,8 @@ const yoyFlight = computed(() => {
     <!-- ── 頁面標題 ─────────────────────────────────────────────── -->
     <header class="growth-header">
       <div class="growth-header-text">
-        <h1>台灣航空載客率分析</h1>
-        <p>切換中華航空、長榮航空、星宇航空、台灣虎航，觀察台灣航空載客率、載客人數、飛行架次與航點表現。</p>
+        <h1>{{ pageTitle }}</h1>
+        <p>{{ pageDescription }}</p>
       </div>
       <!-- 月份選擇器 -->
       <div class="month-select-wrap">
@@ -180,6 +190,10 @@ const yoyFlight = computed(() => {
       <p>
         資料來源為交通部民用航空局公開統計頁面「國際及兩岸定期航線班機載客率－按航線及航空公司分」。
         本站為非官方二次整理與視覺化工具，資料可能因原始檔更新、解析規則、航點代碼映射或四捨五入而產生差異；正式數據請以民航局原始公告為準。本頁內容僅供研究與資料探索，不構成投資、營運或交易建議。
+      </p>
+      <p>
+        資料錯誤、功能建議或合作洽詢，請來信
+        <a href="mailto:taiwanairlinedata@gmail.com">taiwanairlinedata@gmail.com</a>。
       </p>
     </section>
   </div>
