@@ -36,11 +36,7 @@ watch(
 )
 
 function selectAirline(name: AirlineName) {
-  if (String(route.name).startsWith('airline-') && route.name !== 'airline-growth') {
-    router.push(airlinePaths[name])
-    return
-  }
-  store.selectedAirline = name
+  router.push(airlinePaths[name])
 }
 
 // KPI 同期差異輔助（型別安全）
