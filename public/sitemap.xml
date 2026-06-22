@@ -8,4 +8,20 @@
     <loc>https://taiwan-airline-loadfactor.vercel.app/routes</loc>
     <lastmod>2026-06-22</lastmod>
   </url>
+  <url>
+    <loc>https://taiwan-airline-loadfactor.vercel.app/airlines/china-airlines</loc>
+    <lastmod>2026-06-22</lastmod>
+  </url>
+  <url>
+    <loc>https://taiwan-airline-loadfactor.vercel.app/airlines/eva-air</loc>
+    <lastmod>2026-06-22</lastmod>
+  </url>
+  <url>
+    <loc>https://taiwan-airline-loadfactor.vercel.app/airlines/starlux</loc>
+    <lastmod>2026-06-22</lastmod>
+  </url>
+  <url>
+    <loc>https://taiwan-airline-loadfactor.vercel.app/airlines/tigerair-taiwan</loc>
+    <lastmod>2026-06-22</lastmod>
+  </url>
 </urlset>

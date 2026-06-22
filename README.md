@@ -129,6 +129,10 @@ scripts/
 | 路徑 | 說明 |
 |------|------|
 | `/` | 台灣航空載客率分析（首頁） |
+| `/airlines/china-airlines` | 華航載客率分析 |
+| `/airlines/eva-air` | 長榮航空載客率分析 |
+| `/airlines/starlux` | 星宇航空載客率分析 |
+| `/airlines/tigerair-taiwan` | 台灣虎航載客率分析 |
 | `/routes` | 台灣航點探索地圖 |
 | `/airline-battle` | redirect → `/`（舊網址相容） |
 

@@ -36,6 +36,46 @@ const PAGE_META: Record<string, PageMeta> = {
     path: '/routes',
     image: OG_IMAGE,
   },
+  'airline-china-airlines': {
+    title:
+      '華航載客率分析｜中華航空每月航線與航點表現',
+    description:
+      '查詢華航載客率與中華航空每月航線表現，整理載客人數、飛行架次、座位數、航點變化與去年同期比較。',
+    path: '/airlines/china-airlines',
+    image: OG_IMAGE,
+    keywords:
+      '華航載客率, 中華航空載客率, 中華航空航線, 華航航點, 航空股載客率, 民航局載客率',
+  },
+  'airline-eva-air': {
+    title:
+      '長榮航空載客率分析｜長榮每月航線與航點表現',
+    description:
+      '查詢長榮航空載客率與長榮每月航線表現，整理載客人數、飛行架次、座位數、航點變化與去年同期比較。',
+    path: '/airlines/eva-air',
+    image: OG_IMAGE,
+    keywords:
+      '長榮航空載客率, 長榮載客率, 長榮航空航線, 長榮航點, 航空股載客率, 民航局載客率',
+  },
+  'airline-starlux': {
+    title:
+      '星宇航空載客率分析｜星宇每月航線與航點表現',
+    description:
+      '查詢星宇航空載客率與星宇每月航線表現，整理載客人數、飛行架次、座位數、航點變化與去年同期比較。',
+    path: '/airlines/starlux',
+    image: OG_IMAGE,
+    keywords:
+      '星宇航空載客率, 星宇載客率, 星宇航空航線, 星宇航點, 航空股載客率, 民航局載客率',
+  },
+  'airline-tigerair-taiwan': {
+    title:
+      '台灣虎航載客率分析｜虎航每月航線與航點表現',
+    description:
+      '查詢台灣虎航載客率與虎航每月航線表現，整理載客人數、飛行架次、座位數、航點變化與去年同期比較。',
+    path: '/airlines/tigerair-taiwan',
+    image: OG_IMAGE,
+    keywords:
+      '台灣虎航載客率, 虎航載客率, 台灣虎航航線, 虎航航點, 低成本航空載客率, 民航局載客率',
+  },
 }
 
 const DEFAULT_META = PAGE_META['airline-growth']

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useAirlineGrowthStore } from '../stores/airlineGrowthStore'
 import AnalysisTabs from '../components/airline/AnalysisTabs.vue'
 import OverviewTab from '../components/airline/OverviewTab.vue'
@@ -11,9 +12,36 @@ import { AIRLINE_META, FOUR_AIRLINES } from '../types/airline'
 import type { AirlineName } from '../types/airline'
 
 const store = useAirlineGrowthStore()
+const route = useRoute()
+const router = useRouter()
 const fmt = new Intl.NumberFormat('zh-TW')
 const formatNum = (n: number) => fmt.format(Math.round(n))
 const accent = computed(() => AIRLINE_META[store.selectedAirline].accent)
+
+const airlinePaths: Record<AirlineName, string> = {
+  中華航空: '/airlines/china-airlines',
+  長榮航空: '/airlines/eva-air',
+  星宇航空: '/airlines/starlux',
+  台灣虎航: '/airlines/tigerair-taiwan',
+}
+
+watch(
+  () => route.meta.airlineName,
+  (airlineName) => {
+    if (typeof airlineName === 'string' && FOUR_AIRLINES.includes(airlineName as AirlineName)) {
+      store.selectedAirline = airlineName as AirlineName
+    }
+  },
+  { immediate: true },
+)
+
+function selectAirline(name: AirlineName) {
+  if (String(route.name).startsWith('airline-') && route.name !== 'airline-growth') {
+    router.push(airlinePaths[name])
+    return
+  }
+  store.selectedAirline = name
+}
 
 // KPI 同期差異輔助（型別安全）
 const yoyLf = computed(() => {
@@ -59,7 +87,7 @@ const yoyFlight = computed(() => {
         class="airline-tab"
         :class="{ active: store.selectedAirline === (name as AirlineName) }"
         :style="store.selectedAirline === (name as AirlineName) ? { '--tab-accent': AIRLINE_META[name as AirlineName].accent } : {}"
-        @click="store.selectedAirline = (name as AirlineName)"
+        @click="selectAirline(name as AirlineName)"
       >
         <span class="tab-code">{{ AIRLINE_META[name as AirlineName].code }}</span>
         <span class="tab-name">{{ name }}</span>
