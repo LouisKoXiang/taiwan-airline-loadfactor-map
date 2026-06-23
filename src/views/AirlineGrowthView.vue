@@ -28,6 +28,7 @@ const pageDescription = computed(() =>
     ? '比較中華航空、長榮航空、星宇航空、台灣虎航的每月載客率、航線與航點表現。'
     : `台灣航空載客率資料庫｜${displayMonth.value}${store.selectedAirline}航線、航點、載客人數與載客率表現。`,
 )
+const sourceDescription = '主要資料：國際及兩岸定期航線班機載客率－按航線別分。'
 
 const airlinePaths: Record<AirlineName, string> = {
   中華航空: '/airlines/china-airlines',
@@ -79,7 +80,10 @@ const yoyFlight = computed(() => {
     <header class="growth-header">
       <div class="growth-header-text">
         <h1>{{ pageTitle }}</h1>
-        <p>{{ pageDescription }}</p>
+        <p>
+          <span>{{ pageDescription }}</span>
+          <span class="header-source-note">{{ sourceDescription }}</span>
+        </p>
       </div>
       <!-- 月份選擇器 -->
       <div class="month-select-wrap">
@@ -178,7 +182,7 @@ const yoyFlight = computed(() => {
     <section class="seo-blurb" aria-label="關於本頁">
       <h2>關於台灣航空載客率分析</h2>
       <p>
-        本頁提供台灣航空載客率查詢與比較，使用中華民國交通部民用航空局公開資料，整理<strong>中華航空</strong>、<strong>長榮航空</strong>、<strong>星宇航空</strong>與<strong>台灣虎航</strong>的每月航線表現。
+        本頁提供台灣航空載客率查詢與比較，使用中華民國交通部民用航空局公開資料「國際及兩岸定期航線班機載客率－按航線別分」，整理<strong>中華航空</strong>、<strong>長榮航空</strong>、<strong>星宇航空</strong>與<strong>台灣虎航</strong>的每月航線表現。
         資料涵蓋載客率（Load Factor）、載客人數、飛行架次、座位數與入出境旅客分布，供讀者觀察各航空公司自身的月度營運變化。
       </p>
       <p>
@@ -188,8 +192,9 @@ const yoyFlight = computed(() => {
         本工具可用於查詢台灣航空載客率，也適合追蹤華航載客率、長榮載客率、星宇載客率與虎航載客率，並比較各航空公司在不同月份、航點與航線上的載客率變化。
       </p>
       <p>
-        資料來源為交通部民用航空局公開統計頁面「國際及兩岸定期航線班機載客率－按航線及航空公司分」。
-        本站為非官方二次整理與視覺化工具，資料可能因原始檔更新、解析規則、航點代碼映射或四捨五入而產生差異；正式數據請以民航局原始公告為準。本頁內容僅供研究與資料探索，不構成投資、營運或交易建議。
+        資料來源為交通部民用航空局公開統計頁面
+        <a href="https://www.caa.gov.tw/article.aspx?a=1752&lang=1" target="_blank" rel="noopener noreferrer">「國際及兩岸定期航線班機載客率－按航線別分」</a>。
+        本站為非官方二次整理與視覺化工具，並非交通部民用航空局或任何航空公司的官方服務。資料可能因原始檔更新、解析規則、航點代碼映射、四捨五入、系統處理或更新時差而產生遺漏、延遲或差異；正式數據、欄位定義與最新版本請以民航局原始公告為準。本頁內容僅供資料探索與研究參考，不構成投資、營運、交易、訂票或其他決策建議；使用者引用或依據本頁資訊採取行動，其結果與風險由使用者自行判斷與承擔。
       </p>
       <p>
         資料錯誤、功能建議或合作洽詢，請來信

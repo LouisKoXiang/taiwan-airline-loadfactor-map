@@ -1354,8 +1354,18 @@ a { color: inherit; }
   color: var(--ink-400);
   font-size: 0.9rem;
   line-height: 1.6;
-  max-width: 580px;
+  max-width: 660px;
   margin: 0;
+}
+
+.growth-header-text p span {
+  display: block;
+}
+
+.header-source-note {
+  margin-top: 4px;
+  color: var(--ink-300);
+  font-size: 0.82rem;
 }
 
 .month-select-wrap {
