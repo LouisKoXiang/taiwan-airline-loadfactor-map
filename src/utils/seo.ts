@@ -3,7 +3,7 @@
 // 目前使用 Vue Router history mode，canonical / og:url 均不含 hash。
 
 const SITE_BASE = 'https://taiwanairlinedata.com'
-const SITE_NAME = '台灣航空載客率分析'
+const SITE_NAME = '台灣航空載客率查詢'
 const OG_IMAGE  = `${SITE_BASE}/og-image.svg`
 // 若改成社群平台相容性更高的 PNG，請同步更新 index.html。
 
@@ -20,7 +20,7 @@ interface PageMeta {
 const PAGE_META: Record<string, PageMeta> = {
   'airline-growth': {
     title:
-      '台灣航空載客率分析｜中華航空、長榮航空、星宇航空、台灣虎航',
+      '台灣航空載客率查詢｜中華航空、長榮航空、星宇航空、台灣虎航',
     description:
       '台灣航空載客率查詢與比較工具，依據民航局公開資料「國際及兩岸定期航線班機載客率」整理中華航空、長榮航空、星宇航空、台灣虎航的每月載客率、載客人數、飛行架次與航點表現。',
     path: '/',
