@@ -1,3 +1,6 @@
+import type { RouteLocationNormalizedLoaded } from 'vue-router'
+import { formatMonthForTitle, monthToSlug, slugToMonth } from './month'
+
 // ── 網站基礎設定 ───────────────────────────────────────────────
 // 若改用自訂網域，請同步更新 SITE_BASE。
 // 目前使用 Vue Router history mode，canonical / og:url 均不含 hash。
@@ -15,6 +18,38 @@ interface PageMeta {
   path: string      // Vue Router 路徑，用於產生 canonical / og:url
   image: string
   keywords?: string
+}
+
+const AIRLINE_SEO: Record<string, {
+  name: string
+  shortName: string
+  slug: string
+  keywords: string
+}> = {
+  'china-airlines': {
+    name: '中華航空',
+    shortName: '華航',
+    slug: 'china-airlines',
+    keywords: '華航載客率, 中華航空載客率, 中華航空航線, 華航航點, 航空股載客率, 民航局載客率',
+  },
+  'eva-air': {
+    name: '長榮航空',
+    shortName: '長榮',
+    slug: 'eva-air',
+    keywords: '長榮航空載客率, 長榮載客率, 長榮航空航線, 長榮航點, 航空股載客率, 民航局載客率',
+  },
+  starlux: {
+    name: '星宇航空',
+    shortName: '星宇',
+    slug: 'starlux',
+    keywords: '星宇航空載客率, 星宇載客率, 星宇航空航線, 星宇航點, 航空股載客率, 民航局載客率',
+  },
+  'tigerair-taiwan': {
+    name: '台灣虎航',
+    shortName: '虎航',
+    slug: 'tigerair-taiwan',
+    keywords: '台灣虎航載客率, 虎航載客率, 台灣虎航航線, 虎航航點, 低成本航空載客率, 民航局載客率',
+  },
 }
 
 const PAGE_META: Record<string, PageMeta> = {
@@ -80,6 +115,39 @@ const PAGE_META: Record<string, PageMeta> = {
 
 const DEFAULT_META = PAGE_META['airline-growth']
 
+function airlineMonthlyMeta(airlineSlug: string, monthSlug: string): PageMeta | undefined {
+  const airline = AIRLINE_SEO[airlineSlug]
+  const month = slugToMonth(monthSlug)
+  const canonicalMonthSlug = monthToSlug(month)
+  if (!airline || !month || !canonicalMonthSlug) return undefined
+
+  const titleMonth = formatMonthForTitle(month)
+  return {
+    title: `${titleMonth}${airline.name}載客率｜${airline.shortName}航線、航點、載客人數`,
+    description:
+      `查詢 ${titleMonth}${airline.name}載客率，整理${airline.name}各航線載客率、載客人數、飛行架次、座位數與航點變化，資料來源為民航局「國際及兩岸定期航線班機載客率」公開資料。`,
+    path: `/airlines/${airline.slug}/${canonicalMonthSlug}`,
+    image: OG_IMAGE,
+    keywords: `${titleMonth}${airline.name}載客率, ${airline.keywords}`,
+  }
+}
+
+function routeParam(value: unknown): string {
+  return Array.isArray(value) ? String(value[0] ?? '') : String(value ?? '')
+}
+
+function metaForRoute(route: RouteLocationNormalizedLoaded | string | null | undefined): PageMeta {
+  if (typeof route === 'object' && route?.name === 'airline-month') {
+    return airlineMonthlyMeta(
+      routeParam(route.params.airlineSlug),
+      routeParam(route.params.monthSlug),
+    ) ?? DEFAULT_META
+  }
+
+  const routeName = typeof route === 'string' ? route : route?.name?.toString()
+  return (routeName ? PAGE_META[routeName] : undefined) ?? DEFAULT_META
+}
+
 // ── 頁面完整 URL 產生（集中封裝） ───────────────────────────────
 // canonical 與 og:url 採用 history mode 格式（不含 '#'）。
 
@@ -109,8 +177,8 @@ function setAttr(selector: string, attr: string, value: string) {
 
 // ── 切換路由時更新全部 SEO meta ────────────────────────────────────
 
-export function updatePageMeta(routeName: string | null | undefined) {
-  const page: PageMeta = (routeName ? PAGE_META[routeName] : undefined) ?? DEFAULT_META
+export function updatePageMeta(route: RouteLocationNormalizedLoaded | string | null | undefined) {
+  const page = metaForRoute(route)
   const url = pageUrl(page.path)
 
   document.title = page.title

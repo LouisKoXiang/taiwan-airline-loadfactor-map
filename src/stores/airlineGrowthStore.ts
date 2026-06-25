@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import rawData from '../data/monthlyAirlineRoutes.json'
 import type { AnalysisTab, AirlineMonthlySummary, AirlineName, MonthlyAirlineRouteStat, SortDir, SortKey } from '../types/airline'
 import { FOUR_AIRLINES } from '../types/airline'
+import { monthSortKey, sortMonths } from '../utils/month'
 
 interface RouteWithYoY extends MonthlyAirlineRouteStat {
   previousFlightCount?: number
@@ -90,17 +91,6 @@ interface TimelineRow {
 }
 
 const allRecords = rawData as MonthlyAirlineRouteStat[]
-
-// ── 月份排序工具（避免字串排序把 10月 排在 1月 之前） ───────────────
-function monthSortKey(m: string): number {
-  const match = m.match(/(\d+)年(\d+)月/)
-  if (!match) return 0
-  return parseInt(match[1]) * 100 + parseInt(match[2])
-}
-
-function sortMonths(months: Iterable<string>): string[] {
-  return [...months].sort((a, b) => monthSortKey(a) - monthSortKey(b))
-}
 
 function routeKey(r: Pick<MonthlyAirlineRouteStat, 'originAirportCode' | 'destinationAirportCode'>) {
   return `${r.originAirportCode}-${r.destinationAirportCode}`

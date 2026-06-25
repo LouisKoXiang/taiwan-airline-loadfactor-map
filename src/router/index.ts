@@ -16,6 +16,11 @@ const router = createRouter({
       redirect: '/',
     },
     {
+      path: '/airlines/:airlineSlug/:monthSlug',
+      name: 'airline-month',
+      component: AirlineGrowthView,
+    },
+    {
       path: '/airlines/china-airlines',
       name: 'airline-china-airlines',
       component: AirlineGrowthView,
@@ -52,7 +57,7 @@ const router = createRouter({
 })
 
 router.afterEach((to) => {
-  updatePageMeta(to.name as string | null)
+  updatePageMeta(to)
 })
 
 export default router

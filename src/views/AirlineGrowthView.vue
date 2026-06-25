@@ -11,6 +11,7 @@ import RouteDetailsTab from '../components/airline/RouteDetailsTab.vue'
 import { AIRLINE_META, FOUR_AIRLINES } from '../types/airline'
 import type { AirlineName } from '../types/airline'
 import { trackAirlineSelect, trackMonthSelect } from '../utils/analytics'
+import { formatMonthForDisplay, monthToSlug, slugToMonth } from '../utils/month'
 
 const store = useAirlineGrowthStore()
 const route = useRoute()
@@ -18,10 +19,15 @@ const router = useRouter()
 const fmt = new Intl.NumberFormat('zh-TW')
 const formatNum = (n: number) => fmt.format(Math.round(n))
 const accent = computed(() => AIRLINE_META[store.selectedAirline].accent)
-const displayMonth = computed(() => store.activeMonth.replace(/(\d+)年(\d+)月/, '$1 年 $2 月'))
+const displayMonth = computed(() => formatMonthForDisplay(store.activeMonth))
 const isHomePage = computed(() => route.name === 'airline-growth')
+const isMonthlyAirlinePage = computed(() => route.name === 'airline-month')
 const pageTitle = computed(() =>
-  isHomePage.value ? '台灣航空載客率分析' : `${store.selectedAirline}載客率分析`,
+  isHomePage.value
+    ? '台灣航空載客率分析'
+    : isMonthlyAirlinePage.value
+      ? `${displayMonth.value}${store.selectedAirline}載客率分析`
+      : `${store.selectedAirline}載客率分析`,
 )
 const pageDescription = computed(() =>
   isHomePage.value
@@ -37,11 +43,57 @@ const airlinePaths: Record<AirlineName, string> = {
   台灣虎航: '/airlines/tigerair-taiwan',
 }
 
+const airlineSlugToName: Record<string, AirlineName> = {
+  'china-airlines': '中華航空',
+  'eva-air': '長榮航空',
+  starlux: '星宇航空',
+  'tigerair-taiwan': '台灣虎航',
+}
+
+function latestMonth() {
+  return store.availableMonths.at(-1) ?? ''
+}
+
+function airlineMonthPath(name: AirlineName, month: string) {
+  const slug = monthToSlug(month)
+  return slug ? `${airlinePaths[name]}/${slug}` : airlinePaths[name]
+}
+
+function routeAirlineName(): AirlineName | undefined {
+  if (typeof route.meta.airlineName === 'string' && FOUR_AIRLINES.includes(route.meta.airlineName as AirlineName)) {
+    return route.meta.airlineName as AirlineName
+  }
+
+  const slug = Array.isArray(route.params.airlineSlug)
+    ? route.params.airlineSlug[0]
+    : route.params.airlineSlug
+  return slug ? airlineSlugToName[slug] : undefined
+}
+
 watch(
-  () => route.meta.airlineName,
-  (airlineName) => {
-    if (typeof airlineName === 'string' && FOUR_AIRLINES.includes(airlineName as AirlineName)) {
-      store.selectedAirline = airlineName as AirlineName
+  () => [route.name, route.meta.airlineName, route.params.airlineSlug, route.params.monthSlug] as const,
+  () => {
+    const airlineName = routeAirlineName()
+    if (airlineName) {
+      store.selectedAirline = airlineName
+    } else if (route.name === 'airline-month') {
+      router.replace('/')
+      return
+    }
+
+    if (route.name === 'airline-month') {
+      const month = slugToMonth(route.params.monthSlug)
+      if (!month || !store.availableMonths.includes(month)) {
+        router.replace(airlineName ? airlinePaths[airlineName] : '/')
+        return
+      }
+      store.selectedMonth = month
+      return
+    }
+
+    if (airlineName) {
+      const latest = latestMonth()
+      if (latest) store.selectedMonth = latest
     }
   },
   { immediate: true },
@@ -49,11 +101,16 @@ watch(
 
 function selectAirline(name: AirlineName) {
   trackAirlineSelect(name, store.activeMonth, route.fullPath)
-  router.push(airlinePaths[name])
+  router.push(isMonthlyAirlinePage.value
+    ? airlineMonthPath(name, store.activeMonth)
+    : airlinePaths[name])
 }
 
 function handleMonthChange() {
   trackMonthSelect(store.activeMonth, store.selectedAirline, route.fullPath)
+  if (route.name === 'airline-month' || routeAirlineName()) {
+    router.push(airlineMonthPath(store.selectedAirline, store.activeMonth))
+  }
 }
 
 // KPI 同期差異輔助（型別安全）
