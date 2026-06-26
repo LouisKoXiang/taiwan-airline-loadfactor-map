@@ -116,6 +116,23 @@ const render = () => {
   const innerW = W - mLeft - mRight
   const maxLabels = Math.max(2, Math.floor(innerW / 44))
   const step = data.length <= maxLabels ? 1 : Math.ceil(data.length / maxLabels)
+  const minLabelGap = compact ? 48 : 58
+  const labelCandidates = data
+    .map((d, i) => ({
+      month: d.month,
+      x: x(d.month)!,
+      index: i,
+      priority: d.month === props.currentMonth ? 3 : (i === 0 || i === data.length - 1 ? 2 : (i % step === 0 ? 1 : 0)),
+    }))
+    .filter((d) => d.priority > 0)
+    .sort((a, b) => b.priority - a.priority || a.index - b.index)
+
+  const acceptedLabels: typeof labelCandidates = []
+  for (const candidate of labelCandidates) {
+    const hasOverlap = acceptedLabels.some((label) => Math.abs(label.x - candidate.x) < minLabelGap)
+    if (!hasOverlap) acceptedLabels.push(candidate)
+  }
+  const visibleLabelMonths = new Set(acceptedLabels.map((d) => d.month))
 
   svg.append('g')
     .selectAll<SVGTextElement, TrendPoint>('text')
@@ -126,10 +143,7 @@ const render = () => {
     .attr('dy', '0.35em')
     .attr('text-anchor', 'middle')
     .attr('class', 'trend-x-label')
-    // 顯示抽樣標籤、最後一筆、以及目前選取月份
-    .attr('opacity', (d, i) =>
-      (i % step === 0 || i === data.length - 1 || d.month === props.currentMonth) ? 1 : 0,
-    )
+    .attr('opacity', (d) => visibleLabelMonths.has(d.month) ? 1 : 0)
     .text((d) => d.month.replace(/(\d+)年(\d+)月/, '$1/$2'))
 
   // Y 軸刻度標籤
