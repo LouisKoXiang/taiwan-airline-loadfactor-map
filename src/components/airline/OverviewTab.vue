@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 import { useAirlineGrowthStore } from '../../stores/airlineGrowthStore'
 import MetricBarChart from './MetricBarChart.vue'
 import TrendChart from './TrendChart.vue'
@@ -11,6 +11,38 @@ const store = useAirlineGrowthStore()
 const fmt = new Intl.NumberFormat('zh-TW')
 const formatNum = (n: number) => fmt.format(Math.round(n))
 const accent = computed(() => AIRLINE_META[store.selectedAirline].accent)
+type AirportTrendMetric = 'loadFactor' | 'passengerCount'
+const khhTrendMetric = ref<AirportTrendMetric>('passengerCount')
+const rmqTrendMetric = ref<AirportTrendMetric>('passengerCount')
+const trendModeOptions = [
+  { value: 'passengerCount', label: '人數' },
+  { value: 'loadFactor', label: '載客率' },
+]
+
+const khhTrendPoints = computed(() =>
+  khhTrendMetric.value === 'passengerCount'
+    ? store.kaohsiungPassengerTrendData
+    : store.kaohsiungLoadFactorTrendData,
+)
+const rmqTrendPoints = computed(() =>
+  rmqTrendMetric.value === 'passengerCount'
+    ? store.taichungPassengerTrendData
+    : store.taichungLoadFactorTrendData,
+)
+const khhTrendTitle = computed(() =>
+  khhTrendMetric.value === 'passengerCount' ? '高雄載客人數月趨勢' : '高雄載客率月趨勢',
+)
+const rmqTrendTitle = computed(() =>
+  rmqTrendMetric.value === 'passengerCount' ? '台中載客人數月趨勢' : '台中載客率月趨勢',
+)
+const khhTrendUnit = computed(() => khhTrendMetric.value === 'passengerCount' ? ' 人' : '%')
+const rmqTrendUnit = computed(() => rmqTrendMetric.value === 'passengerCount' ? ' 人' : '%')
+const khhTrendFormatter = computed(() =>
+  khhTrendMetric.value === 'passengerCount' ? formatNum : (v: number) => v.toFixed(1),
+)
+const rmqTrendFormatter = computed(() =>
+  rmqTrendMetric.value === 'passengerCount' ? formatNum : (v: number) => v.toFixed(1),
+)
 
 const lfChartItems = computed(() =>
   [...store.airlineRecords]
@@ -60,37 +92,61 @@ async function openDetails(key: SortKey) {
     <!-- 第一區：月趨勢圖 + 載客率排行 -->
     <div class="charts-row">
       <div class="trend-card-stack">
+        <div class="trend-primary-stack">
+          <TrendChart
+            title="整體載客率月趨勢"
+            :trend-points="store.trendData"
+            :current-month="store.activeMonth"
+            :accent-color="accent"
+          />
+          <TrendChart
+            title="日本航線載客率月趨勢"
+            :trend-points="store.japanTrendData"
+            :current-month="store.activeMonth"
+            :accent-color="accent"
+          />
+        </div>
         <TrendChart
-          title="整體載客率月趨勢"
-          :trend-points="store.trendData"
+          :title="khhTrendTitle"
+          :trend-points="khhTrendPoints"
           :current-month="store.activeMonth"
           :accent-color="accent"
-          compact
-        />
-        <TrendChart
-          title="日本航線載客率月趨勢"
-          :trend-points="store.japanTrendData"
-          :current-month="store.activeMonth"
-          :accent-color="accent"
-          compact
-        />
-        <TrendChart
-          title="高雄＋台中載客率月趨勢"
-          :trend-points="store.regionalAirportTrendData"
-          :current-month="store.activeMonth"
-          :accent-color="accent"
+          :value-unit="khhTrendUnit"
+          :format-value="khhTrendFormatter"
+          :mode-options="trendModeOptions"
+          :active-mode="khhTrendMetric"
+          empty-text="目前無高雄出發資料"
+          empty-note="此航空公司在目前資料期間沒有 KHH 出發航線。"
+          @select-mode="(value) => { khhTrendMetric = value as AirportTrendMetric }"
           compact
         />
       </div>
-      <MetricBarChart
-        :items="lfChartItems"
-        title="航點載客率排行"
-        unit="%"
-        :format-value="(v) => v.toFixed(1)"
-        :accent-color="accent"
-        action-label="看明細"
-        @action="openDetails('loadFactor')"
-      />
+      <div class="trend-card-stack">
+        <MetricBarChart
+          :items="lfChartItems"
+          title="航點載客率排行"
+          unit="%"
+          :format-value="(v) => v.toFixed(1)"
+          :accent-color="accent"
+          :max-items="15"
+          action-label="看明細"
+          @action="openDetails('loadFactor')"
+        />
+        <TrendChart
+          :title="rmqTrendTitle"
+          :trend-points="rmqTrendPoints"
+          :current-month="store.activeMonth"
+          :accent-color="accent"
+          :value-unit="rmqTrendUnit"
+          :format-value="rmqTrendFormatter"
+          :mode-options="trendModeOptions"
+          :active-mode="rmqTrendMetric"
+          empty-text="目前無台中出發資料"
+          empty-note="此航空公司在目前資料期間沒有 RMQ 出發航線。"
+          @select-mode="(value) => { rmqTrendMetric = value as AirportTrendMetric }"
+          compact
+        />
+      </div>
     </div>
 
     <!-- 第二區：航點月份矩陣（滿版） -->

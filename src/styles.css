@@ -1521,6 +1521,11 @@ a { color: inherit; }
   gap: 16px;
 }
 
+.trend-primary-stack {
+  display: grid;
+  gap: 16px;
+}
+
 .metric-bar-chart,
 .trend-chart-wrap {
   border: 1px solid var(--ink-100);
@@ -1576,6 +1581,33 @@ a { color: inherit; }
   color: var(--ink-700);
 }
 
+.trend-mode-toggle {
+  display: inline-flex;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid var(--ink-100);
+  border-radius: 999px;
+  background: rgb(246 251 255);
+}
+
+.trend-mode-btn {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-400);
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 6px 8px;
+}
+
+.trend-mode-btn.active {
+  background: #fff;
+  color: var(--ink-700);
+  box-shadow: 0 1px 5px rgb(28 71 92 / 0.12);
+}
+
 .chart-wrapper {
   overflow-x: hidden;
   min-width: 0;
@@ -1616,11 +1648,17 @@ a { color: inherit; }
 /* 趨勢圖空狀態 */
 .trend-empty {
   display: grid;
+  align-content: center;
   justify-items: center;
   gap: 8px;
-  padding: 40px 16px;
+  min-height: 180px;
+  padding: 16px;
   color: var(--ink-300);
   text-align: center;
+}
+
+.trend-chart-wrap--compact .trend-empty {
+  min-height: 154px;
 }
 
 .trend-empty p {

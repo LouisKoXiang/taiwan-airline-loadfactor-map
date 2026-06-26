@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import * as d3 from 'd3'
 
 interface TrendPoint {
@@ -13,13 +13,27 @@ const props = defineProps<{
   accentColor?: string
   title?: string
   compact?: boolean
+  valueUnit?: string
+  formatValue?: (v: number) => string
+  emptyText?: string
+  emptyNote?: string
+  alignPlotArea?: boolean
+  modeOptions?: { value: string; label: string }[]
+  activeMode?: string
+}>()
+
+const emit = defineEmits<{
+  selectMode: [value: string]
 }>()
 
 const svgRef = ref<SVGSVGElement | null>(null)
 const wrapperRef = ref<HTMLDivElement | null>(null)
 let resizeObserver: ResizeObserver | undefined
+let observedWrapper: HTMLDivElement | null = null
 
 const accent = () => props.accentColor ?? '#1f8fff'
+const unit = () => props.valueUnit ?? '%'
+const fmt = (v: number) => props.formatValue ? props.formatValue(v) : v.toFixed(1)
 
 const render = () => {
   if (!svgRef.value || !wrapperRef.value) return
@@ -30,12 +44,13 @@ const render = () => {
   if (data.length < 2) return
 
   const W = wrapperRef.value.clientWidth || 300
-  const H = props.compact ? 154 : 200
+  const H = props.compact ? 154 : 180
   const compact = W < 420
+  const usesLongValueLabels = unit().trim() !== '%' || d3.max(data, (d) => d.avgLoadFactor)! >= 1000
   const mTop = props.compact ? 22 : 28
-  const mRight = compact ? 12 : 20
+  const mRight = (props.alignPlotArea || usesLongValueLabels) ? (compact ? 42 : 68) : (compact ? 12 : 20)
   const mBottom = 38
-  const mLeft = compact ? 36 : 46
+  const mLeft = (props.alignPlotArea || usesLongValueLabels) ? (compact ? 72 : 86) : (compact ? 36 : 46)
 
   svg.attr('viewBox', `0 0 ${W} ${H}`).attr('height', H)
 
@@ -47,8 +62,11 @@ const render = () => {
   const rawMin = d3.min(data, (d) => d.avgLoadFactor) ?? 0
   const rawMax = d3.max(data, (d) => d.avgLoadFactor) ?? 100
   const pad = Math.max(3, (rawMax - rawMin) * 0.2)
+  const yDomain = usesLongValueLabels
+    ? [Math.max(0, rawMin - pad), rawMax + pad]
+    : [Math.max(0, rawMin - pad), Math.min(100, rawMax + pad)]
   const y = d3.scaleLinear()
-    .domain([Math.max(0, rawMin - pad), Math.min(100, rawMax + pad)])
+    .domain(yDomain)
     .range([H - mBottom, mTop])
     .nice()
 
@@ -124,7 +142,7 @@ const render = () => {
     .attr('dy', '0.35em')
     .attr('text-anchor', 'end')
     .attr('class', 'trend-y-label')
-    .text((d) => `${d}%`)
+    .text((d) => `${fmt(d)}${unit()}`)
 
   // 資料點：月份多時縮小半徑
   const dotR = data.length > 8 ? 2.5 : 3.5
@@ -151,31 +169,67 @@ const render = () => {
     .attr('text-anchor', 'middle')
     .attr('class', (d) => d.month === props.currentMonth ? 'trend-val trend-val--current' : 'trend-val')
     .attr('opacity', (d) => (step === 1 || d.month === props.currentMonth) ? 1 : 0)
-    .text((d) => `${d.avgLoadFactor.toFixed(1)}%`)
+    .text((d) => `${fmt(d.avgLoadFactor)}${unit()}`)
+}
+
+function ensureObserved() {
+  if (!resizeObserver || !wrapperRef.value || observedWrapper === wrapperRef.value) return
+  if (observedWrapper) resizeObserver.unobserve(observedWrapper)
+  resizeObserver.observe(wrapperRef.value)
+  observedWrapper = wrapperRef.value
+}
+
+async function scheduleRender() {
+  await nextTick()
+  ensureObserved()
+  render()
 }
 
 onMounted(() => {
   resizeObserver = new ResizeObserver(render)
-  if (wrapperRef.value) resizeObserver.observe(wrapperRef.value)
-  render()
+  scheduleRender()
 })
 
-watch(() => [props.trendPoints, props.accentColor, props.currentMonth, props.compact], render, { deep: true })
+watch(
+  () => [
+    props.trendPoints,
+    props.accentColor,
+    props.currentMonth,
+    props.compact,
+    props.valueUnit,
+    props.formatValue,
+    props.alignPlotArea,
+  ],
+  scheduleRender,
+  { deep: true },
+)
 
 onBeforeUnmount(() => resizeObserver?.disconnect())
 </script>
 
 <template>
-  <div class="trend-chart-wrap">
+  <div class="trend-chart-wrap" :class="{ 'trend-chart-wrap--compact': compact }">
     <div class="chart-header">
       <span class="chart-title">{{ title ?? '載客率月趨勢' }}</span>
+      <div v-if="modeOptions?.length" class="trend-mode-toggle" aria-label="趨勢指標切換">
+        <button
+          v-for="option in modeOptions"
+          :key="option.value"
+          type="button"
+          class="trend-mode-btn"
+          :class="{ active: option.value === activeMode }"
+          @click="emit('selectMode', option.value)"
+        >
+          {{ option.label }}
+        </button>
+      </div>
     </div>
     <div v-if="trendPoints.length < 2" class="trend-empty">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
       </svg>
-      <p>需要更多月份資料後顯示趨勢</p>
-      <small>匯入多月份 ODS 後將自動顯示月趨勢折線圖。</small>
+      <p>{{ emptyText ?? '需要更多月份資料後顯示趨勢' }}</p>
+      <small>{{ emptyNote ?? '匯入多月份 ODS 後將自動顯示月趨勢折線圖。' }}</small>
     </div>
     <div v-else ref="wrapperRef" class="chart-wrapper">
       <svg ref="svgRef" class="trend-svg"></svg>

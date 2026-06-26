@@ -275,6 +275,64 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
     }).filter((point) => point.avgLoadFactor > 0),
   )
 
+  function airportLoadFactorTrendData(originAirportCode: 'KHH' | 'RMQ') {
+    return monthsForAirline.value.map((m) => {
+      const recs = allRecords.filter(
+        (r) =>
+          r.airlineName === selectedAirline.value &&
+          r.month === m &&
+          r.originAirportCode === originAirportCode,
+      )
+      return {
+        month: m,
+        avgLoadFactor: weightedLoadFactor(recs),
+      }
+    }).filter((point) => point.avgLoadFactor > 0)
+  }
+
+  function airportPassengerTrendData(originAirportCode: 'KHH' | 'RMQ') {
+    return monthsForAirline.value.map((m) => {
+      const recs = allRecords.filter(
+        (r) =>
+          r.airlineName === selectedAirline.value &&
+          r.month === m &&
+          r.originAirportCode === originAirportCode,
+      )
+      return {
+        month: m,
+        avgLoadFactor: recs.reduce((s, r) => s + r.passengerCount, 0),
+      }
+    }).filter((point) => point.avgLoadFactor > 0)
+  }
+
+  // 高雄機場載客率月趨勢：觀察 KHH 出發航線座位利用效率。
+  const kaohsiungLoadFactorTrendData = computed(() => airportLoadFactorTrendData('KHH'))
+
+  // 台中機場載客率月趨勢：觀察 RMQ 出發航線座位利用效率。
+  const taichungLoadFactorTrendData = computed(() => airportLoadFactorTrendData('RMQ'))
+
+  // 高雄機場載客人數月趨勢：觀察 KHH 出發市場量體。
+  const kaohsiungPassengerTrendData = computed(() => airportPassengerTrendData('KHH'))
+
+  // 台中機場載客人數月趨勢：觀察 RMQ 出發市場量體。
+  const taichungPassengerTrendData = computed(() => airportPassengerTrendData('RMQ'))
+
+  // 中南部機場載客人數月趨勢：保留給未來需要合併觀察時使用。
+  const regionalAirportPassengerTrendData = computed(() =>
+    monthsForAirline.value.map((m) => {
+      const recs = allRecords.filter(
+        (r) =>
+          r.airlineName === selectedAirline.value &&
+          r.month === m &&
+          (r.originAirportCode === 'KHH' || r.originAirportCode === 'RMQ'),
+      )
+      return {
+        month: m,
+        avgLoadFactor: recs.reduce((s, r) => s + r.passengerCount, 0),
+      }
+    }).filter((point) => point.avgLoadFactor > 0),
+  )
+
   // MoM 成長率（百分點差）：當月 vs 前一個月
   const momGrowth = computed<number | undefined>(() => {
     const months = monthsForAirline.value
@@ -647,6 +705,11 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
     trendData,
     japanTrendData,
     regionalAirportTrendData,
+    kaohsiungLoadFactorTrendData,
+    taichungLoadFactorTrendData,
+    kaohsiungPassengerTrendData,
+    taichungPassengerTrendData,
+    regionalAirportPassengerTrendData,
     momGrowth,
     fourAirlinesSummary,
     activeTab,
