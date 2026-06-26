@@ -14,10 +14,10 @@ const REGION_LABELS: Record<RegionKey, string> = {
   usa:    '美國線',
   europe: '歐洲線',
 }
-const REGION_EMOJI: Record<RegionKey, string> = {
-  japan:  '🇯🇵',
-  usa:    '🇺🇸',
-  europe: '🇪🇺',
+const REGION_FLAG_CODE: Record<RegionKey, string> = {
+  japan:  'jp',
+  usa:    'us',
+  europe: 'eu',
 }
 
 const fmt = new Intl.NumberFormat('zh-TW')
@@ -106,7 +106,7 @@ const regionCards = computed(() =>
       return b.value - a.value
     })
     const hasAny = rows.some((r) => r.value !== null)
-    return { rk, label: REGION_LABELS[rk], emoji: REGION_EMOJI[rk], rows, hasAny }
+    return { rk, label: REGION_LABELS[rk], rows, hasAny }
   }),
 )
 
@@ -150,7 +150,7 @@ const hasData = computed(() => props.stats.length > 0)
         >
           <!-- 卡片標題 -->
           <div class="rc-card-header">
-            <span class="rc-emoji">{{ card.emoji }}</span>
+            <span class="fi rc-flag" :class="`fi-${REGION_FLAG_CODE[card.rk]}`" aria-hidden="true"></span>
             <span class="rc-card-title">{{ card.label }}</span>
             <button
               v-if="REGION_FILTER_INFO[card.rk]"
@@ -256,9 +256,12 @@ const hasData = computed(() => props.stats.length > 0)
   align-items: center;
   gap: 8px;
 }
-.rc-emoji {
-  font-size: 1.25rem;
-  line-height: 1;
+.rc-flag {
+  width: 28px !important;
+  height: 20px !important;
+  border-radius: 3px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.08);
 }
 .rc-card-title {
   color: var(--ink-800);
