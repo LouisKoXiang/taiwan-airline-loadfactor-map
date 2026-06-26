@@ -1516,6 +1516,11 @@ a { color: inherit; }
   align-items: start;
 }
 
+.trend-card-stack {
+  display: grid;
+  gap: 16px;
+}
+
 .metric-bar-chart,
 .trend-chart-wrap {
   border: 1px solid var(--ink-100);

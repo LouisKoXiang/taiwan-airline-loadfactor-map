@@ -49,14 +49,32 @@ const flightChartItems = computed(() =>
   <section class="charts-section">
     <!-- 第一區：月趨勢圖 + 載客率排行 -->
     <div class="charts-row">
-      <TrendChart
-        :trend-points="store.trendData"
-        :current-month="store.activeMonth"
-        :accent-color="accent"
-      />
+      <div class="trend-card-stack">
+        <TrendChart
+          title="整體載客率月趨勢"
+          :trend-points="store.trendData"
+          :current-month="store.activeMonth"
+          :accent-color="accent"
+          compact
+        />
+        <TrendChart
+          title="日本航線載客率月趨勢"
+          :trend-points="store.japanTrendData"
+          :current-month="store.activeMonth"
+          :accent-color="accent"
+          compact
+        />
+        <TrendChart
+          title="高雄＋台中載客率月趨勢"
+          :trend-points="store.regionalAirportTrendData"
+          :current-month="store.activeMonth"
+          :accent-color="accent"
+          compact
+        />
+      </div>
       <MetricBarChart
         :items="lfChartItems"
-        title="各航點載客率"
+        title="航點載客率排行"
         unit="%"
         :format-value="(v) => v.toFixed(1)"
         :accent-color="accent"

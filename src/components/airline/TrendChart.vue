@@ -11,6 +11,8 @@ const props = defineProps<{
   trendPoints: TrendPoint[]
   currentMonth?: string
   accentColor?: string
+  title?: string
+  compact?: boolean
 }>()
 
 const svgRef = ref<SVGSVGElement | null>(null)
@@ -28,9 +30,9 @@ const render = () => {
   if (data.length < 2) return
 
   const W = wrapperRef.value.clientWidth || 300
-  const H = 200
+  const H = props.compact ? 154 : 200
   const compact = W < 420
-  const mTop = 28
+  const mTop = props.compact ? 22 : 28
   const mRight = compact ? 12 : 20
   const mBottom = 38
   const mLeft = compact ? 36 : 46
@@ -158,7 +160,7 @@ onMounted(() => {
   render()
 })
 
-watch(() => [props.trendPoints, props.accentColor, props.currentMonth], render, { deep: true })
+watch(() => [props.trendPoints, props.accentColor, props.currentMonth, props.compact], render, { deep: true })
 
 onBeforeUnmount(() => resizeObserver?.disconnect())
 </script>
@@ -166,7 +168,7 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
 <template>
   <div class="trend-chart-wrap">
     <div class="chart-header">
-      <span class="chart-title">載客率月趨勢</span>
+      <span class="chart-title">{{ title ?? '載客率月趨勢' }}</span>
     </div>
     <div v-if="trendPoints.length < 2" class="trend-empty">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">

@@ -92,6 +92,12 @@ interface TimelineRow {
 
 const allRecords = rawData as MonthlyAirlineRouteStat[]
 
+function weightedLoadFactor(records: MonthlyAirlineRouteStat[]): number {
+  const totalSeats = records.reduce((s, r) => s + r.seatCount, 0)
+  const totalPax = records.reduce((s, r) => s + r.passengerCount, 0)
+  return totalSeats > 0 ? Math.round((totalPax / totalSeats) * 1000) / 10 : 0
+}
+
 function routeKey(r: Pick<MonthlyAirlineRouteStat, 'originAirportCode' | 'destinationAirportCode'>) {
   return `${r.originAirportCode}-${r.destinationAirportCode}`
 }
@@ -220,13 +226,43 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
       const recs = allRecords.filter(
         (r) => r.airlineName === selectedAirline.value && r.month === m,
       )
-      const totalSeats = recs.reduce((s, r) => s + r.seatCount, 0)
-      const totalPax = recs.reduce((s, r) => s + r.passengerCount, 0)
       return {
         month: m,
-        avgLoadFactor: totalSeats > 0 ? Math.round((totalPax / totalSeats) * 1000) / 10 : 0,
+        avgLoadFactor: weightedLoadFactor(recs),
       }
     }),
+  )
+
+  // 日本航線月趨勢：觀察四大航空最重要旅遊市場之一。
+  const japanTrendData = computed(() =>
+    monthsForAirline.value.map((m) => {
+      const recs = allRecords.filter(
+        (r) =>
+          r.airlineName === selectedAirline.value &&
+          r.month === m &&
+          r.destinationCountry === '日本',
+      )
+      return {
+        month: m,
+        avgLoadFactor: weightedLoadFactor(recs),
+      }
+    }).filter((point) => point.avgLoadFactor > 0),
+  )
+
+  // 中南部機場月趨勢：合併高雄（KHH）與台中（RMQ）出發航線。
+  const regionalAirportTrendData = computed(() =>
+    monthsForAirline.value.map((m) => {
+      const recs = allRecords.filter(
+        (r) =>
+          r.airlineName === selectedAirline.value &&
+          r.month === m &&
+          (r.originAirportCode === 'KHH' || r.originAirportCode === 'RMQ'),
+      )
+      return {
+        month: m,
+        avgLoadFactor: weightedLoadFactor(recs),
+      }
+    }).filter((point) => point.avgLoadFactor > 0),
   )
 
   // MoM 成長率（百分點差）：當月 vs 前一個月
@@ -597,6 +633,8 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
     chartRoutes,
     hasMultipleMonths,
     trendData,
+    japanTrendData,
+    regionalAirportTrendData,
     momGrowth,
     fourAirlinesSummary,
     activeTab,
