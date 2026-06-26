@@ -2,6 +2,9 @@
 import { computed, ref } from 'vue'
 import type { RegionMarketStat, RegionKey } from '../../stores/marketOverviewStore'
 import { FOUR_AIRLINES, AIRLINE_META } from '../../types/airline'
+import flagJp from '../../assets/flags/jp.svg?url'
+import flagUs from '../../assets/flags/us.svg?url'
+import flagEu from '../../assets/flags/eu.svg?url'
 
 const props = defineProps<{
   stats: RegionMarketStat[]
@@ -14,10 +17,10 @@ const REGION_LABELS: Record<RegionKey, string> = {
   usa:    '美國線',
   europe: '歐洲線',
 }
-const REGION_FLAG_CODE: Record<RegionKey, string> = {
-  japan:  'jp',
-  usa:    'us',
-  europe: 'eu',
+const REGION_FLAG_SRC: Record<RegionKey, string> = {
+  japan:  flagJp,
+  usa:    flagUs,
+  europe: flagEu,
 }
 
 const fmt = new Intl.NumberFormat('zh-TW')
@@ -150,7 +153,7 @@ const hasData = computed(() => props.stats.length > 0)
         >
           <!-- 卡片標題 -->
           <div class="rc-card-header">
-            <span class="fi rc-flag" :class="`fi-${REGION_FLAG_CODE[card.rk]}`" aria-hidden="true"></span>
+            <img :src="REGION_FLAG_SRC[card.rk]" class="rc-flag" :alt="card.label" width="28" height="20" />
             <span class="rc-card-title">{{ card.label }}</span>
             <button
               v-if="REGION_FILTER_INFO[card.rk]"
@@ -257,11 +260,12 @@ const hasData = computed(() => props.stats.length > 0)
   gap: 8px;
 }
 .rc-flag {
-  width: 28px !important;
-  height: 20px !important;
+  width: 28px;
+  height: 20px;
   border-radius: 3px;
   flex-shrink: 0;
   box-shadow: 0 0 0 1px rgb(0 0 0 / 0.08);
+  display: block;
 }
 .rc-card-title {
   color: var(--ink-800);
