@@ -16,6 +16,11 @@ const props = defineProps<{
   formatValue?: (v: number) => string
   accentColor?: string
   maxItems?: number
+  actionLabel?: string
+}>()
+
+const emit = defineEmits<{
+  action: []
 }>()
 
 const svgRef = ref<SVGSVGElement | null>(null)
@@ -155,9 +160,19 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
   <div class="metric-bar-chart">
     <div class="chart-header">
       <span class="chart-title">{{ title }}</span>
-      <span v-if="items.length > (maxItems ?? MAX)" class="chart-overflow-note">
-        顯示前 {{ maxItems ?? MAX }} 筆
-      </span>
+      <div class="chart-header-actions">
+        <span v-if="items.length > (maxItems ?? MAX)" class="chart-overflow-note">
+          顯示前 {{ maxItems ?? MAX }} 筆
+        </span>
+        <button
+          v-if="actionLabel"
+          type="button"
+          class="chart-action-btn"
+          @click="emit('action')"
+        >
+          {{ actionLabel }}
+        </button>
+      </div>
     </div>
     <div ref="wrapperRef" class="chart-wrapper">
       <svg ref="svgRef" class="bar-svg"></svg>

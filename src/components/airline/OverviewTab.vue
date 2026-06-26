@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, nextTick } from 'vue'
 import { useAirlineGrowthStore } from '../../stores/airlineGrowthStore'
 import MetricBarChart from './MetricBarChart.vue'
 import TrendChart from './TrendChart.vue'
 import RouteTimelineMatrix from './RouteTimelineMatrix.vue'
 import { AIRLINE_META } from '../../types/airline'
+import type { SortKey } from '../../types/airline'
 
 const store = useAirlineGrowthStore()
 const fmt = new Intl.NumberFormat('zh-TW')
@@ -43,6 +44,15 @@ const flightChartItems = computed(() =>
       value: r.flightCount,
     })),
 )
+
+async function openDetails(key: SortKey) {
+  store.openDetailsWithSort(key)
+  await nextTick()
+  document.querySelector('.route-table-section')?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  })
+}
 </script>
 
 <template>
@@ -78,6 +88,8 @@ const flightChartItems = computed(() =>
         unit="%"
         :format-value="(v) => v.toFixed(1)"
         :accent-color="accent"
+        action-label="看明細"
+        @action="openDetails('loadFactor')"
       />
     </div>
 
@@ -91,6 +103,8 @@ const flightChartItems = computed(() =>
         title="各航點載客人數"
         :format-value="formatNum"
         :accent-color="accent"
+        action-label="看明細"
+        @action="openDetails('passengerCount')"
       />
       <MetricBarChart
         :items="flightChartItems"
@@ -98,6 +112,8 @@ const flightChartItems = computed(() =>
         unit=" 次"
         :format-value="(v) => formatNum(v)"
         :accent-color="accent"
+        action-label="看明細"
+        @action="openDetails('flightCount')"
       />
     </div>
   </section>

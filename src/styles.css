@@ -1544,9 +1544,36 @@ a { color: inherit; }
   letter-spacing: 0.04em;
 }
 
+.chart-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .chart-overflow-note {
   color: var(--ink-300);
   font-size: 0.72rem;
+}
+
+.chart-action-btn {
+  border: 1px solid rgb(31 143 255 / 0.22);
+  border-radius: 999px;
+  background: rgb(31 143 255 / 0.08);
+  color: var(--ink-600);
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 7px 10px;
+  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.chart-action-btn:hover {
+  border-color: rgb(31 143 255 / 0.38);
+  background: rgb(31 143 255 / 0.14);
+  color: var(--ink-700);
 }
 
 .chart-wrapper {

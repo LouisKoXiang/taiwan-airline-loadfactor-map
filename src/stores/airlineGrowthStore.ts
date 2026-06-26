@@ -208,6 +208,16 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
     }
   }
 
+  const setDetailSort = (key: SortKey, dir: SortDir = 'desc') => {
+    sortKey.value = key
+    sortDir.value = dir
+  }
+
+  const openDetailsWithSort = (key: SortKey, dir: SortDir = 'desc') => {
+    setDetailSort(key, dir)
+    activeTab.value = 'details'
+  }
+
   // ── 圖表資料輔助 ────────────────────────────────────────────────
   const chartRoutes = computed(() =>
     [...airlineRecords.value].sort((a, b) => b.loadFactor - a.loadFactor),
@@ -630,6 +640,8 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
     sortDir,
     sortedRoutes,
     setSort,
+    setDetailSort,
+    openDetailsWithSort,
     chartRoutes,
     hasMultipleMonths,
     trendData,
