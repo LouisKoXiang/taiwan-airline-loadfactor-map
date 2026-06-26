@@ -8,6 +8,7 @@ import YoYComparisonTab from '../components/airline/YoYComparisonTab.vue'
 import RouteChangesTab from '../components/airline/RouteChangesTab.vue'
 import OpportunityRoutesTab from '../components/airline/OpportunityRoutesTab.vue'
 import RouteDetailsTab from '../components/airline/RouteDetailsTab.vue'
+import SiteFooter from '../components/SiteFooter.vue'
 import { AIRLINE_META, FOUR_AIRLINES } from '../types/airline'
 import type { AirlineName } from '../types/airline'
 import { trackAirlineSelect, trackMonthSelect } from '../utils/analytics'
@@ -20,19 +21,14 @@ const fmt = new Intl.NumberFormat('zh-TW')
 const formatNum = (n: number) => fmt.format(Math.round(n))
 const accent = computed(() => AIRLINE_META[store.selectedAirline].accent)
 const displayMonth = computed(() => formatMonthForDisplay(store.activeMonth))
-const isHomePage = computed(() => route.name === 'airline-growth')
 const isMonthlyAirlinePage = computed(() => route.name === 'airline-month')
 const pageTitle = computed(() =>
-  isHomePage.value
-    ? '台灣航空載客率分析'
-    : isMonthlyAirlinePage.value
-      ? `${displayMonth.value}${store.selectedAirline}載客率分析`
-      : `${store.selectedAirline}載客率分析`,
+  isMonthlyAirlinePage.value
+    ? `${displayMonth.value}${store.selectedAirline}載客率分析`
+    : `${store.selectedAirline}載客率分析`,
 )
 const pageDescription = computed(() =>
-  isHomePage.value
-    ? '比較中華航空、長榮航空、星宇航空、台灣虎航的每月載客率、航線與航點表現。'
-    : `台灣航空載客率資料庫｜${displayMonth.value}${store.selectedAirline}航線、航點、載客人數與載客率表現。`,
+  `台灣航空載客率資料庫｜${displayMonth.value}${store.selectedAirline}航線、航點、載客人數與載客率表現。`,
 )
 const sourceDescription = '主要資料：國際及兩岸定期航線班機載客率－按航線別分。'
 
@@ -153,13 +149,18 @@ const yoyFlight = computed(() => {
 
     <!-- ── 航空公司切換器 ────────────────────────────────────────── -->
     <section class="airline-switcher" aria-label="選擇航空公司">
+      <!-- 四大航空總覽入口 -->
+      <button type="button" class="airline-tab" @click="router.push('/')">
+        <span class="tab-code">四大航空</span>
+        <span class="tab-name">總覽</span>
+      </button>
       <button
         v-for="name in FOUR_AIRLINES"
         :key="name"
         type="button"
-        class="airline-tab"
+        class="airline-tab airline-tab--brand"
         :class="{ active: store.selectedAirline === (name as AirlineName) }"
-        :style="store.selectedAirline === (name as AirlineName) ? { '--tab-accent': AIRLINE_META[name as AirlineName].accent } : {}"
+        :style="{ '--tab-accent': AIRLINE_META[name as AirlineName].accent }"
         @click="selectAirline(name as AirlineName)"
       >
         <span class="tab-code">{{ AIRLINE_META[name as AirlineName].code }}</span>
@@ -235,28 +236,6 @@ const yoyFlight = computed(() => {
       <RouteDetailsTab v-else-if="store.activeTab === 'details'" />
     </div>
 
-    <!-- ── 關於本頁（內容 SEO） ──────────────────────────────────────── -->
-    <section class="seo-blurb" aria-label="關於本頁">
-      <h2>關於台灣航空載客率分析</h2>
-      <p>
-        本頁提供台灣航空載客率查詢與比較，使用中華民國交通部民用航空局公開資料「國際及兩岸定期航線班機載客率－按航線別分」，整理<strong>中華航空</strong>、<strong>長榮航空</strong>、<strong>星宇航空</strong>與<strong>台灣虎航</strong>的每月航線表現。
-        資料涵蓋載客率（Load Factor）、載客人數、飛行架次、座位數與入出境旅客分布，供讀者觀察各航空公司自身的月度營運變化。
-      </p>
-      <p>
-        切換左上角的航空公司按鈕與月份選擇器，可逐一檢視各公司的航點表現；趨勢圖顯示所選航空公司的月均載客率變化；同期比較 Tab 可對照去年同月表現。
-      </p>
-      <p>
-        本工具可用於查詢台灣航空載客率，也適合追蹤華航載客率、長榮載客率、星宇載客率與虎航載客率，並比較各航空公司在不同月份、航點與航線上的載客率變化。
-      </p>
-      <p>
-        資料來源為交通部民用航空局公開統計頁面
-        <a href="https://www.caa.gov.tw/article.aspx?a=1752&lang=1" target="_blank" rel="noopener noreferrer">「國際及兩岸定期航線班機載客率－按航線別分」</a>。
-        本站為非官方二次整理與視覺化工具，並非交通部民用航空局或任何航空公司的官方服務。資料可能因原始檔更新、解析規則、航點代碼映射、四捨五入、系統處理或更新時差而產生遺漏、延遲或差異；正式數據、欄位定義與最新版本請以民航局原始公告為準。本頁內容僅供資料探索與研究參考，不構成投資、營運、交易、訂票或其他決策建議；使用者引用或依據本頁資訊採取行動，其結果與風險由使用者自行判斷與承擔。
-      </p>
-      <p>
-        資料錯誤、功能建議或合作洽詢，請來信
-        <a href="mailto:taiwanairlinedata@gmail.com">taiwanairlinedata@gmail.com</a>。
-      </p>
-    </section>
+    <SiteFooter />
   </div>
 </template>

@@ -12,7 +12,7 @@ const route = useRoute()
     </RouterLink>
 
     <div class="nav-links">
-      <RouterLink to="/" class="nav-link" :class="{ active: route.name === 'airline-growth' || String(route.name).startsWith('airline-') }">
+      <RouterLink to="/" class="nav-link" :class="{ active: route.name === 'market-overview' || String(route.name).startsWith('airline-') }">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
         航運四雄分析
       </RouterLink>

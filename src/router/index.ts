@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import RouteExplorerView from '../views/RouteExplorerView.vue'
 import AirlineGrowthView from '../views/AirlineGrowthView.vue'
+import MarketOverviewView from '../views/MarketOverviewView.vue'
 import { updatePageMeta } from '../utils/seo'
 
 const router = createRouter({
@@ -8,8 +9,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'airline-growth',
-      component: AirlineGrowthView,
+      name: 'market-overview',
+      component: MarketOverviewView,
     },
     {
       path: '/airlines',
