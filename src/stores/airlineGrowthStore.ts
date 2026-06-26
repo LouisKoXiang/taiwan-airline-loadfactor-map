@@ -390,10 +390,10 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
       ? allRecords.filter((r) => r.airlineName === selectedAirline.value && r.month === previousYearMonth.value)
       : []
 
+    const prevMap = new Map(prevRecs.map((p) => [routeKey(p), p]))
+
     return airlineRecords.value.map((r) => {
-      const prev = prevRecs.find(
-        (p) => p.originAirportCode === r.originAirportCode && p.destinationAirportCode === r.destinationAirportCode,
-      )
+      const prev = prevMap.get(routeKey(r))
       if (!prev) return { ...r, isNew: hasPreviousYearData.value }
 
       const yoyLoadFactorPp = ppChange(r.loadFactor, prev.loadFactor)
@@ -527,6 +527,11 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
     }
   })
 
+  // ── routesWithYoY 的 Map 索引（供 opportunityRoutes / detailRows 使用）──
+  const routesWithYoYMap = computed(() =>
+    new Map(routesWithYoY.value.map((r) => [routeKey(r), r])),
+  )
+
   // ── 增班潛力航線：LF ≥ 90% 且（低於中位架次或同期旅客增長 ≥ 20%） ──
   const opportunityRoutes = computed<OpportunityRoute[]>(() => {
     const recs = airlineRecords.value
@@ -536,9 +541,7 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
 
     return recs.flatMap((r) => {
       if (r.loadFactor < 90) return []
-      const yoyRow = routesWithYoY.value.find(
-        (rr) => rr.originAirportCode === r.originAirportCode && rr.destinationAirportCode === r.destinationAirportCode,
-      )
+      const yoyRow = routesWithYoYMap.value.get(routeKey(r))
       const belowMedian = r.flightCount < medianFlights
       const highPaxGrowth = (yoyRow?.yoyPassengerPct ?? 0) >= 20
       if (!belowMedian && !highPaxGrowth) return []
@@ -577,10 +580,8 @@ export const useAirlineGrowthStore = defineStore('airline-growth', () => {
   // ── 明細列（含同期比較與標籤） ────────────────────────────────
   const detailRows = computed<DetailRow[]>(() =>
     sortedRoutes.value.map((r) => {
-      const key = `${r.originAirportCode}-${r.destinationAirportCode}`
-      const yoyRow = routesWithYoY.value.find(
-        (rr) => rr.originAirportCode === r.originAirportCode && rr.destinationAirportCode === r.destinationAirportCode,
-      )
+      const key = routeKey(r)
+      const yoyRow = routesWithYoYMap.value.get(key)
       return {
         ...r,
         yoyLoadFactorPp: yoyRow?.yoyLoadFactorPp,
