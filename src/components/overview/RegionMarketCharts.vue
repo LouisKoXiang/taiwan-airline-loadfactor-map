@@ -182,15 +182,15 @@ const hasData = computed(() => props.stats.length > 0)
               <!-- 橫條軌道 -->
               <div class="rc-track">
                 <div
-                  v-if="row.value !== null"
                   class="rc-fill"
-                  :style="{ width: row.pct + '%', background: row.color }"
+                  :class="{ 'rc-fill--empty': row.value === null }"
+                  :style="row.value !== null ? { width: row.pct + '%', background: row.color } : {}"
                 ></div>
-                <div v-else class="rc-fill rc-fill--empty"></div>
               </div>
               <!-- 數值 -->
-              <span v-if="row.label !== null" class="rc-val">{{ row.label }}</span>
-              <span v-else class="rc-val rc-val--na">—</span>
+              <span class="rc-val" :class="{ 'rc-val--na': row.label === null }">
+                {{ row.label ?? '—' }}
+              </span>
             </div>
           </div>
         </div>
@@ -216,23 +216,27 @@ const hasData = computed(() => props.stats.length > 0)
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ── 根容器 ────────────────────────────────────────────────────────────────────
 .rc-root {
   display: grid;
   gap: 14px;
 }
 
-/* 無資料 */
+// ── 無資料 ────────────────────────────────────────────────────────────────────
 .rc-empty {
   padding: 32px 16px;
   border: 1px dashed var(--ink-100);
-  border-radius: 12px;
+  border-radius: $radius-md;
   text-align: center;
   color: var(--ink-400);
   font-size: 0.9rem;
 }
 
-/* 指標切換列 */
+// ── 指標切換列 ────────────────────────────────────────────────────────────────
 .rc-toggle-row {
   display: flex;
   align-items: center;
@@ -240,25 +244,29 @@ const hasData = computed(() => props.stats.length > 0)
   flex-wrap: wrap;
 }
 
-/* 三欄卡片 */
+// ── 三欄卡片 ─────────────────────────────────────────────────────────────────
 .rc-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
+
+  @include respond-to(md) { grid-template-columns: 1fr; }
 }
 
-/* 單張卡片 */
+// ── 單張卡片 ─────────────────────────────────────────────────────────────────
 .rc-card {
   display: grid;
   gap: 14px;
   padding: 18px 20px;
 }
 
+// ── 卡片標題 ─────────────────────────────────────────────────────────────────
 .rc-card-header {
   display: flex;
   align-items: center;
   gap: 8px;
 }
+
 .rc-flag {
   width: 28px;
   height: 20px;
@@ -267,12 +275,14 @@ const hasData = computed(() => props.stats.length > 0)
   box-shadow: 0 0 0 1px rgb(0 0 0 / 0.08);
   display: block;
 }
+
 .rc-card-title {
   color: var(--ink-800);
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: -0.01em;
 }
+
 .rc-info-btn {
   display: inline-flex;
   align-items: center;
@@ -288,11 +298,12 @@ const hasData = computed(() => props.stats.length > 0)
   font-weight: 900;
   line-height: 1;
   transition: border-color 140ms, color 140ms, background 140ms;
-}
-.rc-info-btn:hover {
-  border-color: var(--blue-300);
-  background: #fff;
-  color: var(--blue-600);
+
+  &:hover {
+    border-color: var(--blue-300);
+    background: #fff;
+    color: var(--blue-600);
+  }
 }
 
 .rc-no-data {
@@ -301,7 +312,7 @@ const hasData = computed(() => props.stats.length > 0)
   padding: 8px 0;
 }
 
-/* 橫條圖 */
+// ── 橫條圖 ────────────────────────────────────────────────────────────────────
 .rc-bars {
   display: grid;
   gap: 10px;
@@ -312,6 +323,11 @@ const hasData = computed(() => props.stats.length > 0)
   grid-template-columns: 88px 1fr 56px;
   align-items: center;
   gap: 8px;
+
+  @include respond-to(xs) {
+    grid-template-columns: 72px 1fr 48px;
+    gap: 6px;
+  }
 }
 
 .rc-bar-label {
@@ -320,12 +336,14 @@ const hasData = computed(() => props.stats.length > 0)
   gap: 6px;
   min-width: 0;
 }
+
 .rc-dot {
   width: 8px;
   height: 8px;
   border-radius: 2px;
   flex-shrink: 0;
 }
+
 .rc-airline-name {
   color: var(--ink-700);
   font-size: 0.78rem;
@@ -333,23 +351,28 @@ const hasData = computed(() => props.stats.length > 0)
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @include respond-to(xs) { font-size: 0.72rem; }
 }
 
 .rc-track {
   height: 10px;
-  border-radius: 999px;
+  border-radius: $radius-pill;
   background: var(--ink-50);
   overflow: hidden;
 }
+
 .rc-fill {
   height: 100%;
-  border-radius: 999px;
+  border-radius: $radius-pill;
   transition: width 320ms ease;
-}
-.rc-fill--empty {
-  width: 12px;
-  background: var(--ink-100);
-  opacity: 0.5;
+
+  // DOM-conditional → SCSS modifier: null 值時顯示虛線佔位
+  &--empty {
+    width: 12px;
+    background: var(--ink-100);
+    opacity: 0.5;
+  }
 }
 
 .rc-val {
@@ -358,17 +381,21 @@ const hasData = computed(() => props.stats.length > 0)
   font-size: 0.78rem;
   font-weight: 800;
   white-space: nowrap;
-}
-.rc-val--na {
-  color: var(--ink-300);
-  font-weight: 400;
+
+  @include respond-to(xs) { font-size: 0.72rem; }
+
+  // DOM-conditional → SCSS modifier: 無資料樣式
+  &--na {
+    color: var(--ink-300);
+    font-weight: 400;
+  }
 }
 
-/* 說明 Dialog */
+// ── 說明 Dialog ───────────────────────────────────────────────────────────────
 .rc-dialog-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  z-index: $z-dialog;
   display: grid;
   place-items: center;
   padding: 20px;
@@ -378,68 +405,44 @@ const hasData = computed(() => props.stats.length > 0)
 .rc-dialog {
   width: min(420px, 100%);
   border: 1px solid var(--ink-100);
-  border-radius: 14px;
+  border-radius: $radius-lg;
   background: #fff;
   box-shadow: 0 18px 48px rgb(14 28 36 / 0.18);
   padding: 18px 20px 20px;
-}
 
-.rc-dialog-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 10px;
-}
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
 
-.rc-dialog-header h3 {
-  margin: 0;
-  color: var(--ink-800);
-  font-size: 1rem;
-  font-weight: 900;
-}
-
-.rc-dialog-close {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border: 1px solid var(--ink-100);
-  border-radius: 50%;
-  background: #fff;
-  color: var(--ink-400);
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.rc-dialog-body {
-  display: grid;
-  gap: 8px;
-}
-
-.rc-dialog-body p {
-  color: var(--ink-500, var(--ink-400));
-  font-size: 0.86rem;
-  line-height: 1.7;
-}
-
-/* RWD */
-@media (max-width: 760px) {
-  .rc-cards {
-    grid-template-columns: 1fr;
+    h3 { margin: 0; color: var(--ink-800); font-size: 1rem; font-weight: 900; }
   }
-}
-@media (max-width: 480px) {
-  .rc-bar-row {
-    grid-template-columns: 72px 1fr 48px;
-    gap: 6px;
+
+  &-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--ink-100);
+    border-radius: 50%;
+    background: #fff;
+    color: var(--ink-400);
+    font-size: 1.2rem;
+    line-height: 1;
   }
-  .rc-airline-name {
-    font-size: 0.72rem;
-  }
-  .rc-val {
-    font-size: 0.72rem;
+
+  &-body {
+    display: grid;
+    gap: 8px;
+
+    p {
+      color: var(--ink-500, var(--ink-400));
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
   }
 }
 </style>

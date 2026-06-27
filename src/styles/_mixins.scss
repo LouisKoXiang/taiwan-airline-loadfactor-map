@@ -1,0 +1,91 @@
+@use 'variables' as *;
+
+// ─── 版型 Mixins ──────────────────────────────────────────────────────────────
+
+// 白色卡片框線底
+@mixin card {
+  border: 1px solid var(--ink-100);
+  border-radius: $radius-md;
+  background: #fff;
+}
+
+// 卡片 + 標準 padding
+@mixin card-padded($pad: $card-pad-md) {
+  @include card;
+  padding: $pad;
+}
+
+// Flex 兩端對齊
+@mixin flex-between($align: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: space-between;
+}
+
+// Flex 置中
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Flex 行內對齊
+@mixin flex-row($gap: 0, $align: center) {
+  display: flex;
+  align-items: $align;
+  @if $gap != 0 { gap: $gap; }
+}
+
+// Grid 置中（單格）
+@mixin grid-center {
+  display: grid;
+  place-items: center;
+}
+
+// ─── 文字 Mixins ──────────────────────────────────────────────────────────────
+
+// 全大寫小標籤（field-label, chart-title 等）
+@mixin label-xs {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+// 數值截斷（表格、airline名稱用）
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// ─── 按鈕 Mixins ──────────────────────────────────────────────────────────────
+
+// pill 型按鈕骨架
+@mixin btn-pill($h: 30px) {
+  display: inline-flex;
+  align-items: center;
+  min-height: $h;
+  border-radius: $radius-pill;
+  font-weight: 700;
+  transition: background 140ms, border-color 140ms, color 140ms;
+}
+
+// icon 圓圈按鈕
+@mixin btn-circle($size: 28px) {
+  @include flex-center;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+// ─── 響應式斷點 ───────────────────────────────────────────────────────────────
+
+@mixin respond-to($bp) {
+  @if $bp == xs { @media (max-width: #{$bp-xs}) { @content; } }
+  @else if $bp == sm { @media (max-width: #{$bp-sm}) { @content; } }
+  @else if $bp == md { @media (max-width: #{$bp-md}) { @content; } }
+  @else if $bp == lg { @media (max-width: #{$bp-lg}) { @content; } }
+  @else if $bp == xl { @media (max-width: #{$bp-xl}) { @content; } }
+}

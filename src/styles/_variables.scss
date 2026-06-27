@@ -1,0 +1,54 @@
+// ─── SCSS 設計變數 ────────────────────────────────────────────────────────────
+// 這裡只放 SCSS 編譯期變數（斷點、z-index、尺寸）。
+// 顏色語義變數（--blue-*, --ink-* 等）保留在 CSS custom properties（:root）。
+
+// ── 斷點 ─────────────────────────────────────────────────────────────────────
+$bp-xs:  480px;
+$bp-sm:  520px;
+$bp-md:  760px;
+$bp-lg:  1024px;
+$bp-xl:  1280px;
+
+// ── Z-index 層級 ──────────────────────────────────────────────────────────────
+$z-map-controls:    5;
+$z-detail-panel:    6;
+$z-map-tooltip:     8;
+$z-matrix-tooltip:  20;
+$z-dialog:          50;
+$z-kpi-dialog:      90;
+$z-nav:             100;
+
+// ── 圓角 ──────────────────────────────────────────────────────────────────────
+$radius-xs:   5px;
+$radius-sm:   8px;
+$radius-md:   12px;
+$radius-lg:   14px;
+$radius-xl:   16px;
+$radius-pill: 999px;
+
+// ── 間距 ──────────────────────────────────────────────────────────────────────
+$gap-xs:   5px;
+$gap-sm:   8px;
+$gap-md:   12px;
+$gap-lg:   16px;
+$gap-xl:   28px;
+
+// ── 卡片通用 padding ──────────────────────────────────────────────────────────
+$card-pad-sm:  14px 16px;
+$card-pad-md:  16px 18px;
+$card-pad-lg:  20px 22px;
+
+// ── 航空公司主題色（Single source of truth）──────────────────────────────────
+// 同步修改請同步更新 airline.ts 中的 fallback 值
+$airline-ci: #161e4d;   // 中華航空 China Airlines
+$airline-br: #00a650;   // 長榮航空 EVA Air
+$airline-jx: #9b6a4c;   // 星宇航空 STARLUX
+$airline-it: #f7af1f;   // 台灣虎航 Tigerair Taiwan
+
+// SCSS map（可供迴圈使用）
+$airline-accents: (
+  'CI': $airline-ci,
+  'BR': $airline-br,
+  'JX': $airline-jx,
+  'IT': $airline-it,
+);
