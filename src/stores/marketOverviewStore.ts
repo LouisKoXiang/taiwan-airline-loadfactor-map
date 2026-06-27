@@ -128,6 +128,19 @@ export interface AirportStat {
   totalPax: number
 }
 
+export interface NewRouteStat {
+  airline: AirlineName
+  color: string
+  originAirportCode: string
+  destinationAirportCode: string
+  destinationCityName: string
+  destinationCountry: string
+  flightCount: number
+  passengerCount: number
+  seatCount: number
+  loadFactor: number
+}
+
 // ─── 區域定義 ────────────────────────────────────────────────────────────────
 
 export type RegionKey = 'japan' | 'usa' | 'europe'
@@ -143,6 +156,10 @@ function classifyRegion(country: string): RegionKey | null {
   if (country === '美國' || country === 'USA' || country === 'United States') return 'usa'
   if (EUROPE_COUNTRIES.has(country)) return 'europe'
   return null
+}
+
+function routeCompareKey(r: Pick<MonthlyAirlineRouteStat, 'airlineName' | 'originAirportCode' | 'destinationAirportCode'>): string {
+  return `${r.airlineName}|${r.originAirportCode}-${r.destinationAirportCode}`
 }
 
 const REGION_NAMES: Record<RegionKey, string> = {
@@ -326,6 +343,43 @@ export const useMarketOverviewStore = defineStore('market-overview', () => {
     }),
   )
 
+  const newRoutes = computed<NewRouteStat[]>(() => {
+    const previousRecords = prevYearComparableRecords.value
+    if (previousRecords.length === 0) return []
+
+    const previousKeys = new Set(previousRecords.map(routeCompareKey))
+    const previousAirlines = new Set(previousRecords.map((r) => r.airlineName))
+    const currentGroups = new Map<string, MonthlyAirlineRouteStat[]>()
+
+    for (const r of yearRecords.value) {
+      if (!previousAirlines.has(r.airlineName)) continue
+      const key = routeCompareKey(r)
+      if (previousKeys.has(key)) continue
+      if (!currentGroups.has(key)) currentGroups.set(key, [])
+      currentGroups.get(key)!.push(r)
+    }
+
+    return [...currentGroups.values()]
+      .map((recs) => {
+        const first = recs[0]
+        const seatCount = recs.reduce((s, r) => s + r.seatCount, 0)
+        const passengerCount = recs.reduce((s, r) => s + r.passengerCount, 0)
+        return {
+          airline: first.airlineName as AirlineName,
+          color: AIRLINE_META[first.airlineName as AirlineName].accent,
+          originAirportCode: first.originAirportCode,
+          destinationAirportCode: first.destinationAirportCode,
+          destinationCityName: first.destinationCityName,
+          destinationCountry: first.destinationCountry,
+          flightCount: recs.reduce((s, r) => s + r.flightCount, 0),
+          passengerCount,
+          seatCount,
+          loadFactor: seatCount > 0 ? Math.round((passengerCount / seatCount) * 1000) / 10 : 0,
+        }
+      })
+      .sort((a, b) => b.passengerCount - a.passengerCount)
+  })
+
   // ─── 區域市場統計 ────────────────────────────────────────────────────────
   const regionMarketStats = computed<RegionMarketStat[]>(() => {
     const result: RegionMarketStat[] = []
@@ -364,6 +418,7 @@ export const useMarketOverviewStore = defineStore('market-overview', () => {
     airlineYearlyStats,
     prevFullYearAirlineStats,
     airportBreakdown,
+    newRoutes,
     regionMarketStats,
     REGION_KEYS,
     REGION_NAMES,

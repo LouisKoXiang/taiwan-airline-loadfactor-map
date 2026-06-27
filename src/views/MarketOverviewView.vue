@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useMarketOverviewStore } from '../stores/marketOverviewStore'
 import { FOUR_AIRLINES, AIRLINE_META, AIRLINE_SLUG } from '../types/airline'
@@ -8,6 +8,7 @@ import AirlineRankingCards from '../components/overview/AirlineRankingCards.vue'
 import MarketShareChart from '../components/overview/MarketShareChart.vue'
 import AirportBreakdown from '../components/overview/AirportBreakdown.vue'
 import RegionMarketCharts from '../components/overview/RegionMarketCharts.vue'
+import NewRoutesPanel from '../components/overview/NewRoutesPanel.vue'
 import CumulativeKpiCards from '../components/overview/CumulativeKpiCards.vue'
 import ShareButton from '../components/ShareButton.vue'
 import SiteFooter from '../components/SiteFooter.vue'
@@ -34,6 +35,190 @@ const routeSeries = computed(() => makeSeriesFor('routeCount'))
 const flightSeries = computed(() => makeSeriesFor('flightCount'))
 const shareUrl = 'https://taiwanairlinedata.com/'
 const shareTitle = '台灣航空載客率查詢｜四大航空總覽'
+const activeSectionId = ref('overview-cumulative')
+const activeCapacityMetric = ref<'passengerCount' | 'flightCount'>('passengerCount')
+const isSectionNavVisible = ref(true)
+const isFooterVisible = ref(false)
+let sectionObserver: IntersectionObserver | undefined
+let footerObserver: IntersectionObserver | undefined
+let preserveClickedSectionUntil = 0
+
+const capacityMetricOptions = [
+  {
+    value: 'passengerCount',
+    label: '載客人數',
+    title: '載客人數月趨勢',
+    note: '比較各航空實際承載旅客量，適合看市場規模與成長動能。',
+    unit: ' 人',
+  },
+  {
+    value: 'flightCount',
+    label: '飛行架次',
+    title: '飛行架次月趨勢',
+    note: '追蹤供給端是否增班或縮班，搭配載客率可判斷運能配置是否有效。',
+    unit: ' 次',
+  },
+] as const
+
+const activeCapacityOption = computed(() =>
+  capacityMetricOptions.find((option) => option.value === activeCapacityMetric.value) ?? capacityMetricOptions[0],
+)
+const capacitySeries = computed(() =>
+  activeCapacityMetric.value === 'passengerCount' ? paxSeries.value : flightSeries.value,
+)
+const overviewInsight = computed(() => {
+  const stats = store.airlineYearlyStats.filter((stat) => stat.passengerCount > 0)
+  if (stats.length === 0) return ''
+
+  const passengerLeader = [...stats].sort((a, b) => b.passengerCount - a.passengerCount)[0]
+  const loadFactorLeader = [...stats].sort((a, b) => b.avgLoadFactor - a.avgLoadFactor)[0]
+  const growthLeader = [...store.cumulativeOverviewSummary.airlines]
+    .filter((airline) => airline.passengerCount.percentChange !== null)
+    .sort((a, b) => (b.passengerCount.percentChange ?? -Infinity) - (a.passengerCount.percentChange ?? -Infinity))[0]
+
+  const newRouteCounts = new Map<string, number>()
+  for (const route of store.newRoutes) {
+    newRouteCounts.set(route.airline, (newRouteCounts.get(route.airline) ?? 0) + 1)
+  }
+  const newRouteLeader = [...newRouteCounts.entries()].sort((a, b) => b[1] - a[1])[0]
+
+  const parts = [
+    `${store.cumulativeOverviewSummary.monthRangeLabel}累積，${passengerLeader.airlineName}以 ${formatNum(passengerLeader.passengerCount)} 人居四大航空載客人數第一`,
+  ]
+
+  if (growthLeader?.passengerCount.percentChange !== null && growthLeader?.passengerCount.percentChange !== undefined) {
+    parts.push(`${growthLeader.airlineName}載客人數年增 ${growthLeader.passengerCount.percentChange.toFixed(1)}% 最明顯`)
+  }
+
+  parts.push(`${loadFactorLeader.airlineName}平均載客率 ${loadFactorLeader.avgLoadFactor.toFixed(1)}% 最高`)
+
+  if (newRouteLeader) {
+    parts.push(`${newRouteLeader[0]}新增航點 ${newRouteLeader[1]} 條`)
+  }
+
+  return `${parts.join('；')}。`
+})
+
+const sectionNavItems = computed(() => [
+  { id: 'overview-cumulative', label: '累積表現' },
+  { id: 'overview-ranking', label: '指標排行' },
+  { id: 'overview-share', label: '市佔比較' },
+  { id: 'overview-region', label: '區域視角' },
+  { id: 'overview-new-routes', label: '新增航點' },
+  ...(store.airportBreakdown.length > 0 ? [{ id: 'overview-airports', label: '機場視角' }] : []),
+  { id: 'overview-load-factor', label: '載客率' },
+  { id: 'overview-capacity', label: '運能趨勢' },
+  { id: 'overview-route-count', label: '航線數' },
+])
+
+function prefersReducedMotion() {
+  return typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
+function isMobileSectionNav() {
+  return typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches
+}
+
+function pageScroller() {
+  return document.querySelector<HTMLElement>('.page-content')
+}
+
+function scrollToSection(sectionId: string) {
+  const target = document.getElementById(sectionId)
+  if (!target) return
+  activeSectionId.value = sectionId
+  preserveClickedSectionUntil = Date.now() + 1400
+
+  const scrollOffset = isMobileSectionNav() ? 72 : 84
+  const scroller = pageScroller()
+  if (!scroller) return
+
+  const scrollTop = target.getBoundingClientRect().top
+    - scroller.getBoundingClientRect().top
+    + scroller.scrollTop
+    - scrollOffset
+
+  scroller.scrollTo({
+    top: Math.max(0, scrollTop),
+    behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+  })
+}
+
+async function scrollActiveNavItemIntoView() {
+  await nextTick()
+  const activeButton = document.querySelector<HTMLElement>(
+    `.overview-section-nav-btn[data-section-id="${activeSectionId.value}"]`,
+  )
+  const nav = activeButton?.closest<HTMLElement>('.overview-section-nav')
+  if (!activeButton || !nav) return
+
+  const targetLeft = activeButton.offsetLeft - (nav.clientWidth - activeButton.offsetWidth) / 2
+  nav.scrollTo({
+    left: Math.max(0, targetLeft),
+    behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+  })
+}
+
+async function setupSectionObserver() {
+  sectionObserver?.disconnect()
+  await nextTick()
+
+  if (typeof IntersectionObserver === 'undefined') return
+  const scroller = pageScroller()
+
+  sectionObserver = new IntersectionObserver(
+    (entries) => {
+      if (Date.now() < preserveClickedSectionUntil) return
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+      if (visible?.target.id) activeSectionId.value = visible.target.id
+    },
+    {
+      root: scroller,
+      rootMargin: '-18% 0px -66% 0px',
+      threshold: [0.1, 0.25, 0.5, 0.75],
+    },
+  )
+
+  for (const item of sectionNavItems.value) {
+    const el = document.getElementById(item.id)
+    if (el) sectionObserver.observe(el)
+  }
+}
+
+async function setupFooterObserver() {
+  footerObserver?.disconnect()
+  await nextTick()
+
+  if (typeof IntersectionObserver === 'undefined') return
+  const footer = document.getElementById('overview-footer')
+  if (!footer) return
+
+  footerObserver = new IntersectionObserver(
+    ([entry]) => {
+      isFooterVisible.value = Boolean(entry?.isIntersecting)
+    },
+    {
+      root: pageScroller(),
+      threshold: 0.08,
+    },
+  )
+  footerObserver.observe(footer)
+}
+
+onMounted(() => {
+  setupSectionObserver()
+  setupFooterObserver()
+})
+
+onBeforeUnmount(() => {
+  sectionObserver?.disconnect()
+  footerObserver?.disconnect()
+})
+
+watch(() => [store.activeYear, store.airportBreakdown.length], setupSectionObserver)
+watch(activeSectionId, scrollActiveNavItemIntoView)
 </script>
 
 <template>
@@ -45,6 +230,7 @@ const shareTitle = '台灣航空載客率查詢｜四大航空總覽'
         <p class="overview-subtitle">
           四大航空總覽：比較中華航空、長榮航空、星宇航空、台灣虎航的年度載客率、市佔率與區域航線表現
         </p>
+        <p v-if="overviewInsight" class="overview-insight">{{ overviewInsight }}</p>
       </div>
       <div class="header-actions">
         <ShareButton
@@ -85,16 +271,35 @@ const shareTitle = '台灣航空載客率查詢｜四大航空總覽'
       </button>
     </section>
 
-    <CumulativeKpiCards :summary="store.cumulativeOverviewSummary" />
+    <nav
+      v-show="!isFooterVisible"
+      class="overview-section-nav"
+      :class="{ 'is-visible': isSectionNavVisible }"
+      aria-label="總覽頁區塊導覽"
+    >
+      <button
+        v-for="item in sectionNavItems"
+        :key="item.id"
+        type="button"
+        class="overview-section-nav-btn"
+        :data-section-id="item.id"
+        :class="{ active: activeSectionId === item.id }"
+        @click="scrollToSection(item.id)"
+      >
+        {{ item.label }}
+      </button>
+    </nav>
+
+    <CumulativeKpiCards id="overview-cumulative" :summary="store.cumulativeOverviewSummary" />
 
     <!-- A. 指標排行卡 -->
-    <section class="overview-section">
+    <section id="overview-ranking" class="overview-section">
       <h2 class="overview-section-title">{{ store.activeYear }} 年度指標排行</h2>
       <AirlineRankingCards :stats="store.airlineYearlyStats" :year="store.activeYear" />
     </section>
 
     <!-- B. 年度市佔比較 -->
-    <section class="overview-section">
+    <section id="overview-share" class="overview-section">
       <h2 class="overview-section-title">{{ store.activeYear }} 年度市佔比較</h2>
       <div class="overview-card">
         <MarketShareChart
@@ -107,7 +312,7 @@ const shareTitle = '台灣航空載客率查詢｜四大航空總覽'
     </section>
 
     <!-- C. 航點 / 區域視角 -->
-    <section class="overview-section">
+    <section id="overview-region" class="overview-section">
       <h2 class="overview-section-title">航點 / 區域視角</h2>
       <p class="overview-region-subtitle">
         比較四大航空在日本線、美國線與歐洲線的載客率、航班量與旅客數。
@@ -115,8 +320,18 @@ const shareTitle = '台灣航空載客率查詢｜四大航空總覽'
       <RegionMarketCharts :stats="store.regionMarketStats" />
     </section>
 
+    <!-- D. 新增航點 -->
+    <section id="overview-new-routes" class="overview-section">
+      <h2 class="overview-section-title">新增航點</h2>
+      <NewRoutesPanel
+        :routes="store.newRoutes"
+        :current-year="store.activeYear"
+        :previous-year="store.prevYear"
+      />
+    </section>
+
     <!-- D. 機場視角（含同期比較） -->
-    <section v-if="store.airportBreakdown.length > 0" class="overview-section">
+    <section v-if="store.airportBreakdown.length > 0" id="overview-airports" class="overview-section">
       <h2 class="overview-section-title">
         各出發機場載客人數（{{ store.activeYear }} vs {{ store.prevYear }} 年同期）
       </h2>
@@ -124,7 +339,9 @@ const shareTitle = '台灣航空載客率查詢｜四大航空總覽'
     </section>
 
     <!-- D. 載客率月趨勢 -->
-    <section class="overview-section">
+    <section id="overview-load-factor" class="overview-section">
+      <h2 class="overview-section-title">平均載客率月趨勢</h2>
+      <p class="overview-section-note">觀察四大航空座位利用率的月度變化，快速辨識淡旺季與需求熱度。</p>
       <MultiLineTrendChart
         title="平均載客率月趨勢"
         :series="lfSeries"
@@ -134,23 +351,37 @@ const shareTitle = '台灣航空載客率查詢｜四大航空總覽'
     </section>
 
     <!-- E + F. 載客人數 + 飛行架次 -->
-    <div class="charts-row">
+    <section id="overview-capacity" class="overview-section">
+      <div class="overview-section-head">
+        <div>
+          <h2 class="overview-section-title">{{ activeCapacityOption.title }}</h2>
+          <p class="overview-section-note">{{ activeCapacityOption.note }}</p>
+        </div>
+        <div class="trend-mode-toggle" aria-label="運能趨勢指標切換">
+          <button
+            v-for="option in capacityMetricOptions"
+            :key="option.value"
+            type="button"
+            class="trend-mode-btn"
+            :class="{ active: activeCapacityMetric === option.value }"
+            @click="activeCapacityMetric = option.value"
+          >
+            {{ option.label }}
+          </button>
+        </div>
+      </div>
       <MultiLineTrendChart
-        title="載客人數月趨勢"
-        :series="paxSeries"
-        unit=" 人"
+        :title="activeCapacityOption.title"
+        :series="capacitySeries"
+        :unit="activeCapacityOption.unit"
         :format-value="formatNum"
       />
-      <MultiLineTrendChart
-        title="飛行架次月趨勢"
-        :series="flightSeries"
-        unit=" 次"
-        :format-value="formatNum"
-      />
-    </div>
+    </section>
 
     <!-- G. 航線數趨勢 -->
-    <section class="overview-section">
+    <section id="overview-route-count" class="overview-section">
+      <h2 class="overview-section-title">航線數月趨勢</h2>
+      <p class="overview-section-note">查看航網廣度是否擴張，適合觀察誰正在新增市場或收斂航點。</p>
       <MultiLineTrendChart
         title="航線數月趨勢（誰在擴張？）"
         :series="routeSeries"
@@ -159,6 +390,8 @@ const shareTitle = '台灣航空載客率查詢｜四大航空總覽'
       />
     </section>
 
-    <SiteFooter />
+    <div id="overview-footer">
+      <SiteFooter />
+    </div>
   </div>
 </template>
