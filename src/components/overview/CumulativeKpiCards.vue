@@ -2,12 +2,12 @@
 import { ref } from 'vue'
 import type { CumulativeAirlineSummary, CumulativeMetric, CumulativeOverviewSummary } from '../../stores/marketOverviewStore'
 import { AIRLINE_META } from '../../types/airline'
+import AnimatedNumber from './AnimatedNumber.vue'
 
 defineProps<{
   summary: CumulativeOverviewSummary
 }>()
 
-const fmt = new Intl.NumberFormat('zh-TW')
 const showFormula = ref(false)
 
 function pctText(metric: CumulativeMetric): string | null {
@@ -51,7 +51,9 @@ function airlineCode(card: CumulativeAirlineSummary): string {
         <div class="cumulative-kpi-metrics">
           <div class="cumulative-kpi-metric">
             <span class="cumulative-kpi-label">載客人數</span>
-            <strong class="cumulative-kpi-value">{{ fmt.format(card.passengerCount.current) }}</strong>
+            <strong class="cumulative-kpi-value">
+              <AnimatedNumber :value="card.passengerCount.current" />
+            </strong>
             <span
               v-if="pctText(card.passengerCount)"
               class="cumulative-kpi-yoy"
@@ -73,7 +75,7 @@ function airlineCode(card: CumulativeAirlineSummary): string {
               >?</button>
             </div>
             <strong class="cumulative-kpi-value cumulative-kpi-value--load">
-              {{ card.avgLoadFactor.current.toFixed(1) }}%
+              <AnimatedNumber :value="card.avgLoadFactor.current" :decimals="1" suffix="%" />
             </strong>
             <span
               v-if="ppText(card.avgLoadFactor)"

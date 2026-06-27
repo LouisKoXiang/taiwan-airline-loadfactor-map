@@ -143,6 +143,9 @@ const render = () => {
       return barEnd + (compact ? 42 : 52) > W ? 'bar-value bar-value--inside' : 'bar-value'
     })
     .text((d) => `${fmt(d.value)}${props.unit ?? ''}`)
+    .attr('opacity', 0)
+    .transition().delay(260).duration(220).ease(d3.easeQuadOut)
+    .attr('opacity', 1)
 }
 
 onMounted(() => {

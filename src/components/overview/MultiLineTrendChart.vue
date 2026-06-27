@@ -34,6 +34,8 @@ const tooltipValues = ref<{ label: string; color: string; text: string }[]>([])
 
 const unit = () => props.unit ?? ''
 const fmt = (v: number) => props.formatValue ? props.formatValue(v) : v.toFixed(1)
+const shouldAnimate = () =>
+  typeof window !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 const render = () => {
   if (!svgRef.value || !wrapperRef.value) return
@@ -105,7 +107,7 @@ const render = () => {
   const dotR = months.length > 8 ? 2.5 : 3.5
 
   for (const s of validSeries) {
-    svg.append('path')
+    const path = svg.append('path')
       .datum(s.points)
       .attr('fill', 'none')
       .attr('stroke', s.color)
@@ -119,6 +121,17 @@ const render = () => {
         .curve(d3.curveMonotoneX),
       )
 
+    if (shouldAnimate()) {
+      const totalLength = path.node()?.getTotalLength() ?? 0
+      path
+        .attr('stroke-dasharray', totalLength)
+        .attr('stroke-dashoffset', totalLength)
+        .transition()
+        .duration(720)
+        .ease(d3.easeCubicOut)
+        .attr('stroke-dashoffset', 0)
+    }
+
     svg.append('g')
       .selectAll<SVGCircleElement, ChartPoint>('circle')
       .data(s.points.filter((p) => p.value !== null))
@@ -129,7 +142,12 @@ const render = () => {
       .attr('fill', '#fff')
       .attr('stroke', s.color)
       .attr('stroke-width', 1.5)
+      .attr('opacity', shouldAnimate() ? 0 : 1)
       .style('pointer-events', 'none')
+      .transition()
+      .delay(shouldAnimate() ? 420 : 0)
+      .duration(shouldAnimate() ? 260 : 0)
+      .attr('opacity', 1)
   }
 
   // Hover line

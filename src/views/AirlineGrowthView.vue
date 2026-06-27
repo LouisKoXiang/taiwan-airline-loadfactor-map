@@ -8,6 +8,8 @@ import YoYComparisonTab from '../components/airline/YoYComparisonTab.vue'
 import RouteChangesTab from '../components/airline/RouteChangesTab.vue'
 import OpportunityRoutesTab from '../components/airline/OpportunityRoutesTab.vue'
 import RouteDetailsTab from '../components/airline/RouteDetailsTab.vue'
+import AnimatedNumber from '../components/overview/AnimatedNumber.vue'
+import ShareButton from '../components/ShareButton.vue'
 import SiteFooter from '../components/SiteFooter.vue'
 import { AIRLINE_META, FOUR_AIRLINES } from '../types/airline'
 import type { AirlineName } from '../types/airline'
@@ -17,8 +19,6 @@ import { formatMonthForDisplay, monthToSlug, slugToMonth } from '../utils/month'
 const store = useAirlineGrowthStore()
 const route = useRoute()
 const router = useRouter()
-const fmt = new Intl.NumberFormat('zh-TW')
-const formatNum = (n: number) => fmt.format(Math.round(n))
 const accent = computed(() => AIRLINE_META[store.selectedAirline].accent)
 const displayMonth = computed(() => formatMonthForDisplay(store.activeMonth))
 const isMonthlyAirlinePage = computed(() => route.name === 'airline-month')
@@ -31,6 +31,7 @@ const pageDescription = computed(() =>
   `台灣航空載客率資料庫｜${displayMonth.value}${store.selectedAirline}航線、航點、載客人數與載客率表現。`,
 )
 const sourceDescription = '主要資料：國際及兩岸定期航線班機載客率－按航線別分。'
+const siteBase = 'https://taiwanairlinedata.com'
 
 const airlinePaths: Record<AirlineName, string> = {
   中華航空: '/airlines/china-airlines',
@@ -54,6 +55,9 @@ function airlineMonthPath(name: AirlineName, month: string) {
   const slug = monthToSlug(month)
   return slug ? `${airlinePaths[name]}/${slug}` : airlinePaths[name]
 }
+
+const shareUrl = computed(() => `${siteBase}${airlineMonthPath(store.selectedAirline, store.activeMonth)}`)
+const shareTitle = computed(() => `${displayMonth.value}${store.selectedAirline}載客率分析`)
 
 function routeAirlineName(): AirlineName | undefined {
   if (typeof route.meta.airlineName === 'string' && FOUR_AIRLINES.includes(route.meta.airlineName as AirlineName)) {
@@ -139,11 +143,19 @@ const yoyFlight = computed(() => {
         </p>
       </div>
       <!-- 月份選擇器 -->
-      <div class="month-select-wrap">
-        <label class="field-label" for="month-sel">資料月份</label>
-        <select id="month-sel" v-model="store.selectedMonth" class="month-select" @change="handleMonthChange">
-          <option v-for="m in store.availableMonths" :key="m" :value="m">{{ m }}</option>
-        </select>
+      <div class="header-actions">
+        <ShareButton
+          :url="shareUrl"
+          :title="shareTitle"
+          :accent="accent"
+          :text="pageDescription"
+        />
+        <div class="month-select-wrap">
+          <label class="field-label" for="month-sel">資料月份</label>
+          <select id="month-sel" v-model="store.selectedMonth" class="month-select" @change="handleMonthChange">
+            <option v-for="m in store.availableMonths" :key="m" :value="m">{{ m }}</option>
+          </select>
+        </div>
       </div>
     </header>
 
@@ -169,15 +181,19 @@ const yoyFlight = computed(() => {
     </section>
 
     <!-- ── KPI 卡片 ───────────────────────────────────────────────── -->
-    <section class="kpi-grid" aria-label="KPI 指標">
+    <section :key="`${store.selectedAirline}-${store.activeMonth}`" class="kpi-grid" aria-label="KPI 指標">
       <div class="kpi-card">
         <span class="kpi-label">航線數</span>
-        <strong class="kpi-value">{{ store.summary.routeCount }}</strong>
+        <strong class="kpi-value">
+          <AnimatedNumber :value="store.summary.routeCount" />
+        </strong>
         <span class="kpi-unit">條</span>
       </div>
       <div class="kpi-card">
         <span class="kpi-label">飛行架次</span>
-        <strong class="kpi-value">{{ formatNum(store.summary.flightCount) }}</strong>
+        <strong class="kpi-value">
+          <AnimatedNumber :value="store.summary.flightCount" />
+        </strong>
         <span class="kpi-unit">次</span>
         <span v-if="yoyFlight" class="kpi-yoy" :class="yoyFlight.pos ? 'kpi-yoy--pos' : 'kpi-yoy--neg'">
           {{ yoyFlight.text }}
@@ -185,12 +201,16 @@ const yoyFlight = computed(() => {
       </div>
       <div class="kpi-card">
         <span class="kpi-label">座位數</span>
-        <strong class="kpi-value">{{ formatNum(store.summary.seatCount) }}</strong>
+        <strong class="kpi-value">
+          <AnimatedNumber :value="store.summary.seatCount" />
+        </strong>
         <span class="kpi-unit">位</span>
       </div>
       <div class="kpi-card">
         <span class="kpi-label">載客人數</span>
-        <strong class="kpi-value">{{ formatNum(store.summary.passengerCount) }}</strong>
+        <strong class="kpi-value">
+          <AnimatedNumber :value="store.summary.passengerCount" />
+        </strong>
         <span class="kpi-unit">人</span>
         <span v-if="yoyPax" class="kpi-yoy" :class="yoyPax.pos ? 'kpi-yoy--pos' : 'kpi-yoy--neg'">
           {{ yoyPax.text }}
@@ -198,7 +218,9 @@ const yoyFlight = computed(() => {
       </div>
       <div class="kpi-card kpi-card--accent" :style="{ '--accent': accent }">
         <span class="kpi-label">平均載客率</span>
-        <strong class="kpi-value kpi-value--accent">{{ store.summary.avgLoadFactor.toFixed(1) }}%</strong>
+        <strong class="kpi-value kpi-value--accent">
+          <AnimatedNumber :value="store.summary.avgLoadFactor" :decimals="1" suffix="%" />
+        </strong>
         <span v-if="yoyLf" class="kpi-yoy" :class="yoyLf.pos ? 'kpi-yoy--pos' : 'kpi-yoy--neg'">
           {{ yoyLf.text }}
         </span>
@@ -213,7 +235,12 @@ const yoyFlight = computed(() => {
             class="kpi-value"
             :class="store.momGrowth >= 0 ? 'kpi-value--pos' : 'kpi-value--neg'"
           >
-            {{ store.momGrowth >= 0 ? '+' : '' }}{{ store.momGrowth.toFixed(1) }}pp
+            <AnimatedNumber
+              :value="store.momGrowth"
+              :decimals="1"
+              :prefix="store.momGrowth >= 0 ? '+' : ''"
+              suffix="pp"
+            />
           </strong>
           <span class="kpi-unit">vs 上月</span>
         </template>

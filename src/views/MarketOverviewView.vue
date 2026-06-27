@@ -9,6 +9,7 @@ import MarketShareChart from '../components/overview/MarketShareChart.vue'
 import AirportBreakdown from '../components/overview/AirportBreakdown.vue'
 import RegionMarketCharts from '../components/overview/RegionMarketCharts.vue'
 import CumulativeKpiCards from '../components/overview/CumulativeKpiCards.vue'
+import ShareButton from '../components/ShareButton.vue'
 import SiteFooter from '../components/SiteFooter.vue'
 import type { ChartSeries } from '../components/overview/MultiLineTrendChart.vue'
 
@@ -31,6 +32,8 @@ const lfSeries = computed(() => makeSeriesFor('loadFactor'))
 const paxSeries = computed(() => makeSeriesFor('passengerCount'))
 const routeSeries = computed(() => makeSeriesFor('routeCount'))
 const flightSeries = computed(() => makeSeriesFor('flightCount'))
+const shareUrl = 'https://taiwanairlinedata.com/'
+const shareTitle = '台灣航空載客率查詢｜四大航空總覽'
 </script>
 
 <template>
@@ -43,16 +46,23 @@ const flightSeries = computed(() => makeSeriesFor('flightCount'))
           四大航空總覽：比較中華航空、長榮航空、星宇航空、台灣虎航的年度載客率、市佔率與區域航線表現
         </p>
       </div>
-      <div class="overview-year-wrap">
-        <label class="field-label" for="year-sel">資料年度</label>
-        <select
-          id="year-sel"
-          class="month-select"
-          :value="store.activeYear"
-          @change="store.selectedYear = parseInt(($event.target as HTMLSelectElement).value)"
-        >
-          <option v-for="y in store.availableYears" :key="y" :value="y">{{ y }} 年</option>
-        </select>
+      <div class="header-actions">
+        <ShareButton
+          :url="shareUrl"
+          :title="shareTitle"
+          text="查看四大航空年度載客率、市佔率與區域航線表現。"
+        />
+        <div class="overview-year-wrap">
+          <label class="field-label" for="year-sel">資料年度</label>
+          <select
+            id="year-sel"
+            class="month-select"
+            :value="store.activeYear"
+            @change="store.selectedYear = parseInt(($event.target as HTMLSelectElement).value)"
+          >
+            <option v-for="y in store.availableYears" :key="y" :value="y">{{ y }} 年</option>
+          </select>
+        </div>
       </div>
     </header>
 

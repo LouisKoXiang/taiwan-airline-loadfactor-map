@@ -1386,6 +1386,46 @@ a { color: inherit; }
   font-size: 0.82rem;
 }
 
+.header-actions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+}
+
+.share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid color-mix(in srgb, var(--share-accent, var(--blue-500)) 30%, #fff);
+  border-radius: $radius-pill;
+  background:
+    linear-gradient(135deg, #fff, color-mix(in srgb, var(--share-accent, var(--blue-500)) 10%, #fff));
+  color: var(--share-accent, var(--blue-700));
+  font-size: 0.84rem;
+  font-weight: 900;
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--share-accent, var(--blue-500)) 14%, transparent);
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--share-accent, var(--blue-500)) 44%, #fff);
+    box-shadow: 0 12px 28px color-mix(in srgb, var(--share-accent, var(--blue-500)) 20%, transparent);
+  }
+}
+
+.share-button-icon {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
 .month-select-wrap {
   display: grid;
   gap: $gap-xs;
@@ -1475,6 +1515,7 @@ a { color: inherit; }
   gap: 4px;
   padding: $card-pad-md;
   @include card;
+  animation: kpi-card-in 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 
   &--accent {
     border-color: color-mix(in srgb, var(--accent, var(--blue-500)) 28%, transparent);
@@ -1488,6 +1529,13 @@ a { color: inherit; }
     background: rgb(43 181 106 / 0.05);
   }
 }
+
+.kpi-card:nth-child(1) { animation-delay: 20ms; }
+.kpi-card:nth-child(2) { animation-delay: 60ms; }
+.kpi-card:nth-child(3) { animation-delay: 100ms; }
+.kpi-card:nth-child(4) { animation-delay: 140ms; }
+.kpi-card:nth-child(5) { animation-delay: 180ms; }
+.kpi-card:nth-child(6) { animation-delay: 220ms; }
 
 .kpi-label {
   @include label-xs;
@@ -2378,6 +2426,13 @@ a { color: inherit; }
   }
 }
 
+.animated-number {
+  display: inline-block;
+  min-width: max-content;
+  font-variant-numeric: tabular-nums;
+  animation: number-roll-in 620ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
 // Formula / info 彈出框
 .formula-dialog-backdrop {
   position: fixed;
@@ -2578,6 +2633,8 @@ a { color: inherit; }
   transition: width 300ms ease;
   border-radius: 0;
   min-width: 0;
+  transform-origin: left center;
+  animation: share-segment-in 560ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 
   &:first-child { border-radius: 8px 0 0 8px; }
   &:last-child  { border-radius: 0 8px 8px 0; }
@@ -2590,6 +2647,7 @@ a { color: inherit; }
   line-height: 1;
   text-shadow: 0 1px 4px rgb(0 0 0 / 0.22);
   white-space: nowrap;
+  animation: chart-label-in 260ms ease 360ms both;
 }
 
 .share-legend {
@@ -2736,6 +2794,58 @@ a { color: inherit; }
   color: var(--ink-300);
   font-size: 0.78rem;
   font-style: italic;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  動畫
+// ══════════════════════════════════════════════════════════════════════════════
+@keyframes kpi-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes share-segment-in {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes chart-label-in {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes number-roll-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.32em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -3058,6 +3168,10 @@ a { color: inherit; }
   // 總覽頁 mobile
   .overview-title  { font-size: 1.45rem; }
   .overview-header { flex-direction: column; }
+  .header-actions {
+    justify-content: flex-start;
+    width: 100%;
+  }
   .share-legend    { grid-template-columns: 1fr 1fr; }
   .share-stacked-label { font-size: 0.66rem; }
 }
