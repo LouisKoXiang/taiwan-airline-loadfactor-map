@@ -47,6 +47,25 @@ function aggregateRecords(records: MonthlyAirlineRouteStat[]) {
   }
 }
 
+function airlineStatsFromRecords(records: MonthlyAirlineRouteStat[]): AirlineYearlyStat[] {
+  return FOUR_AIRLINES.map((airline) => {
+    const recs = records.filter((r) => r.airlineName === airline)
+    const seats = recs.reduce((s, r) => s + r.seatCount, 0)
+    const pax = recs.reduce((s, r) => s + r.passengerCount, 0)
+    const flights = recs.reduce((s, r) => s + r.flightCount, 0)
+    const routes = new Set(recs.map((r) => `${r.originAirportCode}-${r.destinationAirportCode}`)).size
+    return {
+      airlineName: airline,
+      color: AIRLINE_META[airline].accent,
+      avgLoadFactor: seats > 0 ? Math.round((pax / seats) * 1000) / 10 : 0,
+      passengerCount: pax,
+      flightCount: flights,
+      seatCount: seats,
+      routeCount: routes,
+    }
+  })
+}
+
 export interface AirlineYearlyStat {
   airlineName: AirlineName
   color: string
@@ -202,28 +221,19 @@ export const useMarketOverviewStore = defineStore('market-overview', () => {
     }),
   )
 
-  const airlineYearlyStats = computed<AirlineYearlyStat[]>(() =>
-    FOUR_AIRLINES.map((airline) => {
-      const recs = yearRecords.value.filter((r) => r.airlineName === airline)
-      const seats = recs.reduce((s, r) => s + r.seatCount, 0)
-      const pax = recs.reduce((s, r) => s + r.passengerCount, 0)
-      const flights = recs.reduce((s, r) => s + r.flightCount, 0)
-      const routes = new Set(recs.map((r) => `${r.originAirportCode}-${r.destinationAirportCode}`)).size
-      return {
-        airlineName: airline,
-        color: AIRLINE_META[airline].accent,
-        avgLoadFactor: seats > 0 ? Math.round((pax / seats) * 1000) / 10 : 0,
-        passengerCount: pax,
-        flightCount: flights,
-        seatCount: seats,
-        routeCount: routes,
-      }
-    }),
-  )
+  const airlineYearlyStats = computed<AirlineYearlyStat[]>(() => airlineStatsFromRecords(yearRecords.value))
 
   const MAIN_AIRPORTS = ['TPE', 'TSA', 'KHH', 'RMQ'] as const
 
   const prevYear = computed(() => activeYear.value - 1)
+
+  const prevFullYearRecords = computed(() =>
+    allRecords.filter((r) => monthYear(r.month) === prevYear.value),
+  )
+
+  const prevFullYearAirlineStats = computed<AirlineYearlyStat[]>(() =>
+    airlineStatsFromRecords(prevFullYearRecords.value),
+  )
 
   // Month numbers (1-12) present in the active year's data
   const activeMonthNums = computed(() => {
@@ -352,6 +362,7 @@ export const useMarketOverviewStore = defineStore('market-overview', () => {
     cumulativeOverviewSummary,
     airlineSeries,
     airlineYearlyStats,
+    prevFullYearAirlineStats,
     airportBreakdown,
     regionMarketStats,
     REGION_KEYS,

@@ -2610,10 +2610,52 @@ a { color: inherit; }
 // ── 市佔率圖 ──────────────────────────────────────────────────────────────────
 .market-share-wrap { display: grid; gap: 20px; }
 
+.share-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: -4px;
+}
+
 .share-metric-title {
   @include label-xs;
   color: var(--ink-400);
-  margin-bottom: $gap-sm;
+}
+
+.share-info-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--ink-100);
+  border-radius: 50%;
+  background: var(--ink-50);
+  color: var(--ink-400);
+  font-size: 0.72rem;
+  font-weight: 900;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--blue-200);
+    background: var(--blue-50);
+    color: var(--blue-600);
+  }
+}
+
+.share-period {
+  display: grid;
+  gap: $gap-sm;
+}
+
+.share-period-heading {
+  color: var(--ink-700);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.share-period--previous {
+  padding-top: 2px;
 }
 
 .share-stacked-bar {
@@ -2623,7 +2665,11 @@ a { color: inherit; }
   overflow: hidden;
   gap: 2px;
   background: var(--ink-50);
-  margin-bottom: $gap-md;
+}
+
+.share-stacked-bar--previous {
+  height: 28px;
+  filter: saturate(0.88);
 }
 
 .share-stacked-segment {

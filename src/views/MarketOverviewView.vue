@@ -97,7 +97,12 @@ const shareTitle = '台灣航空載客率查詢｜四大航空總覽'
     <section class="overview-section">
       <h2 class="overview-section-title">{{ store.activeYear }} 年度市佔比較</h2>
       <div class="overview-card">
-        <MarketShareChart :stats="store.airlineYearlyStats" />
+        <MarketShareChart
+          :stats="store.airlineYearlyStats"
+          :previous-stats="store.prevFullYearAirlineStats"
+          :current-label="`${store.activeYear} 年目前累積`"
+          :previous-label="`${store.prevYear} 年完整年度`"
+        />
       </div>
     </section>
 
