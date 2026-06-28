@@ -1655,7 +1655,28 @@ a { color: inherit; }
   }
 }
 
-.chart-wrapper { overflow-x: hidden; min-width: 0; }
+.chart-wrapper {
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: visible;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(84 110 122 / 0.28) transparent;
+
+  &::-webkit-scrollbar {
+    height: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: $radius-pill;
+    background: rgb(84 110 122 / 0.22);
+  }
+}
 
 .bar-svg { display: block; width: 100%; overflow: visible; }
 
@@ -1695,7 +1716,7 @@ a { color: inherit; }
 .trend-chart-wrap--compact .trend-empty { min-height: 154px; }
 
 // 趨勢圖 SVG
-.trend-svg   { display: block; width: 100%; }
+.trend-svg   { display: block; width: auto; max-width: none; }
 .trend-x-label { fill: var(--ink-400); font-size: 11px; font-weight: 700; }
 .trend-y-label { fill: var(--ink-300); font-size: 10px; }
 .trend-val     { fill: var(--ink-400); font-size: 10px; font-weight: 700; }

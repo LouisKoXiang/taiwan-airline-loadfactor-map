@@ -104,6 +104,19 @@ const formatPct = (n: number | null) =>
 const formatPp = (n: number | null) =>
   n == null ? '' : (n >= 0 ? '+' : '') + n.toFixed(1) + ' pp'
 
+const originSeoName: Record<string, string> = {
+  TPE: '台北',
+  TSA: '台北松山',
+  KHH: '高雄',
+  RMQ: '台中',
+}
+
+function destinationSeoName(cityName: string) {
+  return cityName
+    .replace(/^東京/, '')
+    .replace(/^首爾/, '')
+}
+
 // ── Dynamic SEO ──────────────────────────────────────────────────────────────
 watch(
   info,
@@ -113,10 +126,12 @@ watch(
     const dest = i.destinationAirportCode
     const city = i.destinationCityName
     const country = i.destinationCountry
+    const originName = originSeoName[origin] ?? origin
+    const routeLabel = `${originName}${destinationSeoName(city)}`
 
-    document.title = `${origin}-${dest} 飛往${city}（${country}）載客率｜四大航空航線比較`
+    document.title = `${routeLabel}載客率分析｜${origin}-${dest} 航線各航空公司比較`
 
-    const desc = `查詢 ${origin}→${dest} 航線載客率、旅客數、飛行班次與四大航空公司每月表現比較，資料來源為民航局「國際及兩岸定期航線班機載客率」。`
+    const desc = `查詢 ${origin}→${dest} ${originName}飛往${city}（${country}）航線載客率、旅客數、飛行班次與各航空公司每月表現比較，資料來源為民航局「國際及兩岸定期航線班機載客率」。`
     document.querySelector('meta[name="description"]')?.setAttribute('content', desc)
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', document.title)
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc)

@@ -45,7 +45,10 @@ const render = () => {
   const validSeries = props.series.filter((s) => s.points.some((p) => p.value !== null))
   if (validSeries.length === 0 || props.series[0].points.length < 2) return
 
-  const W = wrapperRef.value.clientWidth || 400
+  const months = props.series[0].points.map((p) => p.month)
+  const visibleW = wrapperRef.value.clientWidth || 400
+  const pointGap = months.length > 18 ? 42 : 34
+  const W = Math.max(visibleW, months.length * pointGap + 112)
   const H = 200
   const allValues = validSeries
     .flatMap((s) => s.points.map((p) => p.value))
@@ -63,7 +66,6 @@ const render = () => {
 
   svg.attr('viewBox', `0 0 ${W} ${H}`).attr('height', H)
 
-  const months = props.series[0].points.map((p) => p.month)
   const x = d3.scalePoint<string>().domain(months).range([mLeft, W - mRight]).padding(0.3)
 
   const yLow = usesLargeValues ? Math.max(0, yMin - pad) : Math.max(0, yMin - pad)

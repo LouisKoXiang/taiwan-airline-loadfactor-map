@@ -49,12 +49,30 @@ const AIRLINES = [
   },
 ]
 
+const AIRLINE_BY_NAME = Object.fromEntries(AIRLINES.map((airline) => [airline.name, airline]))
+
+const ORIGIN_SEO_NAME = {
+  TPE: '台北',
+  TSA: '台北松山',
+  KHH: '高雄',
+  RMQ: '台中',
+}
+
+function destinationSeoName(cityName) {
+  return cityName
+    .replace(/^東京/, '')
+    .replace(/^首爾/, '')
+    .replace(/^上海/, '上海')
+}
+
 const basePages = [
   {
     path: '/routes',
-    title: '台灣航空載客率航點地圖｜航空公司航線視覺化',
+    title: '台灣航空航線查詢｜各航線載客率、旅客數與航空公司比較',
     description:
-      '以互動式地圖探索台灣航空載客率與航點表現，依據民航局「國際及兩岸定期航線班機載客率」公開資料查看台灣出發航線的載客人數、飛行架次與航點排名。',
+      '搜尋台灣出發國際及兩岸航線，依出發機場、國家與目的地機場查看各航線載客率、旅客數、飛行班次與航空公司比較，資料來源為民航局公開資料。',
+    keywords:
+      '台灣航空航線, 航線載客率, 航線查詢, 台北成田載客率, 華航成田載客率, 台灣航空載客率, 航空公司航線比較, 台灣出發航線, 國際航線載客率',
   },
   ...AIRLINES.map((airline) => ({
     path: `/airlines/${airline.slug}`,
@@ -111,6 +129,63 @@ function buildMonthlyPages(records) {
   })
 }
 
+function buildRoutePages(records) {
+  const routeMap = new Map()
+
+  for (const record of records) {
+    const routeCode = `${record.originAirportCode}-${record.destinationAirportCode}`
+    const existing = routeMap.get(routeCode) ?? {
+      routeCode,
+      originAirportCode: record.originAirportCode,
+      destinationAirportCode: record.destinationAirportCode,
+      destinationCityName: record.destinationCityName,
+      destinationCountry: record.destinationCountry,
+      records: [],
+      airlineNames: new Set(),
+    }
+
+    existing.records.push(record)
+    existing.airlineNames.add(record.airlineName)
+    routeMap.set(routeCode, existing)
+  }
+
+  return [...routeMap.values()]
+    .sort((a, b) => a.routeCode.localeCompare(b.routeCode))
+    .map((route) => {
+      const originName = ORIGIN_SEO_NAME[route.originAirportCode] ?? route.originAirportCode
+      const destName = destinationSeoName(route.destinationCityName)
+      const routeLabel = `${originName}${destName}`
+      const activeAirlines = [...route.airlineNames]
+        .map((name) => AIRLINE_BY_NAME[name])
+        .filter(Boolean)
+      const airlineNames = activeAirlines.map((airline) => airline.name).join('、')
+      const airlineKeywords = activeAirlines.flatMap((airline) => [
+        `${airline.shortName}${destName}載客率`,
+        `${airline.name}${route.destinationCityName}載客率`,
+      ])
+
+      return {
+        path: `/routes/${route.routeCode}`,
+        title: `${routeLabel}載客率分析｜${route.routeCode} 航線各航空公司比較`,
+        description:
+          `查詢 ${route.originAirportCode}→${route.destinationAirportCode} ${originName}飛往${route.destinationCityName}航線載客率、旅客數與飛行班次月趨勢，${airlineNames ? `比較${airlineNames}表現，` : ''}資料來源為民航局「國際及兩岸定期航線班機載客率」公開資料。`,
+        keywords: [
+          `${routeLabel}載客率`,
+          `${originName}${route.destinationCityName}載客率`,
+          `${route.routeCode}載客率`,
+          `${route.originAirportCode} ${route.destinationAirportCode} 載客率`,
+          `${route.destinationCityName}航線載客率`,
+          ...airlineKeywords,
+          '台灣航空載客率',
+          '航線載客率',
+        ].join(', '),
+        h1: `${routeLabel}航線載客率分析`,
+        fallback:
+          `查看 ${route.originAirportCode}→${route.destinationAirportCode} 飛往${route.destinationCityName}的各航司載客率、旅客數與班次比較。`,
+      }
+    })
+}
+
 function replaceMeta(html, page) {
   const url = pageUrl(page.path)
   let next = html
@@ -158,6 +233,15 @@ function replaceMeta(html, page) {
     /<meta name="twitter:image"\s+content="[^"]*" \/>/,
     `<meta name="twitter:image"       content="${OG_IMAGE}" />`,
   )
+  if (page.h1) {
+    next = next.replace(
+      /<main class="seo-fallback">\s*<h1>.*?<\/h1>\s*<p>.*?<\/p>\s*<\/main>/s,
+      `<main class="seo-fallback">
+        <h1>${escapeAttr(page.h1)}</h1>
+        <p>${escapeAttr(page.fallback ?? page.description)}</p>
+      </main>`,
+    )
+  }
 
   return next
 }
@@ -186,7 +270,7 @@ ${urls.map((url) => `  <url>
 
 const template = await readFile(join(DIST_DIR, 'index.html'), 'utf8')
 const records = JSON.parse(await readFile(DATA_FILE, 'utf8'))
-const pages = [...basePages, ...buildMonthlyPages(records)]
+const pages = [...basePages, ...buildMonthlyPages(records), ...buildRoutePages(records)]
 
 for (const page of pages) {
   const outputPath = join(DIST_DIR, page.path, 'index.html')

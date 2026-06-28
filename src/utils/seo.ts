@@ -76,7 +76,7 @@ const PAGE_META: Record<string, PageMeta> = {
   },
   'route-explorer': {
     title:
-      '台灣航空航線查詢｜查詢各航線載客率、旅客數與航空公司比較',
+      '台灣航空航線查詢｜各航線載客率、旅客數與航空公司比較',
     description:
       '搜尋台灣出發國際及兩岸航線，依出發機場、國家與目的地機場查看各航線載客率、旅客數、飛行班次與航空公司比較，資料來源為民航局公開資料。',
     path: '/routes',
