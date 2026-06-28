@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import RouteExplorerView from '../views/RouteExplorerView.vue'
+import RouteInsightView from '../views/RouteInsightView.vue'
 import AirlineGrowthView from '../views/AirlineGrowthView.vue'
 import MarketOverviewView from '../views/MarketOverviewView.vue'
+import NotFoundView from '../views/NotFoundView.vue'
 import { updatePageMeta } from '../utils/seo'
 
 const router = createRouter({
@@ -51,8 +53,18 @@ const router = createRouter({
       component: RouteExplorerView,
     },
     {
+      path: '/routes/:routeCode',
+      name: 'route-insight',
+      component: RouteInsightView,
+    },
+    {
       path: '/airline-battle',
       redirect: '/',
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: NotFoundView,
     },
   ],
 })

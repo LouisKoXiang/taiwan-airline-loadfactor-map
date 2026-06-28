@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 import { useAirlineGrowthStore } from '../../stores/airlineGrowthStore'
 
 const store = useAirlineGrowthStore()
@@ -25,9 +26,10 @@ function yoyText(value: number | undefined) {
     </div>
 
     <div v-else class="opp-list">
-      <div
+      <RouterLink
         v-for="r in store.opportunityRoutes"
         :key="`${r.originAirportCode}-${r.destinationAirportCode}`"
+        :to="`/routes/${r.originAirportCode}-${r.destinationAirportCode}`"
         class="opp-item"
       >
         <div class="opp-item-main">
@@ -45,8 +47,9 @@ function yoyText(value: number | undefined) {
           <span class="opp-metric">{{ formatNum(r.passengerCount) }} 人</span>
           <span class="opp-metric">{{ formatNum(r.flightCount) }} 次</span>
           <span class="opp-metric">YoY {{ yoyText(r.yoyPassengerPct) }}</span>
+          <span class="route-drill-cta">查看航線 →</span>
         </div>
-      </div>
+      </RouterLink>
     </div>
   </div>
 </template>

@@ -21,6 +21,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   action: []
+  selectItem: [id: string]
 }>()
 
 const svgRef = ref<SVGSVGElement | null>(null)
@@ -146,6 +147,29 @@ const render = () => {
     .attr('opacity', 0)
     .transition().delay(260).duration(220).ease(d3.easeQuadOut)
     .attr('opacity', 1)
+
+  // 可點擊列覆蓋層（最後 append，確保在 SVG 最上層）
+  // 所有 bar/label 設為 pointer-events: none 讓 overlay 接收所有 click
+  svg.selectAll<SVGGElement, unknown>('g').style('pointer-events', 'none')
+
+  svg.append('g')
+    .style('pointer-events', 'all')
+    .selectAll('rect')
+    .data(data)
+    .join('rect')
+    .attr('x', 0)
+    .attr('y', (d) => yPos(d))
+    .attr('width', W)
+    .attr('height', rowH)
+    .attr('fill', 'transparent')
+    .style('cursor', 'pointer')
+    .on('mouseover', function() {
+      d3.select(this).attr('fill', 'rgba(0,0,0,0.04)')
+    })
+    .on('mouseout', function() {
+      d3.select(this).attr('fill', 'transparent')
+    })
+    .on('click', (_, d) => emit('selectItem', d.id))
 }
 
 onMounted(() => {

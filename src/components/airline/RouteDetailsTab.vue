@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
+import { RouterLink } from 'vue-router'
 import { useAirlineGrowthStore } from '../../stores/airlineGrowthStore'
 import type { MonthlyAirlineRouteStat } from '../../types/airline'
 
@@ -141,8 +142,16 @@ watch(
                 <span class="mobile-card-state">{{ isRowCollapsed(r) ? '展開' : '收合' }}</span>
               </button>
             </td>
-            <td class="code-cell" data-label="出發">{{ r.originAirportCode }}</td>
-            <td class="code-cell" data-label="目的地">{{ r.destinationAirportCode }}</td>
+            <td class="code-cell" data-label="出發">
+              <RouterLink class="route-drill-link" :to="`/routes/${r.originAirportCode}-${r.destinationAirportCode}`">
+                {{ r.originAirportCode }}
+              </RouterLink>
+            </td>
+            <td class="code-cell" data-label="目的地">
+              <RouterLink class="route-drill-link" :to="`/routes/${r.originAirportCode}-${r.destinationAirportCode}`">
+                {{ r.destinationAirportCode }}
+              </RouterLink>
+            </td>
             <td data-label="城市">{{ r.destinationCityName }}</td>
             <td class="country-cell" data-label="國家">{{ r.destinationCountry }}</td>
             <td class="num-col" data-label="載客率" :class="{ sorted: store.sortKey === 'loadFactor' }">

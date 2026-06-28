@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
 import type { NewRouteStat } from '../../stores/marketOverviewStore'
 import { AIRLINE_META, FOUR_AIRLINES } from '../../types/airline'
 
@@ -58,15 +59,16 @@ const airlineCards = computed(() =>
         <p v-if="card.routes.length === 0" class="new-route-card-empty">無新增航點</p>
 
         <div v-else class="new-route-pills">
-          <div
+          <RouterLink
             v-for="route in card.routes"
             :key="`${route.originAirportCode}-${route.destinationAirportCode}`"
+            :to="`/routes/${route.originAirportCode}-${route.destinationAirportCode}`"
             class="new-route-pill"
           >
             <strong>{{ route.originAirportCode }} → {{ route.destinationAirportCode }}</strong>
             <span>{{ route.destinationCityName }}</span>
             <small>{{ formatNum(route.passengerCount) }} 人</small>
-          </div>
+          </RouterLink>
         </div>
 
         <div class="new-route-airline-foot">

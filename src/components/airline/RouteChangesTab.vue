@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
 import { useAirlineGrowthStore } from '../../stores/airlineGrowthStore'
 
 const store = useAirlineGrowthStore()
@@ -68,9 +69,10 @@ function flightDiffText(value: number) {
         </h3>
         <p v-if="store.routeChanges.newRoutes.length === 0" class="changes-empty-line">本月沒有新增航點。</p>
         <div v-else class="changes-list">
-          <div
+          <RouterLink
             v-for="r in store.routeChanges.newRoutes"
             :key="`added-${r.originAirportCode}-${r.destinationAirportCode}`"
+            :to="`/routes/${r.originAirportCode}-${r.destinationAirportCode}`"
             class="change-item change-item--added"
           >
             <div class="change-item-route">
@@ -89,8 +91,9 @@ function flightDiffText(value: number) {
               <span>{{ formatNum(r.currentPassengerCount) }} 人</span>
               <span>今年 {{ formatNum(r.currentFlightCount) }} 次</span>
               <span>去年 0 次</span>
+              <span class="route-drill-cta">查看航線 →</span>
             </div>
-          </div>
+          </RouterLink>
         </div>
       </section>
 
@@ -102,9 +105,10 @@ function flightDiffText(value: number) {
         </h3>
         <p v-if="store.routeChanges.suspendedRoutes.length === 0" class="changes-empty-line">本月沒有停飛或暫停航點。</p>
         <div v-else class="changes-list">
-          <div
+          <RouterLink
             v-for="r in store.routeChanges.suspendedRoutes"
             :key="`removed-${r.originAirportCode}-${r.destinationAirportCode}`"
+            :to="`/routes/${r.originAirportCode}-${r.destinationAirportCode}`"
             class="change-item change-item--removed"
           >
             <div class="change-item-route">
@@ -119,8 +123,9 @@ function flightDiffText(value: number) {
               <span>{{ r.previousLoadFactor?.toFixed(1) ?? '—' }}%</span>
               <span>{{ formatNum(r.previousPassengerCount) }} 人</span>
               <span>{{ formatNum(r.previousFlightCount) }} 次</span>
+              <span class="route-drill-cta">查看航線 →</span>
             </div>
-          </div>
+          </RouterLink>
         </div>
       </section>
 
@@ -132,9 +137,10 @@ function flightDiffText(value: number) {
         </h3>
         <p v-if="store.routeChanges.increasedRoutes.length === 0" class="changes-empty-line">本月沒有明顯增班航點。</p>
         <div v-else class="changes-list">
-          <div
+          <RouterLink
             v-for="r in store.routeChanges.increasedRoutes"
             :key="`increased-${r.originAirportCode}-${r.destinationAirportCode}`"
+            :to="`/routes/${r.originAirportCode}-${r.destinationAirportCode}`"
             class="change-item change-item--increased"
           >
             <div class="change-item-route">
@@ -150,8 +156,9 @@ function flightDiffText(value: number) {
               <span class="yoy-diff yoy-diff--pos">{{ flightDiffText(r.flightDiff) }} 次</span>
               <span>{{ percentText(r.flightChangePercent) }}</span>
               <span>{{ r.currentLoadFactor?.toFixed(1) ?? '—' }}%</span>
+              <span class="route-drill-cta">查看航線 →</span>
             </div>
-          </div>
+          </RouterLink>
         </div>
       </section>
 
@@ -163,9 +170,10 @@ function flightDiffText(value: number) {
         </h3>
         <p v-if="store.routeChanges.decreasedRoutes.length === 0" class="changes-empty-line">本月沒有明顯減班航點。</p>
         <div v-else class="changes-list">
-          <div
+          <RouterLink
             v-for="r in store.routeChanges.decreasedRoutes"
             :key="`decreased-${r.originAirportCode}-${r.destinationAirportCode}`"
+            :to="`/routes/${r.originAirportCode}-${r.destinationAirportCode}`"
             class="change-item change-item--decreased"
           >
             <div class="change-item-route">
@@ -181,8 +189,9 @@ function flightDiffText(value: number) {
               <span class="yoy-diff yoy-diff--neg">{{ flightDiffText(r.flightDiff) }} 次</span>
               <span>{{ percentText(r.flightChangePercent) }}</span>
               <span>{{ r.currentLoadFactor?.toFixed(1) ?? '—' }}%</span>
+              <span class="route-drill-cta">查看航線 →</span>
             </div>
-          </div>
+          </RouterLink>
         </div>
       </section>
     </template>

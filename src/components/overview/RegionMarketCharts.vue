@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { RouterLink } from 'vue-router'
 import type { RegionMarketStat, RegionKey } from '../../stores/marketOverviewStore'
 import { FOUR_AIRLINES, AIRLINE_META } from '../../types/airline'
 import flagJp from '../../assets/flags/jp.svg?url'
@@ -21,6 +22,11 @@ const REGION_FLAG_SRC: Record<RegionKey, string> = {
   japan:  flagJp,
   usa:    flagUs,
   europe: flagEu,
+}
+const REGION_ROUTE_QUERY: Record<RegionKey, string> = {
+  japan: 'JP',
+  usa: 'US',
+  europe: 'EU',
 }
 
 const fmt = new Intl.NumberFormat('zh-TW')
@@ -49,6 +55,10 @@ const activeInfoContent = computed(() =>
 
 function openInfo(regionKey: RegionKey) {
   if (REGION_FILTER_INFO[regionKey]) activeInfo.value = regionKey
+}
+
+function routeQuery(regionKey: RegionKey) {
+  return { country: REGION_ROUTE_QUERY[regionKey] }
 }
 
 // ─── 指標切換 ─────────────────────────────────────────────────────────────────
@@ -155,6 +165,12 @@ const hasData = computed(() => props.stats.length > 0)
           <div class="rc-card-header">
             <img :src="REGION_FLAG_SRC[card.rk]" class="rc-flag" :alt="card.label" width="28" height="20" />
             <span class="rc-card-title">{{ card.label }}</span>
+            <RouterLink
+              class="rc-route-link"
+              :to="{ path: '/routes', query: routeQuery(card.rk) }"
+            >
+              查看航線
+            </RouterLink>
             <button
               v-if="REGION_FILTER_INFO[card.rk]"
               type="button"
@@ -277,10 +293,41 @@ const hasData = computed(() => props.stats.length > 0)
 }
 
 .rc-card-title {
+  flex: 1;
+  min-width: 0;
   color: var(--ink-800);
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: -0.01em;
+}
+
+.rc-route-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  min-height: 26px;
+  padding: 0 9px;
+  border: 1px solid var(--ink-100);
+  border-radius: $radius-pill;
+  background: #fff;
+  color: var(--blue-700);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 140ms, border-color 140ms, color 140ms, transform 140ms;
+
+  &::after {
+    content: '→';
+    font-size: 0.78em;
+  }
+
+  &:hover {
+    border-color: var(--blue-300);
+    background: var(--blue-50);
+    color: var(--blue-800, #1e40af);
+    transform: translateY(-1px);
+  }
 }
 
 .rc-info-btn {
@@ -289,7 +336,6 @@ const hasData = computed(() => props.stats.length > 0)
   justify-content: center;
   width: 20px;
   height: 20px;
-  margin-left: auto;
   border: 1px solid var(--ink-100);
   border-radius: 50%;
   background: var(--blue-50);

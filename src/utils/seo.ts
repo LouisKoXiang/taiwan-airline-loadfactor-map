@@ -18,6 +18,7 @@ interface PageMeta {
   path: string      // Vue Router 路徑，用於產生 canonical / og:url
   image: string
   keywords?: string
+  robots?: string
 }
 
 const AIRLINE_SEO: Record<string, {
@@ -75,11 +76,13 @@ const PAGE_META: Record<string, PageMeta> = {
   },
   'route-explorer': {
     title:
-      '台灣航空載客率航點地圖｜航空公司航線視覺化',
+      '台灣航空航線查詢｜查詢各航線載客率、旅客數與航空公司比較',
     description:
-      '以互動式地圖探索台灣航空載客率與航點表現，依據民航局「國際及兩岸定期航線班機載客率」公開資料查看台灣出發航線的載客人數、飛行架次與航點排名。',
+      '搜尋台灣出發國際及兩岸航線，依出發機場、國家與目的地機場查看各航線載客率、旅客數、飛行班次與航空公司比較，資料來源為民航局公開資料。',
     path: '/routes',
     image: OG_IMAGE,
+    keywords:
+      '台灣航空航線, 航線載客率, 航線查詢, TPE NRT 載客率, 台灣航空載客率, 航空公司航線比較, 台灣出發航線, 國際航線載客率',
   },
   'airline-china-airlines': {
     title:
@@ -121,6 +124,14 @@ const PAGE_META: Record<string, PageMeta> = {
     keywords:
       '台灣虎航載客率, 虎航載客率, 台灣虎航航線, 虎航航點, 低成本航空載客率, 民航局載客率',
   },
+  'not-found': {
+    title: '找不到頁面｜台灣航空載客率查詢',
+    description:
+      '找不到這個頁面。請回到台灣航空載客率總覽，或使用航線查詢尋找台灣出發航線的載客率、旅客數與航空公司比較。',
+    path: '/',
+    image: OG_IMAGE,
+    robots: 'noindex, follow',
+  },
 }
 
 const DEFAULT_META = PAGE_META['airline-growth']
@@ -146,12 +157,31 @@ function routeParam(value: unknown): string {
   return Array.isArray(value) ? String(value[0] ?? '') : String(value ?? '')
 }
 
+function routeInsightMeta(routeCode: string): PageMeta | undefined {
+  const parts = routeCode.split('-')
+  if (parts.length < 2) return undefined
+  const origin = parts[0]
+  const destination = parts.slice(1).join('-')
+  return {
+    title: `${origin}→${destination} 航線載客率分析｜台灣航空各航司表現`,
+    description:
+      `查詢 ${origin}→${destination} 航線各航空公司載客率、旅客數、飛行班次月趨勢與年度比較，資料來源為民航局「國際及兩岸定期航線班機載客率」公開資料。`,
+    path: `/routes/${routeCode}`,
+    image: OG_IMAGE,
+    keywords: `${origin} ${destination} 航線載客率, ${origin}${destination}航線, 台灣航空載客率`,
+  }
+}
+
 function metaForRoute(route: RouteLocationNormalizedLoaded | string | null | undefined): PageMeta {
   if (typeof route === 'object' && route?.name === 'airline-month') {
     return airlineMonthlyMeta(
       routeParam(route.params.airlineSlug),
       routeParam(route.params.monthSlug),
     ) ?? DEFAULT_META
+  }
+
+  if (typeof route === 'object' && route?.name === 'route-insight') {
+    return routeInsightMeta(routeParam(route.params.routeCode)) ?? DEFAULT_META
   }
 
   const routeName = typeof route === 'string' ? route : route?.name?.toString()
@@ -195,6 +225,7 @@ export function updatePageMeta(route: RouteLocationNormalizedLoaded | string | n
 
   // 基本 SEO
   setAttr('meta[name="description"]', 'content', page.description)
+  setAttr('meta[name="robots"]', 'content', page.robots ?? 'index, follow')
   if (page.keywords) {
     setAttr('meta[name="keywords"]', 'content', page.keywords)
   }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps<{
   url: string
@@ -10,9 +10,15 @@ const props = defineProps<{
 
 const copied = ref(false)
 let copiedTimer: number | undefined
+const shareText = computed(() => props.text ?? props.title)
+const clipboardText = computed(() =>
+  [props.title, shareText.value, props.url]
+    .filter((line, index, lines) => line && lines.indexOf(line) === index)
+    .join('\n')
+)
 
 async function copyUrl() {
-  await navigator.clipboard.writeText(props.url)
+  await navigator.clipboard.writeText(clipboardText.value)
   copied.value = true
 
   if (copiedTimer) window.clearTimeout(copiedTimer)
@@ -27,7 +33,7 @@ async function share() {
     try {
       await navigator.share({
         title: props.title,
-        text: props.text ?? props.title,
+        text: shareText.value,
         url: props.url,
       })
       return

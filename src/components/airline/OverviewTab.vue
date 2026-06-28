@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { useAirlineGrowthStore } from '../../stores/airlineGrowthStore'
 import MetricBarChart from './MetricBarChart.vue'
 import TrendChart from './TrendChart.vue'
@@ -8,9 +9,14 @@ import { AIRLINE_META } from '../../types/airline'
 import type { SortKey } from '../../types/airline'
 
 const store = useAirlineGrowthStore()
+const router = useRouter()
 const fmt = new Intl.NumberFormat('zh-TW')
 const formatNum = (n: number) => fmt.format(Math.round(n))
 const accent = computed(() => AIRLINE_META[store.selectedAirline].accent)
+
+function navigateToRoute(routeCode: string) {
+  router.push(`/routes/${routeCode}`)
+}
 type AirportTrendMetric = 'loadFactor' | 'passengerCount'
 const khhTrendMetric = ref<AirportTrendMetric>('passengerCount')
 const rmqTrendMetric = ref<AirportTrendMetric>('passengerCount')
@@ -48,7 +54,7 @@ const lfChartItems = computed(() =>
   [...store.airlineRecords]
     .sort((a, b) => b.loadFactor - a.loadFactor)
     .map((r) => ({
-      id: `${r.destinationCityName}-${r.originAirportCode}`,
+      id: `${r.originAirportCode}-${r.destinationAirportCode}`,
       label: r.destinationCityName,
       subLabel: r.originAirportCode,
       value: r.loadFactor,
@@ -59,7 +65,7 @@ const paxChartItems = computed(() =>
   [...store.airlineRecords]
     .sort((a, b) => b.passengerCount - a.passengerCount)
     .map((r) => ({
-      id: `${r.destinationCityName}-${r.originAirportCode}`,
+      id: `${r.originAirportCode}-${r.destinationAirportCode}`,
       label: r.destinationCityName,
       subLabel: r.originAirportCode,
       value: r.passengerCount,
@@ -70,7 +76,7 @@ const flightChartItems = computed(() =>
   [...store.airlineRecords]
     .sort((a, b) => b.flightCount - a.flightCount)
     .map((r) => ({
-      id: `${r.destinationCityName}-${r.originAirportCode}`,
+      id: `${r.originAirportCode}-${r.destinationAirportCode}`,
       label: r.destinationCityName,
       subLabel: r.originAirportCode,
       value: r.flightCount,
@@ -131,6 +137,7 @@ async function openDetails(key: SortKey) {
           :max-items="15"
           action-label="看明細"
           @action="openDetails('loadFactor')"
+          @select-item="navigateToRoute"
         />
         <TrendChart
           :title="rmqTrendTitle"
@@ -161,6 +168,7 @@ async function openDetails(key: SortKey) {
         :accent-color="accent"
         action-label="看明細"
         @action="openDetails('passengerCount')"
+        @select-item="navigateToRoute"
       />
       <MetricBarChart
         :items="flightChartItems"
@@ -170,6 +178,7 @@ async function openDetails(key: SortKey) {
         :accent-color="accent"
         action-label="看明細"
         @action="openDetails('flightCount')"
+        @select-item="navigateToRoute"
       />
     </div>
   </section>
