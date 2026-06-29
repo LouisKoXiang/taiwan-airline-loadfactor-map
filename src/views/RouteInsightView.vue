@@ -46,6 +46,16 @@ const shareText = computed(() => {
 })
 const shareAccent = computed(() => latestStats.value[0]?.color ?? '#2563eb')
 
+function goBack() {
+  const back = window.history.state?.back
+  if (typeof back === 'string' && back.startsWith('/')) {
+    router.back()
+    return
+  }
+
+  router.push('/routes')
+}
+
 // ── Segmented controls ──────────────────────────────────────────────────────
 type RankMetric = 'loadFactor' | 'passengerCount' | 'flightCount'
 type TrendMetric = 'lf' | 'pax' | 'flights'
@@ -149,14 +159,14 @@ watch(
     <!-- Empty state -->
     <div v-if="!info" class="ri-not-found">
       <p>找不到航線「{{ routeCode }}」的資料。</p>
-      <button class="ri-back-btn" @click="router.back()">← 返回</button>
+      <button class="ri-back-btn" @click="goBack">← 返回</button>
     </div>
 
     <template v-else>
       <!-- ── A. Header ── -->
       <header class="ri-header">
         <div class="ri-header-top">
-          <button class="ri-back-btn" @click="router.back()">← 返回</button>
+          <button class="ri-back-btn" @click="goBack">← 返回</button>
           <ShareButton
             :url="shareUrl"
             :title="shareTitle"
@@ -328,10 +338,19 @@ watch(
                 <!-- status: new-route or stopped → special row -->
                 <template v-if="row.status === 'new-route'">
                   <td data-label="載客率">{{ row.currentLoadFactor?.toFixed(1) ?? '—' }}%</td>
-                  <td colspan="5" class="ri-yoy-status ri-yoy-status--new" data-label="狀態">去年同期累積無班次（新增航線）</td>
+                  <td class="ri-yoy-status ri-yoy-status--new" data-label="載客率變化">新增航線</td>
+                  <td data-label="旅客數">{{ row.currentPassengerCount != null ? formatNum(row.currentPassengerCount) : '—' }}</td>
+                  <td class="ri-yoy-status ri-yoy-status--new" data-label="旅客變化">去年無基準</td>
+                  <td data-label="班次">{{ row.currentFlightCount != null ? formatNum(row.currentFlightCount) : '—' }}</td>
+                  <td class="ri-yoy-status ri-yoy-status--new" data-label="班次變化">去年無基準</td>
                 </template>
                 <template v-else-if="row.status === 'stopped'">
-                  <td class="ri-yoy-status ri-yoy-status--stopped" colspan="6" data-label="狀態">今年同期累積無班次（去年同期有飛）</td>
+                  <td data-label="載客率">—</td>
+                  <td class="ri-yoy-status ri-yoy-status--stopped" data-label="載客率變化">今年無班次</td>
+                  <td data-label="旅客數">—</td>
+                  <td class="ri-yoy-status ri-yoy-status--stopped" data-label="旅客變化">去年 {{ row.previousPassengerCount != null ? formatNum(row.previousPassengerCount) : '—' }}</td>
+                  <td data-label="班次">—</td>
+                  <td class="ri-yoy-status ri-yoy-status--stopped" data-label="班次變化">去年 {{ row.previousFlightCount != null ? formatNum(row.previousFlightCount) : '—' }}</td>
                 </template>
                 <template v-else-if="row.status === 'no-data'">
                   <td colspan="6" class="ri-yoy-status ri-yoy-status--nodata" data-label="狀態">今年與去年同期均無班次</td>
